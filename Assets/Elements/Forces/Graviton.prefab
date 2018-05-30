@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58037378457916868}
   m_Layer: 0
   m_Name: Graviton
-  m_TagString: edge
+  m_TagString: graviton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

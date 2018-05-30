@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SaveLevel : MonoBehaviour {
     GameObject[] allObjects;
-    StreamWriter sr;
+    StreamWriter sw;
     public Transform Graviton;
     int id;
 
@@ -26,24 +26,28 @@ public class SaveLevel : MonoBehaviour {
         if (!File.Exists(filename)) {
             File.Create(filename);
         }
-        sr = File.CreateText(filename);
+        sw = File.CreateText(filename);
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject gameObject in allObjects) {
-            if (gameObject.transform.name == Graviton.name) {
+
+            switch (gameObject.tag) {
+            case "graviton":
                 id = 1;
-            }
-            else {
+                break;
+            default:
                 id = 0;
                 Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");
+                break;
             }
+
             if (id != 0) {
-                sr.WriteLine(id);
-                sr.WriteLine(gameObject.transform.position.x);
-                sr.WriteLine(gameObject.transform.position.y);
-                sr.WriteLine(gameObject.transform.eulerAngles.z);
+                sw.WriteLine(id);
+                sw.WriteLine(gameObject.transform.position.x);
+                sw.WriteLine(gameObject.transform.position.y);
+                sw.WriteLine(gameObject.transform.eulerAngles.z);
             }
             
         }
-        sr.Close();
+        sw.Close();
     }
 }
