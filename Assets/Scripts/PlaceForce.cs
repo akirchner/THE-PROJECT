@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaceForce : MonoBehaviour {
 
 	public bool canPlace = false;
+	int i = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -14,13 +15,18 @@ public class PlaceForce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		canPlace = false;
+		if (i > 0) {
+			i--;
+		} 
 
+		else {
+			canPlace = false;
+		}
 	}
 
 	public void place(){
 
 		canPlace = true;
-
+		i = 4;
 	}
 }
