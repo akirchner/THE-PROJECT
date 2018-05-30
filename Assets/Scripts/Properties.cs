@@ -34,7 +34,7 @@ public class Properties : MonoBehaviour
     public void setSprite()
     {
         try {
-            this.GetComponent<SpriteRenderer>().sprite = (Resources.Load(type.ToUpper() + "_" + movementType.ToUpper(), typeof(Sprite)) as Sprite);
+            //this.GetComponent<SpriteRenderer>().sprite = (Resources.Load(type.ToUpper() + "_" + movementType.ToUpper(), typeof(Sprite)) as Sprite);
         }
         catch(UnassignedReferenceException e)
         {
