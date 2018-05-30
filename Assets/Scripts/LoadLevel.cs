@@ -6,39 +6,35 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour {
-    private List<List<int>> levelData;
-    private List<int> currentObjectData;
+    private List<List<double>> levelData;
+    private List<double> currentObjectData;
     private string line;
-    private int itemID;
     public Transform levelObject;
     public Transform graviton;
 
 	// Use this for initialization
 	void Start () {
         try {
-            levelData = new List<List<int>>();
+            levelData = new List<List<double>>();
             StreamReader sr = new StreamReader(GameProperties.levelFilename);
             line = sr.ReadLine();
-            itemID = 0;
             while(line != null) {
-                currentObjectData = new List<int>();
+                currentObjectData = new List<double>();
 
-                currentObjectData.Add(Int32.Parse(line));
-                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
-                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
-                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
+                currentObjectData.Add(Double.Parse(line));
+                currentObjectData.Add(Double.Parse(sr.ReadLine()));
+                currentObjectData.Add(Double.Parse(sr.ReadLine()));
+                currentObjectData.Add(Double.Parse(sr.ReadLine()));
 
                 levelData.Add(currentObjectData);
 
                 line = sr.ReadLine();
-
-                itemID++;
             }
 
             sr.Close();
 
             for (int i = 0; i < levelData.Count; i++) {
-                switch (levelData[i][0]) {
+                switch ((int) levelData[i][0]) {
                 case 1:
                     levelObject = graviton;
                     break;
@@ -47,11 +43,10 @@ public class LoadLevel : MonoBehaviour {
                     break;
                 }
 
-                Instantiate(levelObject, new Vector3(levelData[i][1], levelData[i][2]), Quaternion.Euler(0, 0, levelData[i][3])); 
+                Instantiate(levelObject, new Vector3((float) levelData[i][1], (float) levelData[i][2]), Quaternion.Euler(0, 0, (float) levelData[i][3])); 
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             Console.WriteLine("Exception: " + e.Message);
         }
 	}
