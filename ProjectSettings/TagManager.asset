@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - edge
+  - graviton
   layers:
   - Default
   - TransparentFX
