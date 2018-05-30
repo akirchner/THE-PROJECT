@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour {
-    private int[][] levelData;
+    private List<List<int>> levelData;
+    private List<int> currentObjectData;
     private string line;
     private int itemID;
     public Transform levelObject;
@@ -15,14 +16,20 @@ public class LoadLevel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         try {
+            levelData = new List<List<int>>();
             StreamReader sr = new StreamReader(GameProperties.levelFilename);
             line = sr.ReadLine();
             itemID = 0;
             while(line != null) {
-                levelData[itemID][0] = Int32.Parse(line);
-                levelData[itemID][1] = Int32.Parse(sr.ReadLine());
-                levelData[itemID][1] = Int32.Parse(sr.ReadLine());
-                levelData[itemID][1] = Int32.Parse(sr.ReadLine());
+                currentObjectData = new List<int>();
+
+                currentObjectData.Add(Int32.Parse(line));
+                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
+                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
+                currentObjectData.Add(Int32.Parse(sr.ReadLine()));
+
+                levelData.Add(currentObjectData);
+
                 line = sr.ReadLine();
 
                 itemID++;
@@ -30,7 +37,7 @@ public class LoadLevel : MonoBehaviour {
 
             sr.Close();
 
-            for (int i = 0; i < levelData.Length; i++) {
+            for (int i = 0; i < levelData.Count; i++) {
                 switch (levelData[i][0]) {
                 case 1:
                     levelObject = graviton;
