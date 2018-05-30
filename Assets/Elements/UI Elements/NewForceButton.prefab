@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Place: {fileID: 0}
   numberText: {fileID: 114066291270741956}
   forceSprite: {fileID: 114086033191229068}
   numAvalible: 1

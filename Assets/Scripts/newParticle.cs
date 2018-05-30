@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class newParticle : MonoBehaviour {
 
+	public Transform Place;
 	public Text numberText;
 	public Image forceSprite;
 	public int numAvalible = 1;
-	public bool isActive = false;
+	bool isActive = false;
 	public Transform force;
 	Vector3 mousePos = new Vector3();
 	Quaternion rotation = new Quaternion(0,0,0,0);
@@ -38,15 +39,29 @@ public class newParticle : MonoBehaviour {
 
 		numberText.text = numAvalible.ToString();
 
-		if (Input.GetMouseButton (0) && isActive == true) {
+		if (Place.GetComponent<PlaceForce> ().canPlace && isActive) {
+			mousePos = ConvertToWorldUnits (Input.mousePosition);
+			Instantiate (force, mousePos, rotation);
+			numAvalible--;
+			Place.GetComponent<PlaceForce> ().canPlace = false;
+			isActive = false;
+		} 
+
+	}
+
+	public void place(){
+
+		if (isActive == true) {
+		
 			mousePos = ConvertToWorldUnits(Input.mousePosition);
 			Instantiate (force, mousePos, rotation);
 			numAvalible--;
 			isActive = false;
+
 		}
 
 	}
-		
+
 	public void Activate() {
 
 		if (isActive == true) {
