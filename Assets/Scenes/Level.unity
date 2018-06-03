@@ -759,6 +759,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114014709405925542, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 2090452916}
+    - target: {fileID: 114014709405925542, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: activeForce
+      value: 
+      objectReference: {fileID: 4298464781628184, guid: 42750e3ea5e4a3c4795ba6f7d4280cdb,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 557ea67ac6764f54b932051700096e83, type: 2}
   m_IsPrefabParent: 0
@@ -966,16 +977,18 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f,
+        type: 3}
     - target: {fileID: 114908396491766602, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_SpriteState.m_PressedSprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
+        type: 3}
     - target: {fileID: 114908396491766602, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_Transition
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}

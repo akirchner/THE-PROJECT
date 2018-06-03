@@ -4,29 +4,56 @@ using UnityEngine;
 
 public class PlaceForce : MonoBehaviour {
 
-	public bool canPlace = false;
-	int i = 0;
+	public Transform activeForce;
+
+	Vector3 mousePos = new Vector3();
+	Quaternion rotation = new Quaternion(0,0,0,0);
+
+	//items for pixel to world unit conversion
+	public Vector2 WorldUnitsInCamera;
+	public Vector2 WorldToPixelAmount;
+	public GameObject Camera;
+
 
 	// Use this for initialization
 	void Start () {
 		
+		//Finding Pixel To World Unit Conversion Based On Orthographic Size Of Camera
+		WorldUnitsInCamera.y = Camera.GetComponent<Camera>().orthographicSize * 2;
+		WorldUnitsInCamera.x = WorldUnitsInCamera.y * Screen.width / Screen.height;
+
+		WorldToPixelAmount.x = Screen.width / WorldUnitsInCamera.x;
+		WorldToPixelAmount.y = Screen.height / WorldUnitsInCamera.y;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (i > 0) {
-			i--;
-		} 
-
-		else {
-			canPlace = false;
-		}
 	}
 
 	public void place(){
 
-		canPlace = true;
-		i = 4;
+		if (activeForce != null) {
+
+			mousePos = ConvertToWorldUnits (Input.mousePosition);
+			Instantiate (activeForce, mousePos, rotation);
+			activeForce = null;
+
+		}
+
 	}
+
+	public Vector2 ConvertToWorldUnits(Vector2 TouchLocation)
+	{
+		Vector2 returnVec2;
+
+		returnVec2.x = ((TouchLocation.x / WorldToPixelAmount.x) - (WorldUnitsInCamera.x / 2)) +
+			Camera.transform.position.x;
+		returnVec2.y = ((TouchLocation.y / WorldToPixelAmount.y) - (WorldUnitsInCamera.y / 2)) +
+			Camera.transform.position.y;
+
+		return returnVec2;
+	}
+
 }
