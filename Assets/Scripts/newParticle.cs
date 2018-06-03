@@ -40,8 +40,20 @@ public class newParticle : MonoBehaviour {
 
 	public void Activate() {
 
-		Place.GetComponent<PlaceForce> ().activeForce = force;
+		if (Place.GetComponent<PlaceForce> ().activeForce == force) {
 
+			Place.GetComponent<PlaceForce> ().activeForce = null;
+
+		} else if (numAvalible > 0) {
+		
+			Place.GetComponent<PlaceForce> ().activeForce = force;
+		
+		} 
+		else {
+
+			Place.GetComponent<PlaceForce> ().activeForce = null;
+
+		}
 	}
 
 }

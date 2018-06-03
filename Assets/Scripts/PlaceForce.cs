@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaceForce : MonoBehaviour {
 
-	public Transform activeForce;
+	public Transform activeForce = null;
 
 	Vector3 mousePos = new Vector3();
 	Quaternion rotation = new Quaternion(0,0,0,0);
