@@ -23,19 +23,19 @@ public class Properties : MonoBehaviour
         setSize(size);
         setSprite();
 
-        switch (type.ToUpper())
+        switch (type)
         {
-            case "GRAVITON":
+            case ForceType.Graviton:
                 GameObject.Find("Beam").GetComponent<Beam>().setGravitonCount(GameObject.Find("Beam").GetComponent<Beam>().gravitonCount + 1);
                 break;
-            case "ELECTRON":
+            case ForceType.Electron:
                 GameObject.Find("Beam").GetComponent<Beam>().setElectronCount(GameObject.Find("Beam").GetComponent<Beam>().electronCount + 1);
                 break;
-            case "FLUXION":
+            case ForceType.Fluxion:
                 GameObject.Find("Beam").GetComponent<Beam>().setFluxionCount(GameObject.Find("Beam").GetComponent<Beam>().fluxionCount + 1);
                 break;
             default:
-                Debug.Log("Invalid type! Type: " + type.ToUpper());
+                Debug.Log("Invalid type! Type: " + type);
                 break;
         }
 
