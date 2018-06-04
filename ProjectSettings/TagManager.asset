@@ -5,10 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - edge
-  - graviton
   - Particle
   - Goal
   - Beam
+  - DragableForce
+  - DynamicForce
+  - StaticForce
   layers:
   - Default
   - TransparentFX
