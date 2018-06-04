@@ -31,7 +31,6 @@ public class Finalization : MonoBehaviour {
     {
         if (col.CompareTag("Particle"))
         {
-            Debug.Log("Particle has Enterd Goal! " + mParticleCount);
             Destroy(col.gameObject);
             mParticleCount++;
             mChange = 35;

@@ -13,28 +13,45 @@ public class Beam : MonoBehaviour
     int counter = 0;
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
+    public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
+    public List<Sprite> sprites;
+    private string grav, elec, flux;
 
     // Use this for initialization
     void Start()
     {
+        sprites.Add(g);
+        sprites.Add(p);
+        sprites.Add(n);
+        sprites.Add(f);
+        sprites.Add(gp);
+        sprites.Add(gn);
+        sprites.Add(gf);
+        sprites.Add(pf);
+        sprites.Add(nf);
+        sprites.Add(gpf);
+        sprites.Add(gnf);
+
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
 
+        //Remove this eventually
+        //False charge attracts
         setProperites(true, true, true, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer.ElapsedMilliseconds - initialMillis >= 120)
+        if (timer.ElapsedMilliseconds - initialMillis >= 120)
         {
             spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
         }
 
-        //Remove this eventually
-        //False charge attracts
+        setSprite();
+
     }
 
 
@@ -65,4 +82,52 @@ public class Beam : MonoBehaviour
         return mOut;
     }
 
+    public void setSprite()
+    {
+        if(mReactGrav)
+        {
+            grav = "g";
+        }
+        else
+        {
+            grav = "";
+        }
+
+        if(mReactElec)
+        {
+            if(mBeamPositive)
+            {
+                elec = "p";
+            }
+            else
+            {
+                elec = "n";
+            }
+        }
+        else
+        {
+            elec = "";
+        }
+
+        if(mReactFlux)
+        {
+            flux = "f";
+        }
+        else
+        {
+            flux = "";
+        }
+
+        string spriteSearcher = grav + elec + flux;
+        Sprite[] spriteArray = sprites.ToArray();
+
+        for(int i = 0; i <= spriteArray.Length; i++)
+        {
+            if(spriteArray[i].ToString() == spriteSearcher)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = spriteArray[i];
+            }
+        }
+        
+    }
 }
