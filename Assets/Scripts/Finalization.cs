@@ -7,7 +7,7 @@ using System.Timers;
 
 public class Finalization : MonoBehaviour {
 
-    int mParticleCount, mChange;
+    int mParticleCount, mChange, targetCount;
 	// Use this for initialization
 	void Start () {
         mChange = 0;
@@ -15,7 +15,7 @@ public class Finalization : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (mParticleCount > 1000) {
+        if (mParticleCount > targetCount) {
             SceneManager.LoadScene("End");
         }
         if (mChange == 50) {
