@@ -118,15 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Place: {fileID: 0}
+  Place: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83, type: 2}
   numberText: {fileID: 114066291270741956}
   forceSprite: {fileID: 114086033191229068}
   numAvalible: 1
-  isActive: 0
-  force: {fileID: 4298464781628184, guid: 42750e3ea5e4a3c4795ba6f7d4280cdb, type: 2}
-  WorldUnitsInCamera: {x: 0, y: 0}
-  WorldToPixelAmount: {x: 0, y: 0}
-  Camera: {fileID: 0}
+  force: {fileID: 0}
+  swap: {fileID: 0}
 --- !u!114 &114908396491766602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 74}
+  m_AnchoredPosition: {x: 0.0000019073, y: -71}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224486450705828900
