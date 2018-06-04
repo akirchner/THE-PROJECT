@@ -19,10 +19,11 @@ public class Edge : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Collision!");
+        
 
         if (col.CompareTag("edge"))
         {
+            Debug.Log("Paticle has Found edge!");
             Destroy(this.gameObject);
         }
     }
