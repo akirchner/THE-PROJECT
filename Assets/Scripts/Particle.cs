@@ -7,7 +7,6 @@ public class Particle : MonoBehaviour
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
     GameObject[] allObjects;
     float currentX, currentY;
-    string type = "unknown";
     public float gravityConstant = 1;
     public float electricConstant = 1;
     public float fluxConstant = 1;
