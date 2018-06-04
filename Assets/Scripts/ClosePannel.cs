@@ -23,7 +23,7 @@ public class ClosePannel : MonoBehaviour {
 
 		if (onScreen == true){
 			
-			panel.Translate(shift);
+            panel.Translate(shift, Space.World);
 			onScreen = false;
 
 		}
