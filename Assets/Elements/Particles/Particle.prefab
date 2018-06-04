@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f33e8c0ea56074d9402cc5207d087f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityConstant: 1000
+  gravityConstant: 1
+  electricConstant: 1
+  fluxConstant: 1
   rb: {fileID: 50848049336137410}
-  inVel: {x: 0, y: 0}
 --- !u!114 &114537619779316876
 MonoBehaviour:
   m_ObjectHideFlags: 1

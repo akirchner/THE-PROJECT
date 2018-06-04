@@ -23,22 +23,6 @@ public class Properties : MonoBehaviour
         setSize(size);
         setSprite();
 
-        switch (type)
-        {
-            case ForceType.Graviton:
-                GameObject.Find("Beam").GetComponent<Beam>().setGravitonCount(GameObject.Find("Beam").GetComponent<Beam>().gravitonCount + 1);
-                break;
-            case ForceType.Electron:
-                GameObject.Find("Beam").GetComponent<Beam>().setElectronCount(GameObject.Find("Beam").GetComponent<Beam>().electronCount + 1);
-                break;
-            case ForceType.Fluxion:
-                GameObject.Find("Beam").GetComponent<Beam>().setFluxionCount(GameObject.Find("Beam").GetComponent<Beam>().fluxionCount + 1);
-                break;
-            default:
-                Debug.Log("Invalid type! Type: " + type);
-                break;
-        }
-
     }
 
     // Update is called once per frame
