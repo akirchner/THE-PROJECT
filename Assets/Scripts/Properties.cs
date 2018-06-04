@@ -42,15 +42,12 @@ public class Properties : MonoBehaviour
 
         switch(type) {
         case ForceType.Graviton:
-            this.tag = "graviton";
             setSprite(); //TODO put actual sprite here
             break;
         case ForceType.Fluxion:
-            this.tag = "fluxion";
             setSprite(); //TODO put actual sprite here
             break;
         case ForceType.Electron:
-            this.tag = "electron";
             setSprite(); //TODO put actual sprite here
             break;
         }
