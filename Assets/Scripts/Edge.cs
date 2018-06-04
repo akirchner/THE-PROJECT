@@ -23,7 +23,6 @@ public class Edge : MonoBehaviour
 
         if (col.CompareTag("edge") || !col.CompareTag("Goal"))
         {
-            Debug.Log("Paticle has Found edge!");
             Destroy(this.gameObject);
         }
     }
