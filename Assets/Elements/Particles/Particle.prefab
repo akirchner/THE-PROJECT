@@ -93,6 +93,7 @@ MonoBehaviour:
   gravityConstant: 200
   electricConstant: 200
   fluxConstant: 200
+  positiveCharge: 0
   rb: {fileID: 50848049336137410}
 --- !u!114 &114537619779316876
 MonoBehaviour:
