@@ -72,6 +72,11 @@ public class Properties : MonoBehaviour
         }
     }
 
+    public ForceType getType()
+    {
+        return this.type;
+    }
+
     public void setSprite()
     {
 
