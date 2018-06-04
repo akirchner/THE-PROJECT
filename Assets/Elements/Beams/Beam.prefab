@@ -59,10 +59,21 @@ MonoBehaviour:
   electronCount: 0
   fluxionCount: 0
   gravitonCount: 0
-  mReactGrav: 0
+  mReactGrav: 1
   mReactElec: 0
   mReactFlux: 0
-  mBeamPositive: 1
+  mBeamPositive: 0
+  g: {fileID: 21300000, guid: 3c73a392e658b10428dc9bc765f79344, type: 3}
+  p: {fileID: 21300000, guid: 84ceabb7e16cd4a41ada44dafbff7c8f, type: 3}
+  n: {fileID: 21300000, guid: 748f0cfb9bdc83844ad4637d5dbabf84, type: 3}
+  f: {fileID: 21300000, guid: 1ac9244e0fb6a0f4b9d81132b3eb4d23, type: 3}
+  gp: {fileID: 21300000, guid: 29ff9e4b4fd43b44dadbba7d92ec47c6, type: 3}
+  gn: {fileID: 21300000, guid: 0e84bff3aedd0af4aabc0a95ebe82247, type: 3}
+  gf: {fileID: 21300000, guid: 535378dd299929f4bb3a7ed3554d62b1, type: 3}
+  pf: {fileID: 21300000, guid: e59229a05c49f7646ad627378023e257, type: 3}
+  nf: {fileID: 21300000, guid: 4e9da09395b015343b5fdfe5dfb26b96, type: 3}
+  gpf: {fileID: 21300000, guid: 52ca0c8b23dca62438dbb95b84d2ec09, type: 3}
+  gnf: {fileID: 21300000, guid: f3a413ef0c6a61746a7091a46abb7436, type: 3}
 --- !u!212 &212618612888708274
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,5 +117,5 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
