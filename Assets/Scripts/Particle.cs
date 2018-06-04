@@ -69,7 +69,7 @@ public class Particle : MonoBehaviour
             }
             catch(System.Exception e)
             {
-                Debug.Log(e.StackTrace);
+
             }            
         }
 
