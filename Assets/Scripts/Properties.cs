@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ForceType
-{
-    Graviton,
-    Fluxion,
-    Electron
-}
+
 
 public class Properties : MonoBehaviour
 {
 
-    public ForceType type;
+    public string type;
     public float size;
     public string movementType;
     bool click = false;
@@ -23,19 +18,19 @@ public class Properties : MonoBehaviour
         setSize(size);
         setSprite();
 
-        switch (type)
+        switch (type.ToUpper())
         {
-            case ForceType.Graviton:
+            case "GRAVITON":
                 GameObject.Find("Beam").GetComponent<Beam>().setGravitonCount(GameObject.Find("Beam").GetComponent<Beam>().gravitonCount + 1);
                 break;
-            case ForceType.Electron:
+            case "ELECTRON":
                 GameObject.Find("Beam").GetComponent<Beam>().setElectronCount(GameObject.Find("Beam").GetComponent<Beam>().electronCount + 1);
                 break;
-            case ForceType.Fluxion:
+            case "FLUXION":
                 GameObject.Find("Beam").GetComponent<Beam>().setFluxionCount(GameObject.Find("Beam").GetComponent<Beam>().fluxionCount + 1);
                 break;
             default:
-                Debug.Log("Invalid type! Type: " + type);
+                Debug.Log("Invalid type! Type: " + type.ToUpper());
                 break;
         }
 
@@ -50,26 +45,6 @@ public class Properties : MonoBehaviour
     void setSize(float newSize)
     {
         GetComponent<Transform>().localScale = new Vector3(newSize, newSize, newSize);
-    }
-
-    public void setType(ForceType type)
-    {
-        this.type = type;
-
-        switch(type) {
-        case ForceType.Graviton:
-            this.tag = "graviton";
-            setSprite(); //TODO put actual sprite here
-            break;
-        case ForceType.Fluxion:
-            this.tag = "fluxion";
-            setSprite(); //TODO put actual sprite here
-            break;
-        case ForceType.Electron:
-            this.tag = "electron";
-            setSprite(); //TODO put actual sprite here
-            break;
-        }
     }
 
     public void setSprite()
