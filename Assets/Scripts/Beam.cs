@@ -21,6 +21,7 @@ public class Beam : MonoBehaviour
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
 
+        setProperites(true, true, true, true);
     }
 
     // Update is called once per frame
