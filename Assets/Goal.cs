@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goal : MonoBehaviour {
+public class goal : MonoBehaviour {
 
     int mParticleCount;
 	// Use this for initialization

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Timers;
 
 
-public class Goal : MonoBehaviour {
+public class Finalization : MonoBehaviour {
 
     int mParticleCount, mChange;
 	// Use this for initialization
