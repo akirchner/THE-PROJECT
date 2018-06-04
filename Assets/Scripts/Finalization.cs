@@ -18,12 +18,12 @@ public class Finalization : MonoBehaviour {
         if (mParticleCount > targetCount) {
             SceneManager.LoadScene("End");
         }
-        if (mChange == 50) {
-            Debug.Log("Losing Enegry!");
+        if (mChange == 0 && mParticleCount != 0) {
             mParticleCount--;
-            mChange = 0;
+            Debug.Log("Losing Enegry! " + mParticleCount);
+            mChange = 5;
         }
-        mChange++;
+        mChange--;
 	}
 
     void OnTriggerEnter2D(Collider2D col)
@@ -33,6 +33,7 @@ public class Finalization : MonoBehaviour {
             Debug.Log("Particle has Enterd Goal! " + mParticleCount);
             Destroy(col.gameObject);
             mParticleCount++;
+            mChange = 35;
            }
     }
 }
