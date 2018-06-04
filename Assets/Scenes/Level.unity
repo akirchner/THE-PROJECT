@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 363995652}
   - component: {fileID: 363995654}
   - component: {fileID: 363995653}
+  - component: {fileID: 363995655}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -347,7 +348,7 @@ RectTransform:
   - {fileID: 2082350825}
   - {fileID: 1902732006}
   m_Father: {fileID: 1127616501}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -387,6 +388,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 363995651}
+--- !u!68 &363995655
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363995651}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -41.91568, y: -232.1788}
+  - {x: -40.91574, y: 235.94388}
 --- !u!224 &704705663 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
@@ -495,8 +513,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 363995652}
   - {fileID: 704705663}
+  - {fileID: 363995652}
   m_Father: {fileID: 2090452920}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -577,11 +595,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 398.37305, y: 224.01549}
-  - {x: -398.41754, y: 223.93384}
-  - {x: -397.94696, y: -224.02539}
-  - {x: 398.70886, y: -224.0888}
-  - {x: 398.4933, y: 223.95627}
+  - {x: 417, y: 235.1601}
+  - {x: -417, y: 235}
+  - {x: -417, y: -235}
+  - {x: 417, y: -235}
+  - {x: 417, y: 235}
 --- !u!1001 &1239525068
 Prefab:
   m_ObjectHideFlags: 0
@@ -1011,6 +1029,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 363995652}
+  place: {fileID: 704705663}
+  retracted: {x: 35, y: 0}
 --- !u!1001 &1927942855
 Prefab:
   m_ObjectHideFlags: 0
@@ -1056,12 +1076,12 @@ Prefab:
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 230.5
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
@@ -1071,7 +1091,7 @@ Prefab:
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 461
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
@@ -1091,7 +1111,7 @@ Prefab:
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
@@ -1113,6 +1133,31 @@ Prefab:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 2090452916}
+    - target: {fileID: 114419651867984742, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419651867984742, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419651867984742, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419651867984742, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014709405925542, guid: 557ea67ac6764f54b932051700096e83,
+        type: 2}
+      propertyPath: WorldUnitsInCamera.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 557ea67ac6764f54b932051700096e83, type: 2}
   m_IsPrefabParent: 0

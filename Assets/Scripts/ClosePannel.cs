@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ClosePannel : MonoBehaviour {
 
-	public RectTransform panel;
-    Vector2 retracted = new Vector2(35, 0);
-    Vector2 extened = new Vector2(-40, 0);
+	public RectTransform panel, place;
+    public Vector2 retracted = new Vector2(35, 0);
+    Vector2 extened = new Vector2(-45, 0);
 	bool onScreen = true;
 
 	// Use this for initialization
@@ -23,8 +23,11 @@ public class ClosePannel : MonoBehaviour {
 	public void Close () {
 
 		if (onScreen == true){
+            place.offsetMax.Set(0, place.offsetMax.y);
+            place.offsetMin.Set(0, place.offsetMin.y);
 
             panel.anchoredPosition = retracted;
+            place.anchoredPosition = retracted;
 			onScreen = false;
 
 		}
@@ -32,6 +35,7 @@ public class ClosePannel : MonoBehaviour {
 		else if(onScreen == false){
 			
             panel.anchoredPosition = extened;
+            place.anchoredPosition = extened;
 			onScreen = true;
 
 		}
