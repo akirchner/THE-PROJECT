@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - edge
   - Particle
   - Goal
   - Beam
   - DragableForce
   - DynamicForce
   - StaticForce
+  - ForceButton
   layers:
   - Default
   - TransparentFX
