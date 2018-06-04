@@ -46,19 +46,19 @@ public class Particle : MonoBehaviour
         for (int i = 0; i < allObjects.Length; i++)
         {
             try {
-                switch (allObjects[i].GetComponent<Properties>().type.ToUpper())
+                switch (allObjects[i].GetComponent<Properties>().type)
                 {
-                    case "GRAVITON":
+                    case ForceType.Graviton:
                         gravDistanceX.Add((float)allObjects[i].transform.position.x);
                         gravDistanceY.Add((float)allObjects[i].transform.position.y);
                         mass.Add((float)allObjects[i].GetComponent<Properties>().size);
                         break;
-                    case "ELECTRON":
+                    case ForceType.Electron:
                         elecDistanceX.Add((float)allObjects[i].transform.position.x);
                         elecDistanceY.Add((float)allObjects[i].transform.position.y);
                         charge.Add((float)allObjects[i].GetComponent<Properties>().size);
                         break;
-                    case "FLUXION":
+                    case ForceType.Fluxion:
                         fluxDistanceX.Add((float)allObjects[i].transform.position.x);
                         fluxDistanceY.Add((float)allObjects[i].transform.position.y);
                         fluxcapacity.Add((float)allObjects[i].GetComponent<Properties>().size);
