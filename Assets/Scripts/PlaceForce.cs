@@ -5,15 +5,14 @@ using UnityEngine;
 public class PlaceForce : MonoBehaviour {
 
 	public Transform activeForce = null;
-
 	Vector3 mousePos = new Vector3();
 	Quaternion rotation = new Quaternion(0,0,0,0);
+	public bool decrment = false;
 
 	//items for pixel to world unit conversion
 	public Vector2 WorldUnitsInCamera;
 	public Vector2 WorldToPixelAmount;
 	public GameObject Camera;
-
 
 	// Use this for initialization
 	void Start () {
@@ -36,16 +35,18 @@ public class PlaceForce : MonoBehaviour {
 
 		if (activeForce != null) {
 
+			decrment = true;
 			mousePos = ConvertToWorldUnits (Input.mousePosition);
 			Instantiate (activeForce, mousePos, rotation);
-			activeForce = null;
+
+
 
 		}
 
 	}
 
-	public Vector2 ConvertToWorldUnits(Vector2 TouchLocation)
-	{
+	public Vector2 ConvertToWorldUnits(Vector2 TouchLocation) {
+		
 		Vector2 returnVec2;
 
 		returnVec2.x = ((TouchLocation.x / WorldToPixelAmount.x) - (WorldUnitsInCamera.x / 2)) +
