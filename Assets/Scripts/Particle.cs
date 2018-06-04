@@ -79,7 +79,7 @@ public class Particle : MonoBehaviour
         }
 
         Vector2 resultant = new Vector2(totalXForce, totalYForce);
-        Debug.Log("Resultant yForce: " + totalYForce);
+        //Debug.Log("Resultant yForce: " + totalYForce);
         //rb.AddForce(resultant, ForceMode2D.Impulse);
         totalXForce = 0;
         totalYForce = 0;
