@@ -13,6 +13,11 @@ public class Beam : MonoBehaviour
     public int fluxionCount = 0;
     public int gravitonCount = 0;
 
+    public enum Charge
+    {
+        POSITIVE, Neutral, Negative
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +45,10 @@ public class Beam : MonoBehaviour
         velocity.Normalize();
 
         clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
+    }
+
+    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, Charge charge) {
+        
     }
 
 }
