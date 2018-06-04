@@ -99,22 +99,24 @@ public class Particle : MonoBehaviour
     
         for(int i = 0; i < xDistance.Length; i++)
         {
+            Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+
             if(currentX - xDistance[i] > 0)
             {
-                totalXForce -= (mass[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                totalXForce -= (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
             else
             {
-                totalXForce += (mass[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                totalXForce += (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
 
             if (currentY - yDistance[i] > 0)
             {
-                totalYForce -= (mass[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                totalYForce -= (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
             else
             {
-                totalYForce += (mass[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                totalYForce += (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
         }
 
@@ -132,44 +134,47 @@ public class Particle : MonoBehaviour
 
         for (int i = 0; i < xDistance.Length; i++)
         {
-            if(GameObject.Find("Beam").GetComponent<Beam>().charge > 0)
+
+            Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+
+            if (GameObject.Find("Beam").GetComponent<Beam>().charge > 0)
             {
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                    totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
                 else
                 {
-                    totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                    totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                    totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
                 else
                 {
-                    totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                    totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
             }
             else
             {
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                    totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
                 else
                 {
-                    totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                    totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                    totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
                 else
                 {
-                    totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                    totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
                 }
             }
         }
@@ -188,22 +193,25 @@ public class Particle : MonoBehaviour
 
         for (int i = 0; i < xDistance.Length; i++)
         {
+
+            Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+
             if (currentX - xDistance[i] > 0)
             {
-                totalXForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                totalXForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
             else
             {
-                totalXForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow((currentX - xDistance[i]), 2));
+                totalXForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
 
             if (currentY - yDistance[i] > 0)
             {
-                totalYForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                totalYForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
             else
             {
-                totalYForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow((currentY - yDistance[i]), 2));
+                totalYForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
             }
         }
 
