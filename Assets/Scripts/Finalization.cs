@@ -7,7 +7,8 @@ using System.Timers;
 
 public class Finalization : MonoBehaviour {
 
-    int mParticleCount, mChange, targetCount;
+    int mParticleCount, mChange;
+    public int targetCount;
 	// Use this for initialization
 	void Start () {
         mChange = 0;
