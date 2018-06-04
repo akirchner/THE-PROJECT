@@ -66,7 +66,7 @@ public class Particle : MonoBehaviour
                         break;
                 }
             }
-            catch(System.Exception e)
+            catch(System.Exception)
             {
 
             }            
