@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Edge : MonoBehaviour
 {
-
+    
     // Use this for initialization
     void Start()
     {
@@ -21,7 +21,7 @@ public class Edge : MonoBehaviour
     {
         
 
-        if (col.CompareTag("edge"))
+        if (col.CompareTag("edge") || !col.CompareTag("Goal"))
         {
             Debug.Log("Paticle has Found edge!");
             Destroy(this.gameObject);

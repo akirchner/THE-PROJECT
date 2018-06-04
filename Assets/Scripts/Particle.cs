@@ -77,7 +77,26 @@ public class Particle : MonoBehaviour
         elecForce = electrostatic(elecDistanceX.ToArray(), elecDistanceY.ToArray(), charge.ToArray());
         fluxForce = flux(fluxDistanceX.ToArray(), fluxDistanceY.ToArray(), fluxcapacity.ToArray());
 
-        //Check against particle type here
+        List<bool> properties;
+        properties = GameObject.Find("Beam").GetComponent<Beam>().getProperties();
+
+        if(!properties[0])
+        {
+            gravForce[0] = 0;
+            gravForce[1] = 0;
+        }
+
+        if(!properties[1])
+        {
+            elecForce[0] = 0;
+            elecForce[1] = 0;
+        }
+
+        if(!properties[2])
+        {
+            fluxForce[0] = 0;
+            fluxForce[1] = 0
+        }
 
         resultantXForce = (gravForce[0] + elecForce[0] + fluxForce[0]);
         resultantYForce = (gravForce[1] + elecForce[1] + fluxForce[1]);

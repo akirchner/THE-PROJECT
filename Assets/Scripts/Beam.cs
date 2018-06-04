@@ -5,20 +5,17 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
 
-    public Rigidbody2D particle;
     private System.Diagnostics.Stopwatch timer;
     private float initialMillis;
     public int angle;
+    public Rigidbody2D particle, particleClone;
     public int charge = 1;
     int counter = 0;
-    public int electronCount = 0;
-    public int fluxionCount = 0;
-    public int gravitonCount = 0;
-
-    public enum Charge
-    {
-        POSITIVE, Neutral, Negative
-    }
+    public int electronCount;
+    public int fluxionCount;
+    public int gravitonCount;
+    bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
+    List<bool> mOut;
 
     // Use this for initialization
     void Start()
@@ -33,26 +30,38 @@ public class Beam : MonoBehaviour
     {
         if(timer.ElapsedMilliseconds - initialMillis >= 120)
         {
-            spawn(particle, angle);
+            spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
         }
 
     }
 
 
-    void spawn(Rigidbody2D item, int angle)
+    void spawn(Rigidbody2D item)
     {
-        Rigidbody2D clone;
-        clone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
 
         Vector2 velocity = Quaternion.AngleAxis(UnityEditor.TransformUtils.GetInspectorRotation(transform).z + 90, Vector3.forward) * Vector3.right;
         velocity.Normalize();
 
-        clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
+        particleClone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
 
-    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, Charge charge) {
-        
+    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, bool beamPositive) {
+        mReactGrav = reactGrav;
+        mReactElec = reactElec;
+        mReactFlux = reactFlux;
+        mBeamPositive = beamPositive;
+    }
+
+    public List<bool> getProperties() {
+        mOut = new List<bool>();
+        mOut.Add(mReactGrav);
+        mOut.Add(mReactElec);
+        mOut.Add(mReactFlux);
+        mOut.Add(mBeamPositive);
+
+        return mOut;
     }
 
 }

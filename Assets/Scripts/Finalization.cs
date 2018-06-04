@@ -8,6 +8,7 @@ using System.Timers;
 public class Finalization : MonoBehaviour {
 
     int mParticleCount, mChange;
+    public int targetCount;
 	// Use this for initialization
 	void Start () {
         mChange = 0;
@@ -15,15 +16,15 @@ public class Finalization : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (mParticleCount > 1000) {
+        if (mParticleCount > targetCount) {
             SceneManager.LoadScene("End");
         }
-        if (mChange == 50) {
-            Debug.Log("Losing Enegry!");
+        if (mChange == 0 && mParticleCount != 0) {
             mParticleCount--;
-            mChange = 0;
+            Debug.Log("Losing Enegry! " + mParticleCount);
+            mChange = 5;
         }
-        mChange++;
+        mChange--;
 	}
 
     void OnTriggerEnter2D(Collider2D col)
@@ -33,6 +34,7 @@ public class Finalization : MonoBehaviour {
             Debug.Log("Particle has Enterd Goal! " + mParticleCount);
             Destroy(col.gameObject);
             mParticleCount++;
+            mChange = 35;
            }
     }
 }
