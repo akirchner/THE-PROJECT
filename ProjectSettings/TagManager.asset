@@ -8,6 +8,7 @@ TagManager:
   - graviton
   - Particle
   - Goal
+  - Beam
   layers:
   - Default
   - TransparentFX

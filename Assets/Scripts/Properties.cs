@@ -20,9 +20,25 @@ public class Properties : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-      
         setSize(size);
         setSprite();
+
+        switch (type.ToUpper())
+        {
+            case "GRAVITON":
+                GameObject.Find("Beam").GetComponent<Beam>().setGravitonCount(GameObject.Find("Beam").GetComponent<Beam>().gravitonCount + 1);
+                break;
+            case "ELECTRON":
+                GameObject.Find("Beam").GetComponent<Beam>().setElectronCount(GameObject.Find("Beam").GetComponent<Beam>().electronCount + 1);
+                break;
+            case "FLUXION":
+                GameObject.Find("Beam").GetComponent<Beam>().setFluxionCount(GameObject.Find("Beam").GetComponent<Beam>().fluxionCount + 1);
+                break;
+            default:
+                Debug.Log("Invalid type! Type: " + type.ToUpper());
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -58,13 +74,7 @@ public class Properties : MonoBehaviour
 
     public void setSprite()
     {
-        try {
-            //this.GetComponent<SpriteRenderer>().sprite = (Resources.Load(type.ToUpper() + "_" + movementType.ToUpper(), typeof(Sprite)) as Sprite);
-        }
-        catch(UnassignedReferenceException e)
-        {
 
-        }
     }
 
 }
