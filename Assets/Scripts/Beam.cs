@@ -6,6 +6,8 @@ public class Beam : MonoBehaviour
 {
 
     public Rigidbody2D particle;
+    public int angle;
+    public int charge = 1;
     int counter = 0;
     public int electronCount = 0;
     public int fluxionCount = 0;
@@ -22,20 +24,19 @@ public class Beam : MonoBehaviour
     {
         if (counter == 1)
         {
-            spawn(particle);
+            spawn(particle, angle);
             counter = 0;
         }
         counter++;
     }
 
 
-    void spawn(Rigidbody2D item)
+    void spawn(Rigidbody2D item, int angle)
     {
         Rigidbody2D clone;
         clone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-        clone.transform.Rotate(0, 0, UnityEditor.TransformUtils.GetInspectorRotation(transform).z, Space.World);
 
-        Vector2 velocity = new Vector2(this.transform.position.x * this.transform.rotation.z, this.transform.position.y);
+        Vector2 velocity = Quaternion.AngleAxis(UnityEditor.TransformUtils.GetInspectorRotation(transform).z + 90, Vector3.forward) * Vector3.right;
         velocity.Normalize();
 
         clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
@@ -57,5 +58,10 @@ public class Beam : MonoBehaviour
     {
         this.gravitonCount = gravitonCount;
         Debug.Log("Graviton added! Total gravitons: " + gravitonCount);
+    }
+
+    public int getTotalCount()
+    {
+        return gravitonCount + electronCount + fluxionCount;
     }
 }
