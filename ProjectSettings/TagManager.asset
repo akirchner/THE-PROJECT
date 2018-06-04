@@ -11,6 +11,7 @@ TagManager:
   - DynamicForce
   - StaticForce
   - ForceButton
+  - Wall
   layers:
   - Default
   - TransparentFX

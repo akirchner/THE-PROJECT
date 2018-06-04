@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114676859447962714}
   m_Layer: 0
   m_Name: StaticForce
-  m_TagString: Untagged
+  m_TagString: StaticForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

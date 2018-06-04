@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114480882772441218}
   m_Layer: 0
   m_Name: DragableForce
-  m_TagString: Untagged
+  m_TagString: DragableForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
