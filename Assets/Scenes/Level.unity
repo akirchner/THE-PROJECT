@@ -287,7 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9e08e98661a9a44870a46bd5e38e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Graviton: {fileID: 4298464781628184, guid: 42750e3ea5e4a3c4795ba6f7d4280cdb, type: 2}
 --- !u!114 &327110788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,8 +298,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2212c8b62d20f424197af0cc0d34c528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelObject: {fileID: 0}
-  graviton: {fileID: 4298464781628184, guid: 42750e3ea5e4a3c4795ba6f7d4280cdb, type: 2}
+  dragableForce: {fileID: 4327935188189770, guid: cfd49b241ae2ee4409d63bcc73b4242b,
+    type: 2}
+  dynamicForce: {fileID: 4155112363193068, guid: 5d3df30c30174354c8ecf1489f0c7a74,
+    type: 2}
+  staticForce: {fileID: 4554572037300376, guid: 44ef78c42fa86a44e9d49c46eff5d3dc,
+    type: 2}
+  goal: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
+  wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
+  beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
