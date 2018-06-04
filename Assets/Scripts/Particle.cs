@@ -17,11 +17,11 @@ public class Particle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         distanceX = new List<float>();
         distanceY = new List<float>();
         size = new List<float>();
-        rb.velocity = inVel;
+        //rb.velocity = inVel;
     }
 
     // Update is called once per frame
@@ -79,8 +79,8 @@ public class Particle : MonoBehaviour
         }
 
         Vector2 resultant = new Vector2(totalXForce, totalYForce);
-        //Debug.Log("Resultant yForce: " + totalYForce);
-        rb.AddForce(resultant, ForceMode2D.Impulse);
+        Debug.Log("Resultant yForce: " + totalYForce);
+        //rb.AddForce(resultant, ForceMode2D.Impulse);
         totalXForce = 0;
         totalYForce = 0;
     }

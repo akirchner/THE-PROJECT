@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityConstant: 1000
   rb: {fileID: 50848049336137410}
-  inVel: {x: 0, y: 40}
+  inVel: {x: 0, y: 0}
 --- !u!114 &114537619779316876
 MonoBehaviour:
   m_ObjectHideFlags: 1

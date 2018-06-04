@@ -20,7 +20,7 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter == 10)
+        if (counter == 1)
         {
             spawn(particle);
             counter = 0;
@@ -35,10 +35,10 @@ public class Beam : MonoBehaviour
         clone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
         clone.transform.Rotate(0, 0, UnityEditor.TransformUtils.GetInspectorRotation(transform).z, Space.World);
 
-        Vector2 velocity = new Vector2(this.transform.position.x, this.transform.position.y);
+        Vector2 velocity = new Vector2(this.transform.position.x * this.transform.rotation.z, this.transform.position.y);
         velocity.Normalize();
 
-        item.AddForce(velocity * 10, ForceMode2D.Impulse);
+        clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
 
     public void setElectronCount(int electronCount)
