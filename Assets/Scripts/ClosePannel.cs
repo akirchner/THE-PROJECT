@@ -12,8 +12,8 @@ public class ClosePannel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,7 +25,6 @@ public class ClosePannel : MonoBehaviour {
 		if (onScreen == true){
 
             panel.anchoredPosition = retracted;
-            //panel.Translate(shift, Space.World);
 			onScreen = false;
 
 		}
@@ -33,7 +32,6 @@ public class ClosePannel : MonoBehaviour {
 		else if(onScreen == false){
 			
             panel.anchoredPosition = extened;
-            //panel.Translate(-shift, Space.World);
 			onScreen = true;
 
 		}
