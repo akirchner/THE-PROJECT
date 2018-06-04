@@ -23,6 +23,17 @@ public class newParticle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Place.GetComponent<PlaceForce> ().activeForce == force){
+			
+			if (Place.GetComponent<PlaceForce> ().decrment) {
+				
+				numAvalible--;
+				Place.GetComponent<PlaceForce> ().decrment = false;
+				Place.GetComponent<PlaceForce> ().activeForce = null;
+			
+			}
+		}
+
 		numberText.text = numAvalible.ToString();
 
 		if(Place.GetComponent<PlaceForce> ().activeForce == force){

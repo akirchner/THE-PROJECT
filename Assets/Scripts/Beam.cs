@@ -42,26 +42,4 @@ public class Beam : MonoBehaviour
         clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
 
-    public void setElectronCount(int electronCount)
-    {
-        this.electronCount = electronCount;
-        Debug.Log("Electron added! Total electrons: " + electronCount);
-    }
-
-    public void setFluxionCount(int fluxionCount)
-    {
-        this.fluxionCount = fluxionCount;
-        Debug.Log("Fluxion added! Total fluxions: " + fluxionCount);
-    }
-
-    public void setGravitonCount(int gravitonCount)
-    {
-        this.gravitonCount = gravitonCount;
-        Debug.Log("Graviton added! Total gravitons: " + gravitonCount);
-    }
-
-    public int getTotalCount()
-    {
-        return gravitonCount + electronCount + fluxionCount;
-    }
 }
