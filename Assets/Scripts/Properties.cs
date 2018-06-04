@@ -6,7 +6,9 @@ public enum ForceType
 {
     Graviton,
     Fluxion,
-    Electron
+    Electron,
+	Empty
+
 }
 
 public class Properties : MonoBehaviour
@@ -15,20 +17,22 @@ public class Properties : MonoBehaviour
     public ForceType type;
     public float size;
     public string movementType;
-    bool click = false;
+	public Sprite gravSprite;
+	public Sprite elecSprite;
+	public Sprite fluxSprite;
 
     // Use this for initialization
     void Start()
     {
-        setSize(size);
-        setSprite();
-
+        
+		setSize(size);
+		
     }
 
     // Update is called once per frame
     void Update()
     {
-
+		setType (type);
     }
 
     void setSize(float newSize)
@@ -42,13 +46,13 @@ public class Properties : MonoBehaviour
 
         switch(type) {
         case ForceType.Graviton:
-            setSprite(); //TODO put actual sprite here
+			this.GetComponent<SpriteRenderer> ().sprite = gravSprite;
             break;
         case ForceType.Fluxion:
-            setSprite(); //TODO put actual sprite here
+			this.GetComponent<SpriteRenderer> ().sprite = fluxSprite;
             break;
         case ForceType.Electron:
-            setSprite(); //TODO put actual sprite here
+			this.GetComponent<SpriteRenderer> ().sprite = elecSprite;
             break;
         }
     }
@@ -56,11 +60,6 @@ public class Properties : MonoBehaviour
     public ForceType getType()
     {
         return this.type;
-    }
-
-    public void setSprite()
-    {
-
     }
 
 }
