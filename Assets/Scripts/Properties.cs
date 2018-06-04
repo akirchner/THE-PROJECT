@@ -6,7 +6,9 @@ public enum ForceType
 {
     Graviton,
     Fluxion,
-    Electron
+    Electron,
+	Empty
+
 }
 
 public class Properties : MonoBehaviour
@@ -15,7 +17,6 @@ public class Properties : MonoBehaviour
     public ForceType type;
     public float size;
     public string movementType;
-    bool click = false;
 	public Sprite gravSprite;
 	public Sprite elecSprite;
 	public Sprite fluxSprite;
@@ -23,9 +24,9 @@ public class Properties : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        setSize(size);
-
-
+        
+		setSize(size);
+		
     }
 
     // Update is called once per frame

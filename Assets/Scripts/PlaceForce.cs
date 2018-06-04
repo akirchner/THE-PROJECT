@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlaceForce : MonoBehaviour {
 
-	public Transform activeForce = null;
+	public Transform force;
+	public ForceType activeForce = ForceType.Empty;
 	Vector3 mousePos = new Vector3();
 	Quaternion rotation = new Quaternion(0,0,0,0);
 	public bool decrment = false;
@@ -33,11 +34,13 @@ public class PlaceForce : MonoBehaviour {
 
 	public void place(){
 
-		if (activeForce != null) {
+		if (activeForce != ForceType.Empty) {
 
+			Transform temp;
 			decrment = true;
 			mousePos = ConvertToWorldUnits (Input.mousePosition);
-			Instantiate (activeForce, mousePos, rotation);
+			temp = Instantiate (force, mousePos, rotation);
+			temp.GetComponent<Properties>().setType (activeForce);
 
 
 

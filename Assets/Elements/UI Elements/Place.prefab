@@ -41,7 +41,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea35478cd7d0cef4687db4aa246d6384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeForce: {fileID: 0}
+  force: {fileID: 4327935188189770, guid: cfd49b241ae2ee4409d63bcc73b4242b, type: 2}
+  activeForce: 3
+  decrment: 0
   WorldUnitsInCamera: {x: 0, y: 0}
   WorldToPixelAmount: {x: 0, y: 0}
   Camera: {fileID: 0}
