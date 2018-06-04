@@ -20,6 +20,9 @@ public class Beam : MonoBehaviour
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
+
+        //Remmove this eventually
+        setProperites(true, true, true, false);
     }
 
     // Update is called once per frame
