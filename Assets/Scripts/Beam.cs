@@ -5,22 +5,14 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
 
-    public Rigidbody2D particle;
+    public Rigidbody2D particle, particleClone;
     public int charge = 1;
     int counter = 0;
     public int electronCount;
     public int fluxionCount;
     public int gravitonCount;
-    bool mReactGrav, mReactElec, mReactFlux;
-    Charge mBeamCharge;
-    List<int> mOut;
-
-    public enum Charge
-    {
-        POSITIVE, 
-        Neutral, 
-        Negative
-    }
+    bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
+    List<bool> mOut;
 
     // Use this for initialization
     void Start()
@@ -42,27 +34,27 @@ public class Beam : MonoBehaviour
 
     void spawn(Rigidbody2D item)
     {
-        Rigidbody2D clone;
-        clone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
 
         Vector2 velocity = Quaternion.AngleAxis(UnityEditor.TransformUtils.GetInspectorRotation(transform).z + 90, Vector3.forward) * Vector3.right;
         velocity.Normalize();
 
-        clone.AddForce(velocity * 400f, ForceMode2D.Impulse);
+        particleClone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
 
-    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, Charge beamCharge) {
+    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, bool beamPositive) {
         mReactGrav = reactGrav;
         mReactElec = reactElec;
         mReactFlux = reactFlux;
-        mBeamCharge = beamCharge;
+        mBeamPositive = beamPositive;
     }
 
-    public List<int> getProperties() {
-        mOut = new List<int>();
-        mOut.Add(mReactGrav ? 1 : 0);
-        mOut.Add(mReactElec ? 1 : 0);
-        mOut.Add(mReactFlux ? 1 : 0);
+    public List<bool> getProperties() {
+        mOut = new List<bool>();
+        mOut.Add(mReactGrav);
+        mOut.Add(mReactElec);
+        mOut.Add(mReactFlux);
+        mOut.Add(mBeamPositive);
 
         return mOut;
     }
