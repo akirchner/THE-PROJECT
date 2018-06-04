@@ -95,7 +95,7 @@ public class Particle : MonoBehaviour
         if(!properties[2])
         {
             fluxForce[0] = 0;
-            fluxForce[1] = 0
+            fluxForce[1] = 0;
         }
 
         resultantXForce = (gravForce[0] + elecForce[0] + fluxForce[0]);
