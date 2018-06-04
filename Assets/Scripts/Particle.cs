@@ -69,13 +69,15 @@ public class Particle : MonoBehaviour
             }
             catch(System.Exception e)
             {
-
+                Debug.Log(e.StackTrace);
             }            
         }
 
         gravForce = gravity(gravDistanceX.ToArray(), gravDistanceY.ToArray(), mass.ToArray());
         elecForce = electrostatic(elecDistanceX.ToArray(), elecDistanceY.ToArray(), charge.ToArray());
         fluxForce = flux(fluxDistanceX.ToArray(), fluxDistanceY.ToArray(), fluxcapacity.ToArray());
+
+        //Check against particle type here
 
         resultantXForce = (gravForce[0] + elecForce[0] + fluxForce[0]);
         resultantYForce = (gravForce[1] + elecForce[1] + fluxForce[1]);
