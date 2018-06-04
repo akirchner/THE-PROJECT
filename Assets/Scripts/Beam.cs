@@ -6,11 +6,8 @@ public class Beam : MonoBehaviour
 {
 
     public Rigidbody2D particle, particleClone;
-    public int charge = 1;
+    public int charge, electronCount, fluxionCount, gravitonCount;
     int counter = 0;
-    public int electronCount;
-    public int fluxionCount;
-    public int gravitonCount;
     bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
 
