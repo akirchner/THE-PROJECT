@@ -5,6 +5,9 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
 
+    private System.Diagnostics.Stopwatch timer;
+    private float initialMillis;
+    public int angle;
     public Rigidbody2D particle, particleClone;
     public int charge, electronCount, fluxionCount, gravitonCount;
     int counter = 0;
@@ -14,18 +17,20 @@ public class Beam : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        timer = new System.Diagnostics.Stopwatch();
+        timer.Start();
+        initialMillis = timer.ElapsedMilliseconds;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (counter == 5)
+        if(timer.ElapsedMilliseconds - initialMillis >= 120)
         {
             spawn(particle);
-            counter = 0;
+            initialMillis = timer.ElapsedMilliseconds;
         }
-        counter++;
+
     }
 
 
