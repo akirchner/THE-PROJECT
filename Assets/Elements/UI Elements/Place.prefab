@@ -41,7 +41,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea35478cd7d0cef4687db4aa246d6384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPlace: 0
+  activeForce: {fileID: 0}
+  WorldUnitsInCamera: {x: 0, y: 0}
+  WorldToPixelAmount: {x: 0, y: 0}
+  Camera: {fileID: 0}
 --- !u!114 &114419651867984742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +143,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63, y: 0.0049744}
-  m_SizeDelta: {x: 441.11, y: 319}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230.5, y: 0}
+  m_SizeDelta: {x: 461, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
