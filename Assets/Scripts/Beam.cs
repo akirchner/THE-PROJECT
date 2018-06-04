@@ -11,7 +11,7 @@ public class Beam : MonoBehaviour
     public Rigidbody2D particle, particleClone;
     public int charge, electronCount, fluxionCount, gravitonCount;
     int counter = 0;
-    bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
+    public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
 
     // Use this for initialization
@@ -21,8 +21,6 @@ public class Beam : MonoBehaviour
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
 
-        //Remmove this eventually
-        setProperites(true, true, true, false);
     }
 
     // Update is called once per frame
@@ -34,6 +32,8 @@ public class Beam : MonoBehaviour
             initialMillis = timer.ElapsedMilliseconds;
         }
 
+        //Remove this eventually
+        //False charge attracts
     }
 
 

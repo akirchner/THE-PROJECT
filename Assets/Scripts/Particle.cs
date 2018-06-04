@@ -10,6 +10,7 @@ public class Particle : MonoBehaviour
     public float gravityConstant = 1;
     public float electricConstant = 1;
     public float fluxConstant = 1;
+    public bool positiveCharge = false;
     public Rigidbody2D rb;
 
     // Use this for initialization
@@ -72,12 +73,13 @@ public class Particle : MonoBehaviour
             }            
         }
 
+        List<bool> properties;
+        properties = GameObject.Find("Beam").GetComponent<Beam>().getProperties();
+        positiveCharge = properties[3];
+
         gravForce = gravity(gravDistanceX.ToArray(), gravDistanceY.ToArray(), mass.ToArray());
         elecForce = electrostatic(elecDistanceX.ToArray(), elecDistanceY.ToArray(), charge.ToArray());
         fluxForce = flux(fluxDistanceX.ToArray(), fluxDistanceY.ToArray(), fluxcapacity.ToArray());
-
-        List<bool> properties;
-        properties = GameObject.Find("Beam").GetComponent<Beam>().getProperties();
 
         if(!properties[0])
         {
@@ -157,7 +159,7 @@ public class Particle : MonoBehaviour
 
             Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
 
-            if (GameObject.Find("Beam").GetComponent<Beam>().charge > 0)
+            if (positiveCharge)
             {
                 if (currentX - xDistance[i] > 0)
                 {
