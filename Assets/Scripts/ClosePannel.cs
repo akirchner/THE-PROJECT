@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ClosePannel : MonoBehaviour {
 
 	public RectTransform panel;
-	Vector3 shift = new Vector3(10,0,0);
+    Vector2 retracted = new Vector2(35, 0);
+    Vector2 extened = new Vector2(-40, 0);
 	bool onScreen = true;
 
 	// Use this for initialization
@@ -22,15 +23,17 @@ public class ClosePannel : MonoBehaviour {
 	public void Close () {
 
 		if (onScreen == true){
-			
-            panel.Translate(shift, Space.World);
+
+            panel.anchoredPosition = retracted;
+            //panel.Translate(shift, Space.World);
 			onScreen = false;
 
 		}
 
 		else if(onScreen == false){
 			
-			panel.Translate(-shift);
+            panel.anchoredPosition = extened;
+            //panel.Translate(-shift, Space.World);
 			onScreen = true;
 
 		}
