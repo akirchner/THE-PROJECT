@@ -14,12 +14,16 @@ public class Beam : MonoBehaviour
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
     public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
-    public List<Sprite> sprites;
+    private List<Sprite> sprites;
+    private List<string> spriteChecker;
     private string grav, elec, flux;
 
     // Use this for initialization
     void Start()
     {
+        sprites = new List<Sprite>();
+        spriteChecker = new List<string>();
+
         sprites.Add(g);
         sprites.Add(p);
         sprites.Add(n);
@@ -31,6 +35,18 @@ public class Beam : MonoBehaviour
         sprites.Add(nf);
         sprites.Add(gpf);
         sprites.Add(gnf);
+
+        spriteChecker.Add("g");
+        spriteChecker.Add("p");
+        spriteChecker.Add("n");
+        spriteChecker.Add("f");
+        spriteChecker.Add("gp");
+        spriteChecker.Add("gn");
+        spriteChecker.Add("gf");
+        spriteChecker.Add("pf");
+        spriteChecker.Add("nf");
+        spriteChecker.Add("gpf");
+        spriteChecker.Add("gnf");
 
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
@@ -118,12 +134,13 @@ public class Beam : MonoBehaviour
             flux = "";
         }
 
-        string spriteSearcher = grav + elec + flux;
+        string spriteSearcher = (grav + elec + flux);
         Sprite[] spriteArray = sprites.ToArray();
+        string[] stringChecker = spriteChecker.ToArray();
 
-        for(int i = 0; i <= spriteArray.Length; i++)
+        for(int i = 0; i < spriteArray.Length; i++)
         {
-            if(spriteArray[i].ToString() == spriteSearcher)
+            if(stringChecker[i] == spriteSearcher)
             {
                 this.GetComponent<SpriteRenderer>().sprite = spriteArray[i];
             }
