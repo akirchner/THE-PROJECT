@@ -15,18 +15,18 @@ public class Finalization : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         mDecrementDelay = 35;
-        mStep = new Vector3((this.transform.localScale.x * 18f / targetCount), 0, 0);
+        mStep = new Vector3((18f / targetCount), 0, 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (mParticleCount > targetCount) {
-            SceneManager.LoadScene("End");
+            Initiate.Fade("End", Color.black, 4f);
         }
-        if (mDecrementDelay == 0 && mParticleCount != 0) {
+        if (mDecrementDelay <= 0 && mParticleCount != 0) {
             mParticleCount--;
             ProgressBar.localScale -= mStep;
-            mDecrementDelay = 5;
+            mDecrementDelay = 2 * 50/targetCount;
         }
         mDecrementDelay--;
 	}
