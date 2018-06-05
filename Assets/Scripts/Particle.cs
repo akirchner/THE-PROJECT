@@ -6,7 +6,6 @@ public class Particle : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
     private bool[] properties;
-    private bool running;
     GameObject[] allObjects;
     float currentX, currentY;
     public float gravityConstant = 1;
