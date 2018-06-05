@@ -12,6 +12,7 @@ TagManager:
   - StaticForce
   - ForceButton
   - Wall
+  - edge
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 28288663
     locked: 0
