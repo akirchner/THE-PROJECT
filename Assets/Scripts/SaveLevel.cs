@@ -85,17 +85,17 @@ public class SaveLevel : MonoBehaviour {
                 extraData.Add(gameObject.GetComponent<Properties>().size);
                 break;
             default:
-                id = 0;
+                id = -1;
                 Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");
                 break;
             }
 
-            if (id != 0) {
+            if (id >= 0) {
                 sw.WriteLine(id);
                 sw.WriteLine(gameObject.transform.position.x);
                 sw.WriteLine(gameObject.transform.position.y);
                 sw.WriteLine(gameObject.transform.eulerAngles.z);
-                foreach (int i in extraData) {
+                foreach (double i in extraData) {
                     sw.WriteLine(i);
                 }
             }

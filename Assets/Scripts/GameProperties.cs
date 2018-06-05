@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameProperties {
-    public static string levelFilename = "newLevel.txt";
+    public static string levelFilename = "defaultLevel.txt";
 }
