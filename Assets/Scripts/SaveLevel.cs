@@ -43,8 +43,8 @@ public class SaveLevel : MonoBehaviour {
         sw = File.CreateText(filename);
 
         sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvalible);
-        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvalible);
         sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvalible);
+        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvalible);
 
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject gameObject in allObjects) {
@@ -56,7 +56,7 @@ public class SaveLevel : MonoBehaviour {
                 beamProperties = new StringBuilder();
                 beamList = gameObject.GetComponent<Beam>().getProperties();
                 foreach (bool i in beamList) {
-                    beamProperties.Append(i ? 1 : 0);
+                    beamProperties.Append(i ? 1 : 2);
                 }
                 extraData.Add(Int32.Parse(beamProperties.ToString()));
                 extraData.Add(0);
