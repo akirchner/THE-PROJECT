@@ -14,8 +14,14 @@ public class MainMenuControl : MonoBehaviour {
 	public void SelectLevel (string filePath){
 
 		GameProperties.levelFilename = filePath;
+
+        if(filePath == "")
+        {
+            GameProperties.levelFilename = "Assets/Levels/defaultLevel.txt";
+        }
+
 		Debug.Log (GameProperties.levelFilename);
 		SceneManager.LoadScene ("Level");
 
-	}
+    }
 }
