@@ -21,7 +21,7 @@ public class SaveLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown("end")) {
-            Save("newLevel.txt");
+            Save("Levels/newLevel.txt");
         }
 	}
 
@@ -40,10 +40,12 @@ public class SaveLevel : MonoBehaviour {
     }
 
     void Save (string filename) {
-        if (!File.Exists(filename)) {
-            File.Create(filename);
-        }
         sw = File.CreateText(filename);
+
+        sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvalible);
+        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvalible);
+        sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvalible);
+
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject gameObject in allObjects) {
             extraData = new List<double>();
@@ -85,17 +87,17 @@ public class SaveLevel : MonoBehaviour {
                 extraData.Add(gameObject.GetComponent<Properties>().size);
                 break;
             default:
-                id = 0;
+                id = -1;
                 Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");
                 break;
             }
 
-            if (id != 0) {
+            if (id >= 0) {
                 sw.WriteLine(id);
                 sw.WriteLine(gameObject.transform.position.x);
                 sw.WriteLine(gameObject.transform.position.y);
                 sw.WriteLine(gameObject.transform.eulerAngles.z);
-                foreach (int i in extraData) {
+                foreach (double i in extraData) {
                     sw.WriteLine(i);
                 }
             }
