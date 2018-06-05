@@ -57,7 +57,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -93,6 +93,7 @@ MonoBehaviour:
   gravityConstant: 200
   electricConstant: 200
   fluxConstant: 200
+  positiveCharge: 0
   rb: {fileID: 50848049336137410}
 --- !u!114 &114537619779316876
 MonoBehaviour:

@@ -6,11 +6,10 @@ public class Beam : MonoBehaviour
 {
 
     private System.Diagnostics.Stopwatch timer;
+    private int i = 0;
     private float initialMillis;
-    public int angle;
+    public int angle, charge;
     public Rigidbody2D particle, particleClone;
-    public int charge, electronCount, fluxionCount, gravitonCount;
-    int counter = 0;
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
     public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
@@ -60,7 +59,7 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer.ElapsedMilliseconds - initialMillis >= 120)
+        if (timer.ElapsedMilliseconds - initialMillis >= 250)
         {
             spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
@@ -70,10 +69,10 @@ public class Beam : MonoBehaviour
 
     }
 
-
     void spawn(Rigidbody2D item)
     {
         particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        particleClone.GetComponent<Particle>().setProperties(getProperties());
 
         Vector2 velocity = Quaternion.AngleAxis(UnityEditor.TransformUtils.GetInspectorRotation(transform).z + 90, Vector3.forward) * Vector3.right;
         velocity.Normalize();

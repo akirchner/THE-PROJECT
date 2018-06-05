@@ -32,7 +32,7 @@ public class Finalization : MonoBehaviour {
         if (col.CompareTag("Particle"))
         {
             Destroy(col.gameObject);
-            mParticleCount++;
+            Debug.Log(col.gameObject.GetComponent<Transform>().position.x);
             mChange = 35;
            }
     }
