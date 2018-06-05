@@ -53,13 +53,12 @@ public class Beam : MonoBehaviour
 
         //Remove this eventually
         //False charge attracts
-        setProperites(true, true, true, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer.ElapsedMilliseconds - initialMillis >= 250)
+        if (timer.ElapsedMilliseconds - initialMillis >= 62.5)
         {
             spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
