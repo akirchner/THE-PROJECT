@@ -53,7 +53,6 @@ public class Beam : MonoBehaviour
 
         //Remove this eventually
         //False charge attracts
-        setProperites(true, true, true, true);
     }
 
     // Update is called once per frame
