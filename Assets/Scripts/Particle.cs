@@ -17,7 +17,6 @@ public class Particle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        running = true;
         rb = GetComponent<Rigidbody2D>();
         gravDistanceX = new List<float>();
         gravDistanceY = new List<float>();
