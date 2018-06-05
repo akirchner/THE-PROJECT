@@ -124,6 +124,7 @@ MonoBehaviour:
   hGravSprite: {fileID: 21300000, guid: e5d3c5f26eb3ad74387a8607a16faecc, type: 3}
   hElecSprite: {fileID: 21300000, guid: 224491b5c94ecbd45bf59a0fc194bbb2, type: 3}
   hFluxSprite: {fileID: 21300000, guid: 000c58e1c217d9843ab926d765fc8587, type: 3}
+  transparentSprite: {fileID: 21300000, guid: 6cb62d6bed3528d4e85b1e5eed313c17, type: 3}
   Place: {fileID: 0}
   numberText: {fileID: 114066291270741956}
   forceSprite: {fileID: 114086033191229068}
