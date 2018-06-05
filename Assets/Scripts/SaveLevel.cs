@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEngine;
 
 public class SaveLevel : MonoBehaviour {
@@ -10,8 +9,7 @@ public class SaveLevel : MonoBehaviour {
     StreamWriter sw;
     int id;
     List<double> extraData;
-    List<bool> beamList;
-    StringBuilder beamProperties;
+    List<bool> beamProperties;
 
 	// Use this for initialization
 	void Start () {
@@ -51,12 +49,13 @@ public class SaveLevel : MonoBehaviour {
             switch (gameObject.tag) {
             case "Beam":
                 id = 0;
-                beamProperties = new StringBuilder();
-                beamList = gameObject.GetComponent<Beam>().getProperties();
-                foreach (bool i in beamList) {
-                    beamProperties.Append(i ? 1 : 0);
+                extraData.Add(0);
+                beamProperties = gameObject.GetComponent<Beam>().getProperties();
+                for (int i = 0; i < beamProperties.Count; i++) {
+                    if (beamProperties[i]) {
+                        extraData[0] += 1 * Mathf.Pow(10, beamProperties.Count - i);
+                    }
                 }
-                extraData.Add(Int32.Parse(beamProperties.ToString()));
                 extraData.Add(0);
                 break;
             case "Goal":

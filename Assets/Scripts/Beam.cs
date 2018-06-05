@@ -11,25 +11,62 @@ public class Beam : MonoBehaviour
     public Rigidbody2D particle, particleClone;
     public int charge, electronCount, fluxionCount, gravitonCount;
     int counter = 0;
-    bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
+    public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
+    public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
+    private List<Sprite> sprites;
+    private List<string> spriteChecker;
+    private string grav, elec, flux;
 
     // Use this for initialization
     void Start()
     {
+        sprites = new List<Sprite>();
+        spriteChecker = new List<string>();
+
+        sprites.Add(g);
+        sprites.Add(p);
+        sprites.Add(n);
+        sprites.Add(f);
+        sprites.Add(gp);
+        sprites.Add(gn);
+        sprites.Add(gf);
+        sprites.Add(pf);
+        sprites.Add(nf);
+        sprites.Add(gpf);
+        sprites.Add(gnf);
+
+        spriteChecker.Add("g");
+        spriteChecker.Add("p");
+        spriteChecker.Add("n");
+        spriteChecker.Add("f");
+        spriteChecker.Add("gp");
+        spriteChecker.Add("gn");
+        spriteChecker.Add("gf");
+        spriteChecker.Add("pf");
+        spriteChecker.Add("nf");
+        spriteChecker.Add("gpf");
+        spriteChecker.Add("gnf");
+
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
+
+        //Remove this eventually
+        //False charge attracts
+        setProperites(true, true, true, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timer.ElapsedMilliseconds - initialMillis >= 120)
+        if (timer.ElapsedMilliseconds - initialMillis >= 120)
         {
             spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
         }
+
+        setSprite();
 
     }
 
@@ -61,4 +98,53 @@ public class Beam : MonoBehaviour
         return mOut;
     }
 
+    public void setSprite()
+    {
+        if(mReactGrav)
+        {
+            grav = "g";
+        }
+        else
+        {
+            grav = "";
+        }
+
+        if(mReactElec)
+        {
+            if(mBeamPositive)
+            {
+                elec = "p";
+            }
+            else
+            {
+                elec = "n";
+            }
+        }
+        else
+        {
+            elec = "";
+        }
+
+        if(mReactFlux)
+        {
+            flux = "f";
+        }
+        else
+        {
+            flux = "";
+        }
+
+        string spriteSearcher = (grav + elec + flux);
+        Sprite[] spriteArray = sprites.ToArray();
+        string[] stringChecker = spriteChecker.ToArray();
+
+        for(int i = 0; i < spriteArray.Length; i++)
+        {
+            if(stringChecker[i] == spriteSearcher)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = spriteArray[i];
+            }
+        }
+        
+    }
 }
