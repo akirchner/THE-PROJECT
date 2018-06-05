@@ -37,9 +37,14 @@ public class newParticle : MonoBehaviour {
 		}
 
 		setSprite ();
-		numberText.text = numAvailable.ToString();
+        if (numAvailable > 0) {
+            numberText.text = numAvailable.ToString();
+        }
+        else {
+            numberText.text = "";
+        }
 
-	}
+    }
 
 	public void Activate() {
 
