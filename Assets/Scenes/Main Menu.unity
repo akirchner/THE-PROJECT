@@ -1253,6 +1253,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
+        type: 2}
+      propertyPath: mReactElec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
+        type: 2}
+      propertyPath: mReactFlux
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
+        type: 2}
+      propertyPath: mBeamPositive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
   m_IsPrefabParent: 0
