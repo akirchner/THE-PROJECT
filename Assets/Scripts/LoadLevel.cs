@@ -46,7 +46,7 @@ public class LoadLevel : MonoBehaviour {
                 case 0:
                     currentObject = Instantiate(beam, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     beamProperties = new List<bool>();
-                    foreach (char j in levelData[i][4].ToString()) {
+                    foreach (char j in levelData[i][4].ToString("D4")) {
                         beamProperties.Add(j.Equals('1'));
                     }
                     currentObject.GetComponent<Beam>().setProperites(beamProperties[0], beamProperties[1], beamProperties[2], beamProperties[3]);
