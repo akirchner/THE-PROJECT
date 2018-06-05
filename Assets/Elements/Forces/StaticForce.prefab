@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58412744408289534}
   - component: {fileID: 212291398181519728}
   - component: {fileID: 114676859447962714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StaticForce
   m_TagString: StaticForce
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1009615739
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 12e4439f123c83b419f434b939d0d14b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
