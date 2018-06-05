@@ -21,7 +21,7 @@ public class SaveLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown("end")) {
-            Save("newLevel.txt");
+            Save("Levels/newLevel.txt");
         }
 	}
 
