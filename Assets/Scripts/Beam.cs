@@ -72,7 +72,8 @@ public class Beam : MonoBehaviour
         particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
         particleClone.GetComponent<Particle>().setProperties(getProperties());
 
-        Vector2 velocity = Quaternion.AngleAxis(UnityEditor.TransformUtils.GetInspectorRotation(transform).z + 90, Vector3.forward) * Vector3.right;
+        Debug.Log(this.transform.eulerAngles.z);
+        Vector2 velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
         velocity.Normalize();
 
         particleClone.AddForce(velocity * 400f, ForceMode2D.Impulse);
