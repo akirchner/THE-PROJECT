@@ -1357,6 +1357,11 @@ Prefab:
       propertyPath: m_Text
       value: Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Assets/Levels/Grav3.txt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
@@ -1941,7 +1946,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 20
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2149,6 +2154,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
         type: 3}
+    - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Assets/Levels/Grav4.txt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
