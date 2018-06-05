@@ -6,7 +6,6 @@ public class Beam : MonoBehaviour
 {
 
     private System.Diagnostics.Stopwatch timer;
-    private int i = 0;
     private float initialMillis;
     public int angle, charge;
     public Rigidbody2D particle, particleClone;
