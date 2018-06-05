@@ -645,7 +645,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1949224447640016, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
       propertyPath: m_Name
-      value: NewForceButton2
+      value: ElectronButton
       objectReference: {fileID: 0}
     - target: {fileID: 114142160000739472, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
@@ -831,7 +831,7 @@ Prefab:
       objectReference: {fileID: 704705663}
     - target: {fileID: 1949224447640016, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
       propertyPath: m_Name
-      value: NewForceButton1
+      value: FluxionButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
@@ -1322,6 +1322,10 @@ Prefab:
         type: 2}
       propertyPath: type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949224447640016, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
+      propertyPath: m_Name
+      value: GravitonButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
