@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class newParticle : MonoBehaviour {
 
 	//all the sprites
-	public Sprite gravSprite, elecSprite, fluxSprite, hGravSprite, hElecSprite, hFluxSprite;
+	public Sprite gravSprite, elecSprite, fluxSprite, hGravSprite, hElecSprite, hFluxSprite, transparentSprite;
 
 	public Transform Place;
 	public Text numberText;
@@ -61,35 +61,40 @@ public class newParticle : MonoBehaviour {
 	}
 
 	void setSprite (){
-	
-		if(Place.GetComponent<PlaceForce> ().activeForce == type){
-			
-			switch(type) {
-			case ForceType.Graviton:
-				this.GetComponent<Image> ().sprite = hGravSprite;
-				break;
-			case ForceType.Fluxion:
-				this.GetComponent<Image> ().sprite = hFluxSprite;
-				break;
-			case ForceType.Electron:
-				this.GetComponent<Image> ().sprite = hElecSprite;
-				break;
-			}
 
-		}
-		else{
-	
-			switch(type) {
-			case ForceType.Graviton:
-				this.GetComponent<Image> ().sprite = gravSprite;
-				break;
-			case ForceType.Fluxion:
-				this.GetComponent<Image> ().sprite = fluxSprite;
-				break;
-			case ForceType.Electron:
-				this.GetComponent<Image> ().sprite = elecSprite;
-				break;
-			}
-		}
+        if (numAvalible > 0) {
+            if (Place.GetComponent<PlaceForce>().activeForce == type) {
+
+                switch (type) {
+                case ForceType.Graviton:
+                    this.GetComponent<Image>().sprite = hGravSprite;
+                    break;
+                case ForceType.Fluxion:
+                    this.GetComponent<Image>().sprite = hFluxSprite;
+                    break;
+                case ForceType.Electron:
+                    this.GetComponent<Image>().sprite = hElecSprite;
+                    break;
+                }
+
+            }
+            else {
+
+                switch (type) {
+                case ForceType.Graviton:
+                    this.GetComponent<Image>().sprite = gravSprite;
+                    break;
+                case ForceType.Fluxion:
+                    this.GetComponent<Image>().sprite = fluxSprite;
+                    break;
+                case ForceType.Electron:
+                    this.GetComponent<Image>().sprite = elecSprite;
+                    break;
+                }
+            }
+        }
+        else {
+            this.GetComponent<Image>().sprite = transparentSprite;
+        }
 	}
 }
