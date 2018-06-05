@@ -57,7 +57,7 @@ public class Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer.ElapsedMilliseconds - initialMillis >= 62.5)
+        if (timer.ElapsedMilliseconds - initialMillis >= 15)
         {
             spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;

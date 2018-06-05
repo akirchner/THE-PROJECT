@@ -6,7 +6,8 @@ public class Particle : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
     private bool[] properties;
-    GameObject[] allObjects;
+    List<GameObject> allObjects;
+    GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
     public float gravityConstant = 1;
     public float electricConstant = 1;
@@ -27,14 +28,31 @@ public class Particle : MonoBehaviour
         mass = new List<float>();
         charge = new List<float>();
         fluxcapacity = new List<float>();
-
+        allObjects = new List<GameObject>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        dragableF = GameObject.FindGameObjectsWithTag("DragableForce");
+        staticF = GameObject.FindGameObjectsWithTag("StaticForce");
+        dynamicF = GameObject.FindGameObjectsWithTag("DynamicForce");
 
-            allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        for(int i = 0; i < dragableF.Length; i++)
+        {
+            allObjects.Add(dragableF[i]);
+        }
+
+        for(int i = 0; i < staticF.Length; i++)
+        {
+            allObjects.Add(staticF[i]);
+        }
+
+        for(int i = 0; i < dynamicF.Length; i++)
+        {
+            allObjects.Add(dynamicF[i]);
+        }
+
             currentX = this.transform.position.x;
             currentY = this.transform.position.y;
             float[] gravForce, elecForce, fluxForce;
@@ -45,7 +63,7 @@ public class Particle : MonoBehaviour
             float resultantXForce = 0;
             float resultantYForce = 0;
 
-            for (int i = 0; i < allObjects.Length; i++)
+            for (int i = 0; i < allObjects.ToArray().Length; i++)
             {
                 try
                 {
@@ -117,6 +135,7 @@ public class Particle : MonoBehaviour
             fluxDistanceX.Clear();
             fluxDistanceY.Clear();
             fluxcapacity.Clear();
+            allObjects.Clear();
     }
 
     private float[] gravity(float[] xDistance, float[] yDistance, float[] mass) {
