@@ -42,9 +42,9 @@ public class SaveLevel : MonoBehaviour {
     void Save (string filename) {
         sw = File.CreateText(filename);
 
-        sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvalible);
-        sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvalible);
-        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvalible);
+        sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable);
+        sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable);
+        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvailable);
 
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject gameObject in allObjects) {
