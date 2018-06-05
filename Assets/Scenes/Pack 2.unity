@@ -338,7 +338,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Levels/Elec1.txt
+      value: Assets/Levels/Elec1.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1313,7 +1313,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Levels/Elec3.txt
+      value: Assets/Levels/Elec3.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1709,7 +1709,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Levels/Elec2.txt
+      value: Assets/Levels/Elec2.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
