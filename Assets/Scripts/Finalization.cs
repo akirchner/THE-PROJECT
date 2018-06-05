@@ -6,12 +6,16 @@ using System.Timers;
 
 
 public class Finalization : MonoBehaviour {
-
-    int mParticleCount, mChange;
+    
     public int targetCount;
+    Vector3 mStep;
+    int mParticleCount, mDecrementDelay;
+    public Transform ProgressBar;
+
 	// Use this for initialization
 	void Start () {
-        mChange = 0;
+        mDecrementDelay = 35;
+        mStep = new Vector3((18f * 1f / targetCount), 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -19,12 +23,12 @@ public class Finalization : MonoBehaviour {
         if (mParticleCount > targetCount) {
             SceneManager.LoadScene("End");
         }
-        if (mChange == 0 && mParticleCount != 0) {
+        if (mDecrementDelay == 0 && mParticleCount != 0) {
             mParticleCount--;
-            Debug.Log("Losing Enegry! " + mParticleCount);
-            mChange = 5;
+            ProgressBar.localScale -= mStep;
+            mDecrementDelay = 5;
         }
-        mChange--;
+        mDecrementDelay--;
 	}
 
     void OnTriggerEnter2D(Collider2D col)
@@ -32,8 +36,10 @@ public class Finalization : MonoBehaviour {
         if (col.CompareTag("Particle"))
         {
             Destroy(col.gameObject);
-            Debug.Log(col.gameObject.GetComponent<Transform>().position.x);
-            mChange = 35;
-           }
+            mParticleCount++;
+            ProgressBar.localScale += mStep;
+            mDecrementDelay = 35;
+        }
     }
 }
+
