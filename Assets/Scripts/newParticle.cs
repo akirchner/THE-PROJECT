@@ -11,13 +11,13 @@ public class newParticle : MonoBehaviour {
 	public Transform Place;
 	public Text numberText;
 	public Image forceSprite;
-	public int numAvalible = 1;
+	public int numAvailable = 1;
 	public ForceType type;
 
 	// Use this for initialization
 	void Start () {
-
-		numberText.text = numAvalible.ToString();
+        
+		numberText.text = numAvailable.ToString();
 		setSprite ();
 
 	}
@@ -29,7 +29,7 @@ public class newParticle : MonoBehaviour {
 			
 			if (Place.GetComponent<PlaceForce> ().decrment) {
 				
-				numAvalible--;
+				numAvailable--;
 				Place.GetComponent<PlaceForce> ().decrment = false;
 				Place.GetComponent<PlaceForce> ().activeForce = ForceType.Empty;
 			
@@ -37,9 +37,14 @@ public class newParticle : MonoBehaviour {
 		}
 
 		setSprite ();
-		numberText.text = numAvalible.ToString();
+        if (numAvailable > 0) {
+            numberText.text = numAvailable.ToString();
+        }
+        else {
+            numberText.text = "";
+        }
 
-	}
+    }
 
 	public void Activate() {
 
@@ -48,7 +53,7 @@ public class newParticle : MonoBehaviour {
 			Place.GetComponent<PlaceForce> ().activeForce = ForceType.Empty;
 
 		} 
-		else if (numAvalible > 0) {
+		else if (numAvailable > 0) {
 		
 			Place.GetComponent<PlaceForce> ().activeForce = type;
 		
@@ -62,7 +67,7 @@ public class newParticle : MonoBehaviour {
 
 	void setSprite (){
 
-        if (numAvalible > 0) {
+        if (numAvailable > 0) {
             if (Place.GetComponent<PlaceForce>().activeForce == type) {
 
                 switch (type) {
