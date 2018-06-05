@@ -15,7 +15,7 @@ public class Finalization : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         mDecrementDelay = 35;
-        mStep = new Vector3((18f * 1f / targetCount), 0, 0);
+        mStep = new Vector3((this.transform.localScale.x * 9f / targetCount), 0, 0);
 	}
 	
 	// Update is called once per frame
