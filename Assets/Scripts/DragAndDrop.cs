@@ -6,7 +6,7 @@ public class DragAndDrop : MonoBehaviour
 {
     public int maxTouch = 2;
     [Range(0, 31)]
-    public int layerMask = 10;
+    public int layerMask = 0;
     public float distance = 0.2f;
     public float dampingRatio = 1;
     public float frequency = 1.8f;
