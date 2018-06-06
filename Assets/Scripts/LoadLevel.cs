@@ -17,7 +17,12 @@ public class LoadLevel : MonoBehaviour {
 	void Start () {
         try {
             levelData = new List<List<double>>();
-            StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename));
+            if (Application.platform == RuntimePlatform.Android) {
+                StreamReader sr = new StreamReader("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+            }
+            else {
+                StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename));
+            }
 
             GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());
             GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());
