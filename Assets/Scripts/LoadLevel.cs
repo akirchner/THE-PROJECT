@@ -21,7 +21,14 @@ public class LoadLevel : MonoBehaviour {
                 filepath = "jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename;
             }
             else {
-                filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
+                filepath = Application.persistentDataPath + "/" + GameProperties.levelFilename;
+
+                if (!File.Exists(filepath)) {
+                    WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                    while (!load.isDone) { }
+
+                    File.WriteAllBytes(filepath, load.bytes);
+                }
             }
 
             StreamReader sr = new StreamReader(filepath);
