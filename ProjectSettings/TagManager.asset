@@ -13,6 +13,7 @@ TagManager:
   - ForceButton
   - Wall
   - edge
+  - Mirror
   layers:
   - Default
   - TransparentFX
