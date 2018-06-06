@@ -18,9 +18,7 @@ public class Edge : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        
-
-        if (!col.CompareTag("Goal"))
+        if (!col.CompareTag("Goal") && !col.CompareTag("Mirror"))
         {
             Destroy(this.gameObject);
         }
