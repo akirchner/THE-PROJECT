@@ -17,7 +17,7 @@ public class LoadLevel : MonoBehaviour {
 	void Start () {
         try {
             levelData = new List<List<double>>();
-            StreamReader sr = new StreamReader(Application.dataPath + GameProperties.levelFilename);
+            StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename));
 
             GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());
             GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());

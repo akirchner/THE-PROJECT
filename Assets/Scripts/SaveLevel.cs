@@ -21,7 +21,7 @@ public class SaveLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown("end")) {
-            Save("/Levels/newLevel.txt");
+            Save("newLevel.txt");
         }
 	}
 
@@ -40,7 +40,7 @@ public class SaveLevel : MonoBehaviour {
     }
 
     void Save (string filename) {
-        sw = File.CreateText(Application.dataPath + filename);
+        sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, filename));
 
         sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable);
         sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable);
