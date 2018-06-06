@@ -349,7 +349,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Levels/Grav1.txt
+      value: /Levels/Grav1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
@@ -486,7 +486,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Levels/Grav5.txt
+      value: /Levels/Grav5.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1365,7 +1365,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Levels/Grav3.txt
+      value: /Levels/Grav3.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1773,7 +1773,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Levels/Grav2.txt
+      value: /Levels/Grav2.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -2162,7 +2162,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Assets/Levels/Grav4.txt
+      value: /Levels/Grav4.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}

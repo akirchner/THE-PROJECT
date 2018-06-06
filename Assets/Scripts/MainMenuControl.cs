@@ -35,7 +35,7 @@ public class MainMenuControl : MonoBehaviour {
         if (GameProperties.levelFilename == "")
         {
             Debug.Log("Hey! This level doesn't exist yet!");
-            GameProperties.levelFilename = "Assets/Levels/defaultLevel.txt";
+            GameProperties.levelFilename = "/Levels/defaultLevel.txt";
         }
         
 		SceneManager.LoadScene ("Level");
