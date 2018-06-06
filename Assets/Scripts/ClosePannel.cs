@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class ClosePannel : MonoBehaviour {
 
 	public RectTransform panel, place;
-    Vector2 retracted = new Vector2(0, 0);
-    Vector2 extened = new Vector2(0, 0);
+	Vector2 offMin = new Vector2 (.82f,0f);
+	Vector2 offMax = new Vector2 (1f,1f);
+	Vector2 onMin = new Vector2 (.98f,0f);
+	Vector2 onMax = new Vector2 (1.16f,1f);
 	bool onScreen = true;
 
 	// Use this for initialization
@@ -24,35 +26,22 @@ public class ClosePannel : MonoBehaviour {
 
 		if (onScreen == true){
 
-			panel.anchorMax.Set(1.16f, 1f);
-			panel.anchorMin.Set(.2f, 0f);
+			panel.anchorMax = onMax;
+			panel.anchorMin = onMin;
 
-			panel.offsetMax.Set(0,0);
-			panel.offsetMin.Set(0, 0);
-
-            //panel.anchoredPosition = retracted;
-            //place.anchoredPosition = retracted;
-
-	
 			onScreen = false;
 
 		}
 
 		else if(onScreen == false){
 
-			panel.anchorMax.Set(1f, 1f);
-			panel.anchorMin.Set(.82f, 0f);
-
-
-			//panel.anchoredPosition = extened;
-            //place.anchoredPosition = extened;
-
-
+			panel.anchorMax = offMax;
+			panel.anchorMin = offMin;
 
 			onScreen = true;
 
 		}
-
+		Debug.Log (onScreen);
 	
 	}
 
