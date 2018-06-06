@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameProperties {
     public static string levelFilename = "Assets/Levels/Grav2123.txt";
-    public static string currentLevelPack = "1";
+    public static string currentLevelPack = "";
 }

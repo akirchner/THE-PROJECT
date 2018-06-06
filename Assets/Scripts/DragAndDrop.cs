@@ -4,7 +4,8 @@ using System.Collections;
 
 public class DragAndDrop : MonoBehaviour
 {
-    public int maxTouch = 2;
+    private Vector3 offset;
+    /*public int maxTouch = 2;
     [Range(0, 31)]
     public int layerMask = 0;
     public float distance = 0.2f;
@@ -94,8 +95,8 @@ public class DragAndDrop : MonoBehaviour
             springJoints[Id].connectedBody.angularDrag = oldAngularDrag;
             springJoints[Id].connectedBody = null;
         }
-    }
-    /*void OnMouseDown()
+    }*/
+    void OnMouseDown()
     {
 
         offset = gameObject.transform.position -
@@ -106,5 +107,5 @@ public class DragAndDrop : MonoBehaviour
     {
         Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
         transform.position = Camera.main.ScreenToWorldPoint(newPosition) + offset;
-    }*/
+    }
 }
