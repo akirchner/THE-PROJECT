@@ -86,6 +86,11 @@ public class SaveLevel : MonoBehaviour {
                 extraData.Add(parseForceType(gameObject.GetComponent<Properties>().getType()));
                 extraData.Add(gameObject.GetComponent<Properties>().size);
                 break;
+            case "Mirror":
+                id = 6;
+                extraData.Add(0);
+                extraData.Add(0);
+                break;
             default:
                 id = -1;
                 Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");
