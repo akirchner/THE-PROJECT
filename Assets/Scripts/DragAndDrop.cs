@@ -6,14 +6,11 @@ using UnityEngine.Events;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private Vector3 offset;
     private Vector3 screenPoint;
 
     void OnMouseDown()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        offset = gameObject.transform.position -
-            Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
     }
 
     void OnMouseDrag()
