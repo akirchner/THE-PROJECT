@@ -88,8 +88,8 @@ public class SaveLevel : MonoBehaviour {
                 break;
             case "Mirror":
                 id = 6;
-                extraData.Add(0);
-                extraData.Add(0);
+				extraData.Add(gameObject.transform.localScale.x);
+				extraData.Add(gameObject.transform.localScale.y);
                 break;
             default:
                 id = -1;
