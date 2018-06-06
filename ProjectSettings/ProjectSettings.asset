@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Name
+  companyName: THECompany
   productName: THE PROJECT
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -152,6 +152,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.THECompany.THEPROJECT
     Standalone: com.Company.ProductName
+    iOS: com.Company.THEGravGameTEST
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
