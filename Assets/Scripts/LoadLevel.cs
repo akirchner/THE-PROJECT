@@ -11,7 +11,7 @@ public class LoadLevel : MonoBehaviour {
     private List<bool> beamProperties;
     private string line;
     private Transform currentObject;
-    public Transform dragableForce, dynamicForce, staticForce, goal, wall, beam;
+    public Transform dragableForce, dynamicForce, staticForce, goal, wall, beam, mirror;
 
 	// Use this for initialization
 	void Start () {
@@ -74,6 +74,9 @@ public class LoadLevel : MonoBehaviour {
                     currentObject = Instantiate(staticForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
                     currentObject.GetComponent<Properties>().size = (float)levelData[i][5];
+                    break;
+                case 6:
+                    currentObject = Instantiate(mirror, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     break;
                 default:
                     Console.WriteLine("Whoops, something went wrong in LoadLevel.cs. The object ID did not correspond with any preset values.");

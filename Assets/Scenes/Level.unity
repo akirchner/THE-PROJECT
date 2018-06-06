@@ -461,6 +461,7 @@ MonoBehaviour:
   goal: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
   wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
   beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
+  mirror: {fileID: 4381810591350326, guid: 66c0576f993c32a4fa19f71a0131c9c2, type: 2}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
