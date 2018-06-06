@@ -23,7 +23,7 @@ TagManager:
   - 
   - 
   - Particles
-  - Wall
+  - Envoirment
   - Forces
   - 
   - 
@@ -52,6 +52,15 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particles
+    uniqueID: 319922739
+    locked: 0
+  - name: Enviorment
+    uniqueID: 1009615739
+    locked: 0
+  - name: Interaction
+    uniqueID: 3648912889
     locked: 0
   - name: UI
     uniqueID: 28288663
