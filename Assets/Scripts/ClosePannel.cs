@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class ClosePannel : MonoBehaviour {
 
 	public RectTransform panel, place;
-	Vector2 offMin = new Vector2 (.82f,0f);
-	Vector2 offMax = new Vector2 (1f,1f);
-	Vector2 onMin = new Vector2 (.98f,0f);
-	Vector2 onMax = new Vector2 (1.16f,1f);
-	bool onScreen = true;
+	public Vector2 offMin = new Vector2 (.82f,0f);
+	public Vector2 offMax = new Vector2 (1f,1f);
+	public Vector2 onMin = new Vector2 (.98f,0f);
+	public Vector2 onMax = new Vector2 (1.16f,1f);
+	public bool onScreen;
 
 	// Use this for initialization
 	void Start () {
-
+		Close ();
     }
 	
 	// Update is called once per frame
@@ -24,24 +24,23 @@ public class ClosePannel : MonoBehaviour {
 
 	public void Close () {
 
-		if (onScreen == true){
+		if (onScreen == false){
 
 			panel.anchorMax = onMax;
 			panel.anchorMin = onMin;
 
-			onScreen = false;
+			onScreen = true;
 
 		}
 
-		else if(onScreen == false){
+		else if(onScreen == true){
 
 			panel.anchorMax = offMax;
 			panel.anchorMin = offMin;
 
-			onScreen = true;
+			onScreen = false;
 
 		}
-		Debug.Log (onScreen);
 	
 	}
 
