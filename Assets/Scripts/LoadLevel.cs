@@ -9,7 +9,7 @@ public class LoadLevel : MonoBehaviour {
     private List<List<double>> levelData;
     private List<double> currentObjectData;
     private List<bool> beamProperties;
-    private string line;
+    private string line, filepath;
     private Transform currentObject;
     public Transform dragableForce, dynamicForce, staticForce, goal, wall, beam, mirror;
 
@@ -18,11 +18,13 @@ public class LoadLevel : MonoBehaviour {
         try {
             levelData = new List<List<double>>();
             if (Application.platform == RuntimePlatform.Android) {
-                StreamReader sr = new StreamReader("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                filepath = "jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename;
             }
             else {
-                StreamReader sr = new StreamReader(Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename));
+                filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
             }
+
+            StreamReader sr = new StreamReader(filepath);
 
             GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());
             GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable = Int32.Parse(sr.ReadLine());
