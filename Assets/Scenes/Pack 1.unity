@@ -2398,6 +2398,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
         type: 3}
+    - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Grav12.txt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
