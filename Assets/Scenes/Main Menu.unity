@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 965848585}
   - component: {fileID: 965848584}
   - component: {fileID: 965848588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -762,11 +762,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 35.215805, y: 19.976273}
+  - {x: 37.002457, y: 19.976273}
   - {x: -35.67553, y: 19.835342}
   - {x: -35.76217, y: -20.102877}
-  - {x: 35.54522, y: -20.24999}
-  - {x: 35.75254, y: 19.835339}
+  - {x: 37.239403, y: -20.340162}
+  - {x: 37.18529, y: 19.99034}
 --- !u!1001 &1078581361
 Prefab:
   m_ObjectHideFlags: 0
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 1150323883}
   - component: {fileID: 1150323882}
   - component: {fileID: 1150323881}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}

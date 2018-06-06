@@ -1145,7 +1145,6 @@ GameObject:
   - component: {fileID: 1127616504}
   - component: {fileID: 1127616503}
   - component: {fileID: 1127616502}
-  - component: {fileID: 1127616505}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1232,26 +1231,6 @@ Canvas:
   m_SortingLayerID: 28288663
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!68 &1127616505
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1127616500}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 417, y: 235.1601}
-  - {x: -417, y: 235}
-  - {x: -417, y: -235}
-  - {x: 417, y: -235}
-  - {x: 417, y: 235}
 --- !u!1001 &1239525068
 Prefab:
   m_ObjectHideFlags: 0
@@ -2031,7 +2010,7 @@ Prefab:
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -44.99997
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
@@ -2138,6 +2117,7 @@ GameObject:
   - component: {fileID: 2090452919}
   - component: {fileID: 2090452918}
   - component: {fileID: 2090452917}
+  - component: {fileID: 2090452921}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2209,6 +2189,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2090452921
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2090452916}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 37.182137, y: 19.978027}
+  - {x: -37.036633, y: 20.045591}
+  - {x: -37.20506, y: -20.116156}
+  - {x: 37.26148, y: -20.158373}
+  - {x: 37.207596, y: 20.140451}
 --- !u!1001 &2099342253
 Prefab:
   m_ObjectHideFlags: 0
