@@ -992,7 +992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 363995652}
   place: {fileID: 704705663}
-  onScreen: 0
+  onScreen: 1
 --- !u!210 &1902732011
 SortingGroup:
   m_ObjectHideFlags: 0
