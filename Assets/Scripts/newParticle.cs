@@ -97,9 +97,10 @@ public class newParticle : MonoBehaviour {
                     break;
                 }
             }
+            this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         }
         else {
-            this.GetComponent<Image>().sprite = transparentSprite;
+            this.GetComponent<Image>().color = new Color (0f, 0f, 0f, 0f);
         }
 	}
 }
