@@ -14,7 +14,14 @@ public class MainMenuControl : MonoBehaviour {
 
         if (level == "CurrentPack")
         {
-            level = "Pack " + GameProperties.currentLevelPack;
+            if(GameProperties.currentLevelPack == "")
+            {
+                level = "Level Select";
+            }
+            else
+            {
+                level = "Pack " + GameProperties.currentLevelPack;
+            }
         }
 
 		SceneManager.LoadScene (level);
