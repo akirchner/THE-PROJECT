@@ -18,9 +18,6 @@ public class LoadLevel : MonoBehaviour {
         try {
             levelData = new List<List<double>>();
             if (Application.platform == RuntimePlatform.Android) {
-                filepath = "jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename;
-            }
-            else {
                 filepath = Application.persistentDataPath + "/" + GameProperties.levelFilename;
 
                 if (!File.Exists(filepath)) {
@@ -29,6 +26,9 @@ public class LoadLevel : MonoBehaviour {
 
                     File.WriteAllBytes(filepath, load.bytes);
                 }
+            }
+            else {
+                filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
             }
 
             StreamReader sr = new StreamReader(filepath);
