@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61076424371434178}
   m_Layer: 9
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: FakeWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011770716736974}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -17.304, y: -3.674, z: 0.007376916}
+  m_LocalPosition: {x: -3.3372927, y: -0.35006568, z: 0.007376916}
   m_LocalScale: {x: -0.21622123, y: 5, z: 1}
   m_Children:
   - {fileID: 4002642617684558}
