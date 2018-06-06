@@ -416,7 +416,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -992,6 +992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 363995652}
   place: {fileID: 704705663}
+  onScreen: 0
 --- !u!210 &1902732011
 SortingGroup:
   m_ObjectHideFlags: 0
