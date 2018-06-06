@@ -5,11 +5,15 @@ using UnityEngine;
 public class DynamicForce : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
-    GameObject[] allObjects;
+    GameObject[] dragableF, staticF, dynamicF;
+    List<GameObject> allObjects;
     float currentX, currentY;
     public float gravityConstant = 1;
     public float electricConstant = 1;
     public float fluxConstant = 1;
+    public bool affectedByGravity;
+    public bool affectedByElec;
+    public bool affectedByFlux;
     public bool positiveCharge = false;
     public Rigidbody2D rb;
 
@@ -24,15 +28,34 @@ public class DynamicForce : MonoBehaviour
         elecDistanceY = new List<float>();
         fluxDistanceX = new List<float>();
         fluxDistanceY = new List<float>();
+        allObjects = new List<GameObject>();
         mass = new List<float>();
         charge = new List<float>();
         fluxcapacity = new List<float>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        dragableF = GameObject.FindGameObjectsWithTag("DragableForce");
+        staticF = GameObject.FindGameObjectsWithTag("StaticForce");
+        dynamicF = GameObject.FindGameObjectsWithTag("DynamicForce");
+
+        for (int i = 0; i < dragableF.Length; i++)
+        {
+            allObjects.Add(dragableF[i]);
+        }
+
+        for (int i = 0; i < staticF.Length; i++)
+        {
+            allObjects.Add(staticF[i]);
+        }
+
+        for (int i = 0; i < dynamicF.Length; i++)
+        {
+            allObjects.Add(dynamicF[i]);
+        }
+
         currentX = this.transform.position.x;
         currentY = this.transform.position.y;
         float[] gravForce, elecForce, fluxForce;
@@ -43,7 +66,7 @@ public class DynamicForce : MonoBehaviour
         float resultantXForce = 0;
         float resultantYForce = 0;
 
-        for (int i = 0; i < allObjects.Length; i++)
+        for (int i = 0; i < allObjects.ToArray().Length; i++)
         {
             try
             {
@@ -74,27 +97,23 @@ public class DynamicForce : MonoBehaviour
             }
         }
 
-        List<bool> properties;
-        properties = GameObject.Find("Beam").GetComponent<Beam>().getProperties();
-        positiveCharge = properties[3];
-
         gravForce = gravity(gravDistanceX.ToArray(), gravDistanceY.ToArray(), mass.ToArray());
         elecForce = electrostatic(elecDistanceX.ToArray(), elecDistanceY.ToArray(), charge.ToArray());
         fluxForce = flux(fluxDistanceX.ToArray(), fluxDistanceY.ToArray(), fluxcapacity.ToArray());
 
-        if (!properties[0])
+        if (!affectedByGravity)
         {
             gravForce[0] = 0;
             gravForce[1] = 0;
         }
 
-        if (!properties[1])
+        if (!affectedByElec)
         {
             elecForce[0] = 0;
             elecForce[1] = 0;
         }
 
-        if (!properties[2])
+        if (!affectedByFlux)
         {
             fluxForce[0] = 0;
             fluxForce[1] = 0;
