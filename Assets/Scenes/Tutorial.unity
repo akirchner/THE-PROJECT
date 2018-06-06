@@ -389,6 +389,7 @@ MonoBehaviour:
   goal: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
   wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
   beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
+  mirror: {fileID: 0}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,7 +1232,7 @@ Prefab:
     - target: {fileID: 114086033191229068, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
@@ -1350,7 +1351,7 @@ Prefab:
     - target: {fileID: 114086033191229068, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
@@ -1633,6 +1634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 363995652}
   place: {fileID: 704705663}
+  offMin: {x: 0.82, y: 0}
+  offMax: {x: 1, y: 1}
+  onMin: {x: 0.98, y: 0}
+  onMax: {x: 1.16, y: 1}
   onScreen: 0
 --- !u!210 &1902732011
 SortingGroup:
@@ -2055,7 +2060,7 @@ Prefab:
     - target: {fileID: 114086033191229068, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
