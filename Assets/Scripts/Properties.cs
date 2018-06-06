@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public enum ForceType
 {
@@ -20,11 +22,11 @@ public class Properties : MonoBehaviour
 	public Sprite gravSprite;
 	public Sprite elecSprite;
 	public Sprite fluxSprite;
+    bool mStart;
 
     // Use this for initialization
     void Start()
     {
-        
 		setSize(size);
 		
     }

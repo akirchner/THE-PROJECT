@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4554572037300376}
+  - component: {fileID: 114676859447962714}
   - component: {fileID: 58412744408289534}
   - component: {fileID: 212291398181519728}
-  - component: {fileID: 114676859447962714}
   m_Layer: 10
   m_Name: StaticForce
   m_TagString: StaticForce
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627887918021224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2462325, y: 2.9674478, z: -0.3125}
+  m_LocalPosition: {x: -28.328112, y: 1.071309, z: -0.3125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
