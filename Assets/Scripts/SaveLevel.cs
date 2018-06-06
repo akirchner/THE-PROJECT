@@ -40,7 +40,7 @@ public class SaveLevel : MonoBehaviour {
     }
 
     void Save (string filename) {
-        sw = File.CreateText(Application.persistentDataPath + filename);
+        sw = File.CreateText(Application.dataPath + filename);
 
         sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<newParticle>().numAvailable);
         sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<newParticle>().numAvailable);
