@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckSave : MonoBehaviour {
     public int packID, levelID;
@@ -9,9 +10,12 @@ public class CheckSave : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (GameProperties.saveData[packID, levelID]) {
-            Instantiate(check, new Vector3(this.GetComponent<CanvasRenderer>().transform.position.x, this.GetComponent<CanvasRenderer>().transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+            this.transform.Find("CheckMark").GetComponent<Image>().enabled = true;
         }
-	}
+        else {
+            this.transform.Find("CheckMark").GetComponent<Image>().enabled = false;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
