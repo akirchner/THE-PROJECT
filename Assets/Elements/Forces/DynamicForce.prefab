@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4155112363193068}
-  - component: {fileID: 58606413587050068}
-  - component: {fileID: 212065813708944744}
   - component: {fileID: 114968891749991734}
   - component: {fileID: 114716073088775358}
   - component: {fileID: 50615048628962980}
+  - component: {fileID: 58606413587050068}
+  - component: {fileID: 212065813708944744}
   m_Layer: 10
   m_Name: DynamicForce
   m_TagString: DynamicForce
@@ -57,7 +57,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
