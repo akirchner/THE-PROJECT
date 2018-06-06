@@ -49,9 +49,6 @@ public class Beam : MonoBehaviour
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
-
-        //Remove this eventually
-        //False charge attracts
     }
 
     // Update is called once per frame
@@ -72,7 +69,6 @@ public class Beam : MonoBehaviour
         particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
         particleClone.GetComponent<Particle>().setProperties(getProperties());
 
-        Debug.Log(this.transform.eulerAngles.z);
         Vector2 velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
         velocity.Normalize();
 

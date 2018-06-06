@@ -7,6 +7,16 @@ public class MainMenuControl : MonoBehaviour {
 
 	public void LoadScene (string level){
 
+        if (level.Substring(0, 4).ToUpper() == "PACK")
+        {
+            GameProperties.currentLevelPack = level.Substring(5, 1);
+        }
+
+        if (level == "CurrentPack")
+        {
+            level = "Pack " + GameProperties.currentLevelPack;
+        }
+
 		SceneManager.LoadScene (level);
 
 	}
@@ -15,12 +25,12 @@ public class MainMenuControl : MonoBehaviour {
 
 		GameProperties.levelFilename = filePath;
 
-        if(filePath == "")
+        if (GameProperties.levelFilename == "")
         {
+            Debug.Log("Hey! This level doesn't exist yet!");
             GameProperties.levelFilename = "Assets/Levels/defaultLevel.txt";
         }
-
-		Debug.Log (GameProperties.levelFilename);
+        
 		SceneManager.LoadScene ("Level");
 
     }
