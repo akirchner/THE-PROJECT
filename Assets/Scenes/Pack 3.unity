@@ -234,7 +234,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -341,21 +341,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114930336757195102, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_Text
-      value: Level 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: /Levels/Grav1.txt
+      value: Assets/Levels/Elec1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -481,13 +476,8 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
-    - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: /Levels/Grav5.txt
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
@@ -680,7 +670,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -800,7 +790,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1042,7 +1032,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1240,7 +1230,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1351,21 +1341,21 @@ Prefab:
       propertyPath: m_Name
       value: Level Button (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
-        type: 3}
     - target: {fileID: 114930336757195102, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_Text
       value: Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
+        type: 3}
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: /Levels/Grav3.txt
+      value: Assets/Levels/Elec3.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1490,7 +1480,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1652,7 +1642,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1768,12 +1758,12 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: /Levels/Grav2.txt
+      value: Assets/Levels/Elec2.txt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1888,7 +1878,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -1951,7 +1941,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 20
-  m_Depth: 1
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2027,7 +2017,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1634879528}
   m_Script: {fileID: 11500000, guid: 790c98fda8d76e74cb148a593ede337d, type: 3}
---- !u!1001 &1690210177
+--- !u!1001 &1642643279
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2052,17 +2042,17 @@ Prefab:
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
@@ -2126,52 +2116,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1160267128063780, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
       propertyPath: m_Name
-      value: Level Button (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
+      value: ELevelButton (1)
       objectReference: {fileID: 0}
     - target: {fileID: 114930336757195102, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_Text
       value: Level 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114930336757195102, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
-    - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: /Levels/Grav4.txt
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1690210178 stripped
+--- !u!224 &1642643280 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
     type: 2}
-  m_PrefabInternal: {fileID: 1690210177}
+  m_PrefabInternal: {fileID: 1642643279}
 --- !u!1 &1800591782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2226,7 @@ RectTransform:
   - {fileID: 866773077}
   - {fileID: 1270390401}
   - {fileID: 1197415187}
-  - {fileID: 1690210178}
+  - {fileID: 1642643280}
   - {fileID: 403884066}
   - {fileID: 12266096}
   - {fileID: 647015007}
@@ -2391,7 +2356,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -2526,7 +2491,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c,
+      objectReference: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}

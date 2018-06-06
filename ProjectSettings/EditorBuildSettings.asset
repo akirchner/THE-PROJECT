@@ -12,27 +12,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: c7bedd2aa6bd54347af7cd231ce4d17f
   - enabled: 1
-    path: Assets/Scenes/Level Select.unity
-    guid: 4a1a3ac87418e5c429a1dfbb8983ec00
-  - enabled: 1
-    path: Assets/Scenes/Level.unity
-    guid: 56df65de7a19e6e43b350ee4f176450f
-  - enabled: 1
-    path: Assets/Scenes/Pack 1.unity
-    guid: 16b0e198f19f7234cb3f4f68cf0325d5
-  - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 893d3b4b296cfdc4dbfc42d222749cef
-  - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: 3b22b8e4ca38e443e96bc94f7fda0ebd
+    path: Assets/Scenes/Tutorial.unity
+    guid: f6d3992454a933f408ecce9c0c46251a
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 23679a16d8d944142adbc708fddbdc9d
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: f6d3992454a933f408ecce9c0c46251a
+    path: Assets/Scenes/Level Select.unity
+    guid: 4a1a3ac87418e5c429a1dfbb8983ec00
+  - enabled: 1
+    path: Assets/Scenes/Pack 1.unity
+    guid: 16b0e198f19f7234cb3f4f68cf0325d5
   - enabled: 1
     path: Assets/Scenes/Pack 2.unity
     guid: b2e2b65f44f6a3a47a930d171467e894
+  - enabled: 1
+    path: Assets/Scenes/Pack 3.unity
+    guid: a8e487113acbda74f90fa99015c868b5
+  - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 56df65de7a19e6e43b350ee4f176450f
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 3b22b8e4ca38e443e96bc94f7fda0ebd
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: 893d3b4b296cfdc4dbfc42d222749cef
   m_configObjects: {}
