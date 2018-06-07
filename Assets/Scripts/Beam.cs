@@ -66,7 +66,7 @@ public class Beam : MonoBehaviour
 
     void spawn(Rigidbody2D item)
     {
-        particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+        particleClone = Instantiate(item, new Vector2(this.transform.position.x + 3, this.transform.position.y), Quaternion.identity);
         particleClone.GetComponent<Particle>().setProperties(getProperties());
 
         Vector2 velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
