@@ -15,6 +15,7 @@ public class Beam : MonoBehaviour
     private List<Sprite> sprites;
     private List<string> spriteChecker;
     private string grav, elec, flux;
+    private Vector2 velocity;
 
     // Use this for initialization
     void Start()
@@ -49,6 +50,9 @@ public class Beam : MonoBehaviour
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
+
+        velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
+        velocity.Normalize();
     }
 
     // Update is called once per frame
@@ -56,26 +60,24 @@ public class Beam : MonoBehaviour
     {
         if (timer.ElapsedMilliseconds - initialMillis >= 60)
         {
-            spawn(particle);
+            Spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
         }
 
-        setSprite();
+        SetSprite();
 
     }
 
-    void spawn(Rigidbody2D item)
+    void Spawn(Rigidbody2D item)
     {
+
         particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
         particleClone.GetComponent<Particle>().setProperties(getProperties());
-
-        Vector2 velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
-        velocity.Normalize();
 
         particleClone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
 
-    public void setProperites(bool reactGrav, bool reactElec, bool reactFlux, bool beamPositive) {
+    public void SetProperites(bool reactGrav, bool reactElec, bool reactFlux, bool beamPositive) {
         mReactGrav = reactGrav;
         mReactElec = reactElec;
         mReactFlux = reactFlux;
@@ -92,7 +94,7 @@ public class Beam : MonoBehaviour
         return mOut;
     }
 
-    public void setSprite()
+    public void SetSprite()
     {
         if(mReactGrav)
         {
