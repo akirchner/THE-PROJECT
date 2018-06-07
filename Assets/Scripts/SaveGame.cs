@@ -36,7 +36,7 @@ public class SaveGame : MonoBehaviour {
 
         sw.Close();
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 		
