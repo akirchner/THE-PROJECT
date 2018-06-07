@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 3b22b8e4ca38e443e96bc94f7fda0ebd
+  - enabled: 1
+    path: Assets/Scenes/Are You Sure.unity
+    guid: 0711174b4a9cf964db7e171c873683b6
   - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 893d3b4b296cfdc4dbfc42d222749cef
