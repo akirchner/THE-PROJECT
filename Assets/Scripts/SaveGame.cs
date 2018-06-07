@@ -33,6 +33,8 @@ public class SaveGame : MonoBehaviour {
                 sw.WriteLine(GameProperties.saveData[i,j] ? 1 : 0);
             }
         }
+
+        sw.Close();
     }
 	
 	// Update is called once per frame
