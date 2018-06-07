@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetProgress : MonoBehaviour {
     StreamWriter sw;
 
     // Use this for initialization
-    void Start () {
+    public void Reset () {
         sw = File.CreateText(Path.Combine(Application.persistentDataPath, "gameData.txt"));
 
         for (int i = 0; i < 3; i++) {
@@ -18,10 +19,7 @@ public class ResetProgress : MonoBehaviour {
         }
 
         sw.Close();
+		SceneManager.LoadScene ("Main Menu");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
