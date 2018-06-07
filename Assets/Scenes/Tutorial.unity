@@ -264,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59400004, y: 0.73167497}
   m_AnchorMax: {x: 0.906, y: 0.9315951}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -68.79997, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79603157
@@ -765,8 +765,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The beam can be manipulated with Forces, which can be found in the level
-    or in the drawer to the right. \nTap the white tab to open it."
+  m_Text: "3) The beam can be manipulated with Forces, found within the level or in
+    the drawer to the right.\n \nTap the white tab to open it."
 --- !u!222 &434718329
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -840,7 +840,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "This is a Beam Generator, \nThe lights on its base indicate \nthe properties
+  m_Text: "1) This is a Beam Generator, \nthe lights on its base indicate \nthe properties
     of the Beam."
 --- !u!222 &544699658
 CanvasRenderer:
@@ -1086,7 +1086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.55, y: 0.1}
   m_AnchorMax: {x: 0.97, y: 0.38}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -66, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853510209
@@ -2355,7 +2355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "This is the goal, \nit fills up when the beam is directed onto it. Fill
+  m_Text: "2) This is the Goal, it fills up when the beam is directed onto it.\n \nFill
     it to complete the level!"
 --- !u!222 &1604727520
 CanvasRenderer:
@@ -2372,7 +2372,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -27.6
+      value: -26.1
       objectReference: {fileID: 0}
     - target: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2626,7 +2626,7 @@ Prefab:
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -44.99997
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 224817624528834650, guid: 557ea67ac6764f54b932051700096e83,
         type: 2}
@@ -2842,11 +2842,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 28.8
+      value: 24.1
       objectReference: {fileID: 0}
     - target: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.2
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 4544406141799302, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
       propertyPath: m_LocalPosition.z
