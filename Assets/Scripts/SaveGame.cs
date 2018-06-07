@@ -24,7 +24,7 @@ public class SaveGame : MonoBehaviour {
             break;
         }
 
-        GameProperties.saveData[packID, Int32.Parse((string) GameProperties.levelFilename.Substring(4, 2)) - 1] = true;
+        GameProperties.saveData[packID, Int32.Parse(GameProperties.levelFilename.Substring(4, 2)) - 1] = true;
 
         sw = File.CreateText(Path.Combine(Application.persistentDataPath, "gameData.txt"));
 
@@ -33,6 +33,8 @@ public class SaveGame : MonoBehaviour {
                 sw.WriteLine(GameProperties.saveData[i,j] ? 1 : 0);
             }
         }
+
+        sw.Close();
     }
 	
 	// Update is called once per frame
