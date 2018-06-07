@@ -27,7 +27,7 @@ public class Properties : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		setSize(size);
+		//setSize(size);
 		
     }
 
