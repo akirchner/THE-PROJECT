@@ -20,12 +20,13 @@ public class SaveLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown("end")) {
+        if(Input.GetKeyDown("`")) {
+            Debug.Log("Saving!");
             Save("newLevel.txt");
         }
 	}
 
-    private int parseForceType(ForceType type)
+    private int ParseForceType(ForceType type)
     {
         switch(type) {
         case ForceType.Graviton:
@@ -47,14 +48,14 @@ public class SaveLevel : MonoBehaviour {
         sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<newParticle>().numAvailable);
 
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject gameObject in allObjects) {
+        foreach (GameObject gameObj in allObjects) {
             extraData = new List<double>();
 
-            switch (gameObject.tag) {
+            switch (gameObj.tag) {
             case "Beam":
                 id = 0;
                 beamProperties = new StringBuilder();
-                beamList = gameObject.GetComponent<Beam>().getProperties();
+                beamList = gameObj.GetComponent<Beam>().getProperties();
                 foreach (bool i in beamList) {
                     beamProperties.Append(i ? 1 : 2);
                 }
@@ -63,33 +64,33 @@ public class SaveLevel : MonoBehaviour {
                 break;
             case "Goal":
                 id = 1;
-                extraData.Add(gameObject.GetComponent<Finalization>().targetCount);
-                extraData.Add(gameObject.transform.localScale.x);
+                extraData.Add(gameObj.GetComponent<Finalization>().targetCount);
+                extraData.Add(gameObj.transform.localScale.x);
                 break;
             case "Wall":
                 id = 2;
-                extraData.Add(gameObject.transform.localScale.x);
-                extraData.Add(gameObject.transform.localScale.y);
+                extraData.Add(gameObj.transform.localScale.x);
+                extraData.Add(gameObj.transform.localScale.y);
                 break;
             case "DragableForce":
                 id = 3;
-                extraData.Add(parseForceType(gameObject.GetComponent<Properties>().getType()));
-                extraData.Add(gameObject.GetComponent<Properties>().size);
+                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
+                extraData.Add(gameObj.GetComponent<Properties>().size);
                 break;
             case "DynamicForce":
                 id = 4;
-                extraData.Add(parseForceType(gameObject.GetComponent<Properties>().getType()));
-                extraData.Add(gameObject.GetComponent<Properties>().size);
+                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
+                extraData.Add(gameObj.GetComponent<Properties>().size);
                 break;
             case "StaticForce":
                 id = 5;
-                extraData.Add(parseForceType(gameObject.GetComponent<Properties>().getType()));
-                extraData.Add(gameObject.GetComponent<Properties>().size);
+                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
+                extraData.Add(gameObj.GetComponent<Properties>().size);
                 break;
             case "Mirror":
                 id = 6;
-				extraData.Add(gameObject.transform.localScale.x);
-				extraData.Add(gameObject.transform.localScale.y);
+				extraData.Add(gameObj.transform.localScale.x);
+				extraData.Add(gameObj.transform.localScale.y);
                 break;
             default:
                 id = -1;
@@ -99,9 +100,9 @@ public class SaveLevel : MonoBehaviour {
 
             if (id >= 0) {
                 sw.WriteLine(id);
-                sw.WriteLine(gameObject.transform.position.x);
-                sw.WriteLine(gameObject.transform.position.y);
-                sw.WriteLine(gameObject.transform.eulerAngles.z);
+                sw.WriteLine(gameObj.transform.position.x);
+                sw.WriteLine(gameObj.transform.position.y);
+                sw.WriteLine(gameObj.transform.eulerAngles.z);
                 foreach (double i in extraData) {
                     sw.WriteLine(i);
                 }
