@@ -101,8 +101,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844638754330038}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.0921173, y: -0.3304966, z: 0.007376916}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0.000000749014}
+  m_LocalPosition: {x: 19.8, y: -17.9, z: 0.007376916}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4584942214608744}
@@ -110,7 +110,7 @@ Transform:
   - {fileID: 4074983588107992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 900}
 --- !u!4 &4584942214608744
 Transform:
   m_ObjectHideFlags: 1
@@ -221,7 +221,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
 --- !u!61 &61427360598591006
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -271,7 +271,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
 --- !u!114 &114022360051555780
 MonoBehaviour:
   m_ObjectHideFlags: 1
