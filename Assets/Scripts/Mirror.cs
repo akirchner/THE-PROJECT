@@ -23,7 +23,6 @@ public class Mirror : MonoBehaviour {
         {
             currentVelocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
             int angle = angleFinder(col.transform.eulerAngles.z);
-            Debug.Log(angle);
 
             switch (angle) {
                 case 1:
@@ -34,7 +33,6 @@ public class Mirror : MonoBehaviour {
                     break;
                 case 3:
                     newVelocity = new Vector2(currentVelocity.y * negater, -currentVelocity.x * negater);
-                    Debug.Log(negater);
                     break;
                 default:
                     newVelocity = currentVelocity;
@@ -47,8 +45,6 @@ public class Mirror : MonoBehaviour {
 
     private int angleFinder(float mirrorAngle)
     {
-        Debug.Log(mirrorAngle);
-
         if(mirrorAngle > 180)
         {
             negater = -1;

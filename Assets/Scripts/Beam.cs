@@ -50,9 +50,6 @@ public class Beam : MonoBehaviour
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
-
-        velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
-        velocity.Normalize();
     }
 
     // Update is called once per frame
@@ -70,6 +67,8 @@ public class Beam : MonoBehaviour
 
     void Spawn(Rigidbody2D item)
     {
+        velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
+        velocity.Normalize();
 
         particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
         particleClone.GetComponent<Particle>().setProperties(getProperties());
