@@ -30,9 +30,12 @@ public class SaveGame : MonoBehaviour {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 15; j++) {
+                Debug.Log(GameProperties.saveData[i,j]);
                 sw.WriteLine(GameProperties.saveData[i,j] ? 1 : 0);
             }
         }
+
+        sw.Close();
     }
 	
 	// Update is called once per frame
