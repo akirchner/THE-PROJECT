@@ -7,7 +7,7 @@ public class PlaceForce : MonoBehaviour {
 	public Transform force;
 	public ForceType activeForce = ForceType.Empty;
 	Vector3 mousePos = new Vector3();
-	Quaternion rotation = new Quaternion(0,0,0,0);
+    Quaternion rotation = Quaternion.identity;
 	public bool decrment = false;
 
 	//items for pixel to world unit conversion
@@ -39,9 +39,10 @@ public class PlaceForce : MonoBehaviour {
 			Transform temp;
 			decrment = true;
 			mousePos = ConvertToWorldUnits (Input.mousePosition);
-			temp = Instantiate (force, mousePos, rotation);
+            temp = Instantiate (force, mousePos, rotation);
 			temp.GetComponent<Properties>().setType (activeForce);
-
+            //update here
+            GameObject.FindGameObjectsWithTag("Beam")[0].GetComponent<Beam>().UpdateForces();
 
 
 		}

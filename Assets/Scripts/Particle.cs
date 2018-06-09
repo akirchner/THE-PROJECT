@@ -7,6 +7,7 @@ public class Particle : MonoBehaviour
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
     private bool[] properties;
     List<GameObject> allObjects;
+    List<GameObject[]> tmp;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
     public float gravityConstant = 1;
@@ -34,9 +35,14 @@ public class Particle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        dragableF = GameObject.FindGameObjectsWithTag("DragableForce");
-        staticF = GameObject.FindGameObjectsWithTag("StaticForce");
-        dynamicF = GameObject.FindGameObjectsWithTag("DynamicForce");
+        tmp = GetComponentInParent<Beam>().GetActiveForces();
+        dragableF = tmp[0];
+        staticF = tmp[1];
+        dynamicF = tmp[2];
+
+        //dragableF = GameObject.FindGameObjectsWithTag("DragableForce");
+        //staticF = GameObject.FindGameObjectsWithTag("StaticForce");
+        //dynamicF = GameObject.FindGameObjectsWithTag("DynamicForce");
 
         for(int i = 0; i < dragableF.Length; i++)
         {
@@ -267,7 +273,7 @@ public class Particle : MonoBehaviour
         return fluxForce;
     }
 
-    public void setProperties(List<bool> properties)
+    public void SetProperties(List<bool> properties)
     {
         this.properties = new bool[4];
         this.properties = properties.ToArray();

@@ -55,7 +55,7 @@ public class SaveLevel : MonoBehaviour {
             case "Beam":
                 id = 0;
                 beamProperties = new StringBuilder();
-                beamList = gameObj.GetComponent<Beam>().getProperties();
+                beamList = gameObj.GetComponent<Beam>().GetProperties();
                 foreach (bool i in beamList) {
                     beamProperties.Append(i ? 1 : 2);
                 }

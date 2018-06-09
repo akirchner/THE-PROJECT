@@ -10,18 +10,24 @@ public class Beam : MonoBehaviour
     public int angle, charge;
     public Rigidbody2D particle, particleClone;
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
+    GameObject[] dragableF, staticF, dynamicF;
     List<bool> mOut;
     public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
     private List<Sprite> sprites;
     private List<string> spriteChecker;
-    private string grav, elec, flux;
+    private string grav, elec, flux, spriteSearcher;
     private Vector2 velocity;
+    private List<GameObject[]> mForces;
+    Sprite[] spriteArray;
+    string[] stringChecker; // = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
     // Use this for initialization
     void Start()
     {
         sprites = new List<Sprite>();
         spriteChecker = new List<string>();
+        mOut = new List<bool>();
+        mForces = new List<GameObject[]>();
 
         sprites.Add(g);
         sprites.Add(p);
@@ -50,6 +56,7 @@ public class Beam : MonoBehaviour
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
+        UpdateForces();
     }
 
     // Update is called once per frame
@@ -62,7 +69,6 @@ public class Beam : MonoBehaviour
         }
 
         SetSprite();
-
     }
 
     void Spawn(Rigidbody2D item)
@@ -70,8 +76,9 @@ public class Beam : MonoBehaviour
         velocity = Quaternion.AngleAxis(this.transform.eulerAngles.z, Vector3.forward) * Vector2.up;
         velocity.Normalize();
 
-        particleClone = Instantiate(item, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-        particleClone.GetComponent<Particle>().setProperties(getProperties());
+        particleClone = Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        particleClone.GetComponent<Particle>().SetProperties(GetProperties());
+        particleClone.transform.SetParent(transform);
 
         particleClone.AddForce(velocity * 400f, ForceMode2D.Impulse);
     }
@@ -83,8 +90,8 @@ public class Beam : MonoBehaviour
         mBeamPositive = beamPositive;
     }
 
-    public List<bool> getProperties() {
-        mOut = new List<bool>();
+    public List<bool> GetProperties() {
+        mOut.Clear();
         mOut.Add(mReactGrav);
         mOut.Add(mReactElec);
         mOut.Add(mReactFlux);
@@ -129,9 +136,9 @@ public class Beam : MonoBehaviour
             flux = "";
         }
 
-        string spriteSearcher = (grav + elec + flux);
-        Sprite[] spriteArray = sprites.ToArray();
-        string[] stringChecker = spriteChecker.ToArray();
+        spriteSearcher = (grav + elec + flux);
+        spriteArray = sprites.ToArray();
+        stringChecker = spriteChecker.ToArray();
 
         for(int i = 0; i < spriteArray.Length; i++)
         {
@@ -141,5 +148,18 @@ public class Beam : MonoBehaviour
             }
         }
         
+    }
+
+    public void UpdateForces() 
+    {
+        mForces.Clear();
+        mForces.Add(GameObject.FindGameObjectsWithTag("DragableForce"));
+        mForces.Add(GameObject.FindGameObjectsWithTag("StaticForce"));
+        mForces.Add(GameObject.FindGameObjectsWithTag("DynamicForce"));
+	}
+
+    public List<GameObject[]> GetActiveForces() 
+    {
+        return mForces;
     }
 }
