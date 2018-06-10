@@ -18,9 +18,6 @@ public class DragAndDrop : MonoBehaviour
         Vector3 curPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z); 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
         GetComponent<Rigidbody2D>().MovePosition(worldPos); 
-        //update here
-        GameObject.FindGameObjectsWithTag("Beam")[0].GetComponent<Beam>().UpdateForces();
-
     }
 
 	private void Update()

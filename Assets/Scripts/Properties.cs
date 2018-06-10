@@ -27,17 +27,22 @@ public class Properties : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		//setSize(size);
-		
+        setType(type);
+        Beam.UpdateForces(gameObject, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-		setType (type);
+        
     }
 
-    void setSize(float newSize)
+	private void OnDestroy()
+	{
+        Beam.UpdateForces(gameObject, false);
+	}
+
+	void setSize(float newSize)
     {
         GetComponent<Transform>().localScale = new Vector3(newSize, newSize, newSize);
     }
@@ -57,6 +62,7 @@ public class Properties : MonoBehaviour
 			this.GetComponent<SpriteRenderer> ().sprite = elecSprite;
             break;
         }
+
     }
 
     public ForceType getType()

@@ -40,10 +40,7 @@ public class PlaceForce : MonoBehaviour {
 			decrment = true;
 			mousePos = ConvertToWorldUnits (Input.mousePosition);
             temp = Instantiate (force, mousePos, rotation);
-			temp.GetComponent<Properties>().setType (activeForce);
-            //update here
-            GameObject.FindGameObjectsWithTag("Beam")[0].GetComponent<Beam>().UpdateForces();
-
+			temp.GetComponent<Properties>().setType (activeForce); 
 
 		}
 

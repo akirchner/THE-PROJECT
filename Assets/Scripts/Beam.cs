@@ -14,20 +14,17 @@ public class Beam : MonoBehaviour
     List<bool> mOut;
     public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
     private List<Sprite> sprites;
-    private List<string> spriteChecker;
     private string grav, elec, flux, spriteSearcher;
     private Vector2 velocity;
-    private List<GameObject[]> mForces;
+    public static readonly List<GameObject> mForces = new List<GameObject>();
     Sprite[] spriteArray;
-    string[] stringChecker; // = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
+    static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
     // Use this for initialization
     void Start()
     {
         sprites = new List<Sprite>();
-        spriteChecker = new List<string>();
         mOut = new List<bool>();
-        mForces = new List<GameObject[]>();
 
         sprites.Add(g);
         sprites.Add(p);
@@ -41,22 +38,9 @@ public class Beam : MonoBehaviour
         sprites.Add(gpf);
         sprites.Add(gnf);
 
-        spriteChecker.Add("g");
-        spriteChecker.Add("p");
-        spriteChecker.Add("n");
-        spriteChecker.Add("f");
-        spriteChecker.Add("gp");
-        spriteChecker.Add("gn");
-        spriteChecker.Add("gf");
-        spriteChecker.Add("pf");
-        spriteChecker.Add("nf");
-        spriteChecker.Add("gpf");
-        spriteChecker.Add("gnf");
-
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
-        UpdateForces();
     }
 
     // Update is called once per frame
@@ -102,7 +86,7 @@ public class Beam : MonoBehaviour
 
     public void SetSprite()
     {
-        if(mReactGrav)
+        if (mReactGrav)
         {
             grav = "g";
         }
@@ -111,16 +95,13 @@ public class Beam : MonoBehaviour
             grav = "";
         }
 
-        if(mReactElec)
+        if (mReactElec && mBeamPositive)
         {
-            if(mBeamPositive)
-            {
-                elec = "p";
-            }
-            else
-            {
-                elec = "n";
-            }
+            elec = "p";
+        }
+        else if (mReactElec)
+        {
+            elec = "n";
         }
         else
         {
@@ -137,28 +118,30 @@ public class Beam : MonoBehaviour
         }
 
         spriteSearcher = (grav + elec + flux);
-        spriteArray = sprites.ToArray();
-        stringChecker = spriteChecker.ToArray();
 
-        for(int i = 0; i < spriteArray.Length; i++)
+        for(int i = 0; i < sprites.Count; i++)
         {
             if(stringChecker[i] == spriteSearcher)
             {
-                this.GetComponent<SpriteRenderer>().sprite = spriteArray[i];
+                this.GetComponent<SpriteRenderer>().sprite = sprites[i];
             }
         }
         
     }
 
-    public void UpdateForces() 
+    public static void UpdateForces(GameObject gameObject, bool active)
     {
-        mForces.Clear();
-        mForces.Add(GameObject.FindGameObjectsWithTag("DragableForce"));
-        mForces.Add(GameObject.FindGameObjectsWithTag("StaticForce"));
-        mForces.Add(GameObject.FindGameObjectsWithTag("DynamicForce"));
+        if (active)
+        {
+            mForces.Add(gameObject);
+        }
+        else 
+        {
+            mForces.Remove(gameObject);
+        }
 	}
 
-    public List<GameObject[]> GetActiveForces() 
+    public List<GameObject> GetActiveForces() 
     {
         return mForces;
     }
