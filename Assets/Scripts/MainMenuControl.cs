@@ -7,6 +7,8 @@ public class MainMenuControl : MonoBehaviour {
 
 	public void LoadScene (string level){
 
+        GameProperties.previousLevel = GameProperties.currentLevel;
+
         if (level.Substring(0, 4).ToUpper() == "PACK")
         {
             GameProperties.currentLevelPack = level.Substring(5, 1);
@@ -24,11 +26,21 @@ public class MainMenuControl : MonoBehaviour {
             }
         }
 
+        if (level == "PreviousLevel")
+        {
+            level = GameProperties.previousLevel;
+        }
+
 		SceneManager.LoadScene (level);
+        GameProperties.currentLevel = level;
+        Debug.Log("CurrentLevel: " + GameProperties.currentLevel);
+        Debug.Log("PreviousLevel: " + GameProperties.previousLevel);
 
 	}
 
 	public void SelectLevel (string filePath){
+
+        Debug.Log(filePath);
 
 		GameProperties.levelFilename = filePath;
 
@@ -38,7 +50,7 @@ public class MainMenuControl : MonoBehaviour {
             GameProperties.levelFilename = "defaultLevel.txt";
         }
         
-		SceneManager.LoadScene ("Level");
+	    LoadScene ("Level");
 
     }
 }
