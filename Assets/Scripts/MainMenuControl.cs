@@ -33,14 +33,11 @@ public class MainMenuControl : MonoBehaviour {
 
 		SceneManager.LoadScene (level);
         GameProperties.currentLevel = level;
-        Debug.Log("CurrentLevel: " + GameProperties.currentLevel);
-        Debug.Log("PreviousLevel: " + GameProperties.previousLevel);
 
 	}
 
-	public void SelectLevel (string filePath){
-
-        Debug.Log(filePath);
+	public void SelectLevel (string filePath)
+    {
 
 		GameProperties.levelFilename = filePath;
 
