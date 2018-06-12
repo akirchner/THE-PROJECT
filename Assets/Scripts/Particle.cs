@@ -180,8 +180,8 @@ public class Particle : MonoBehaviour
             }
         }
 
-        elecForce[0] = totalXForce;
-        elecForce[1] = totalYForce;
+        elecForce.x = totalXForce;
+        elecForce.y = totalYForce;
 
         return elecForce;
     }
@@ -220,8 +220,8 @@ public class Particle : MonoBehaviour
             }
         }
 
-        fluxForce[0] = totalXForce;
-        fluxForce[1] = totalYForce;
+        fluxForce.x = totalXForce;
+        fluxForce.y = totalYForce;
 
         return fluxForce;
     }
