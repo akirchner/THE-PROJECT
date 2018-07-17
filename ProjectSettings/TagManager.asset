@@ -15,6 +15,7 @@ TagManager:
   - edge
   - Mirror
   - FakeWall
+  - Wormhole
   layers:
   - Default
   - TransparentFX
