@@ -1,37 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class newParticle : MonoBehaviour {
+public class newParticle : MonoBehaviour,  IPointerDownHandler {
 
 	//all the sprites
 	public Sprite gravSprite, elecSprite, fluxSprite, hGravSprite, hElecSprite, hFluxSprite, transparentSprite;
 
-	public Transform Place;
+	public Transform closeButton;
 	public Text numberText;
 	public Image forceSprite;
 	public int numAvailable = 1;
 	public ForceType type;
 
+
+	public Transform force;
+	public ForceType activeForce = ForceType.Empty;
+	Vector3 mousePos = new Vector3();
+	Quaternion rotation = Quaternion.identity;
+	public bool decrment = false;
+
+	//items for pixel to world unit conversion
+	public Vector2 WorldUnitsInCamera;
+	public Vector2 WorldToPixelAmount;
+	public GameObject Camera;
+
 	// Use this for initialization
 	void Start () {
         
+		activeForce = type;
 		numberText.text = numAvailable.ToString();
 		setSprite ();
+
+		//Finding Pixel To World Unit Conversion Based On Orthographic Size Of Camera
+		WorldUnitsInCamera.y = Camera.GetComponent<Camera>().orthographicSize * 2;
+		WorldUnitsInCamera.x = WorldUnitsInCamera.y * Screen.width / Screen.height;
+
+		WorldToPixelAmount.x = Screen.width / WorldUnitsInCamera.x;
+		WorldToPixelAmount.y = Screen.height / WorldUnitsInCamera.y;
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Place.GetComponent<PlaceForce> ().activeForce == type){
+		if (activeForce == type){
 			
-			if (Place.GetComponent<PlaceForce> ().decrment) {
+			if (decrment) {
 				
 				numAvailable--;
-				Place.GetComponent<PlaceForce> ().decrment = false;
-				Place.GetComponent<PlaceForce> ().activeForce = ForceType.Empty;
+				decrment = false;
+				activeForce = ForceType.Empty;
 			
 			}
 		}
@@ -46,29 +68,33 @@ public class newParticle : MonoBehaviour {
 
     }
 
-	public void Activate() {
-
-		if (Place.GetComponent<PlaceForce> ().activeForce == type) {
-
-			Place.GetComponent<PlaceForce> ().activeForce = ForceType.Empty;
-
-		} 
-		else if (numAvailable > 0) {
+	//detects the first half of a click, the pointer down.
+	public void OnPointerDown(PointerEventData data){
 		
-			Place.GetComponent<PlaceForce> ().activeForce = type;
-		
-		} 
-		else {
+		closeButton.GetComponent<ClosePannel> ().Close();
+		place ();
 
-			Place.GetComponent<PlaceForce> ().activeForce = ForceType.Empty;
+	}
+
+	public void place(){
+
+		if (activeForce != ForceType.Empty) {
+
+			Transform temp;
+			decrment = true;
+			mousePos = ConvertToWorldUnits (Input.mousePosition);
+			temp = Instantiate (force, mousePos, rotation);
+			temp.GetComponent<Properties>().setType (activeForce);
+			temp.GetComponent<DragAndDrop> ().click ();
 
 		}
+
 	}
 
 	void setSprite (){
 
         if (numAvailable > 0) {
-            if (Place.GetComponent<PlaceForce>().activeForce == type) {
+            /*if (Place.GetComponent<PlaceForce>().activeForce == type) {
 
                 switch (type) {
                 case ForceType.Graviton:
@@ -83,7 +109,7 @@ public class newParticle : MonoBehaviour {
                 }
 
             }
-            else {
+            else {*/
 
                 switch (type) {
                 case ForceType.Graviton:
@@ -96,11 +122,24 @@ public class newParticle : MonoBehaviour {
                     this.GetComponent<Image>().sprite = elecSprite;
                     break;
                 }
-            }
+            //}
             this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         }
         else {
             this.GetComponent<Image>().color = new Color (0f, 0f, 0f, 0f);
         }
 	}
+		
+	public Vector2 ConvertToWorldUnits(Vector2 TouchLocation) {
+
+		Vector2 returnVec2;
+
+		returnVec2.x = ((TouchLocation.x / WorldToPixelAmount.x) - (WorldUnitsInCamera.x / 2)) +
+			Camera.transform.position.x;
+		returnVec2.y = ((TouchLocation.y / WorldToPixelAmount.y) - (WorldUnitsInCamera.y / 2)) +
+			Camera.transform.position.y;
+
+		return returnVec2;
+	}
+
 }

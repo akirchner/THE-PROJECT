@@ -129,7 +129,13 @@ MonoBehaviour:
   numberText: {fileID: 114066291270741956}
   forceSprite: {fileID: 114086033191229068}
   numAvailable: 1
-  type: 2
+  type: 0
+  force: {fileID: 4327935188189770, guid: cfd49b241ae2ee4409d63bcc73b4242b, type: 2}
+  activeForce: 3
+  decrment: 0
+  WorldUnitsInCamera: {x: 0, y: 0}
+  WorldToPixelAmount: {x: 0, y: 0}
+  Camera: {fileID: 0}
 --- !u!114 &114908396491766602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -201,7 +207,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1949224447640016}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -209,8 +215,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2166529, y: 0.34}
-  m_AnchorMax: {x: 0.7833471, y: 0.5}
+  m_AnchorMin: {x: 0.21665289, y: 0.59}
+  m_AnchorMax: {x: 0.78334713, y: 0.75}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -230,5 +236,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -12.5}
-  m_SizeDelta: {x: 0, y: -24.999998}
+  m_SizeDelta: {x: 0, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
