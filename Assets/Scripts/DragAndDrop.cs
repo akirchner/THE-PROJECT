@@ -7,25 +7,25 @@ using UnityEngine.Events;
 public class DragAndDrop : MonoBehaviour
 {
     private Vector3 screenPoint;
-	bool isDragged = false;
+	public bool isDragged = false;
 
-	void OnMouseDown(){
+	public void OnMouseDown(){
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		isDragged = true;
     }
 
-	void OnMouseUp(){
-		isDragged = false;
-	}
-
-	public void click(){
+	//void OnMouseUp(){
 		
-		OnMouseDown ();
+		//isDragged = false;
 	
-	}
+	//}
 
 	private void Update()
 	{	
+		if (Input.GetMouseButtonUp(0)) {
+			isDragged = false;
+		}
+
 		if (isDragged) {
 			Vector3 curPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, screenPoint.z); 
 			Vector3 worldPos = Camera.main.ScreenToWorldPoint (curPos);

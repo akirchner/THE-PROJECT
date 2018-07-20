@@ -85,7 +85,7 @@ public class newParticle : MonoBehaviour,  IPointerDownHandler {
 			mousePos = ConvertToWorldUnits (Input.mousePosition);
 			temp = Instantiate (force, mousePos, rotation);
 			temp.GetComponent<Properties>().setType (activeForce);
-			temp.GetComponent<DragAndDrop> ().click ();
+			temp.GetComponent<DragAndDrop> ().OnMouseDown ();
 
 		}
 
