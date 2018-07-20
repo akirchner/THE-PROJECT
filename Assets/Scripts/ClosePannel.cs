@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ClosePannel : MonoBehaviour {
 
-	public RectTransform panel, place;
+	public RectTransform panel;
 	public Vector2 offMin = new Vector2 (.82f,0f);
 	public Vector2 offMax = new Vector2 (1f,1f);
 	public Vector2 onMin = new Vector2 (.98f,0f);
@@ -16,12 +16,7 @@ public class ClosePannel : MonoBehaviour {
 	void Start () {
 		Close ();
     }
-	
-	// Update is called once per frame
-	void Update () {
 		
-	}
-
 	public void Close () {
 
 		if (onScreen == false){

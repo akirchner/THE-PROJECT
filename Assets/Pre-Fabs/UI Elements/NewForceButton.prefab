@@ -121,20 +121,12 @@ MonoBehaviour:
   gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
   elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
   fluxSprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
-  hGravSprite: {fileID: 21300000, guid: e5d3c5f26eb3ad74387a8607a16faecc, type: 3}
-  hElecSprite: {fileID: 21300000, guid: 224491b5c94ecbd45bf59a0fc194bbb2, type: 3}
-  hFluxSprite: {fileID: 21300000, guid: 000c58e1c217d9843ab926d765fc8587, type: 3}
-  transparentSprite: {fileID: 21300000, guid: 6cb62d6bed3528d4e85b1e5eed313c17, type: 3}
-  Place: {fileID: 0}
+  closeButton: {fileID: 224318402754936800, guid: 8f6a8361a8ad20a41a145a46cfac37e3,
+    type: 2}
   numberText: {fileID: 114066291270741956}
-  forceSprite: {fileID: 114086033191229068}
   numAvailable: 1
   type: 0
   force: {fileID: 4327935188189770, guid: cfd49b241ae2ee4409d63bcc73b4242b, type: 2}
-  activeForce: 3
-  decrment: 0
-  WorldUnitsInCamera: {x: 0, y: 0}
-  WorldToPixelAmount: {x: 0, y: 0}
   Camera: {fileID: 0}
 --- !u!114 &114908396491766602
 MonoBehaviour:

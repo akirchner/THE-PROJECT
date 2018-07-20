@@ -7,30 +7,26 @@ using UnityEngine.UI;
 public class newParticle : MonoBehaviour,  IPointerDownHandler {
 
 	//all the sprites
-	public Sprite gravSprite, elecSprite, fluxSprite, hGravSprite, hElecSprite, hFluxSprite, transparentSprite;
+	public Sprite gravSprite, elecSprite, fluxSprite;
 
 	public Transform closeButton;
 	public Text numberText;
-	public Image forceSprite;
 	public int numAvailable = 1;
-	public ForceType type;
+	public ForceType type = ForceType.Empty;
 
 
 	public Transform force;
-	public ForceType activeForce = ForceType.Empty;
 	Vector3 mousePos = new Vector3();
 	Quaternion rotation = Quaternion.identity;
-	public bool decrment = false;
 
 	//items for pixel to world unit conversion
-	public Vector2 WorldUnitsInCamera;
-	public Vector2 WorldToPixelAmount;
+	Vector2 WorldUnitsInCamera;
+	Vector2 WorldToPixelAmount;
 	public GameObject Camera;
 
 	// Use this for initialization
 	void Start () {
         
-		activeForce = type;
 		numberText.text = numAvailable.ToString();
 		setSprite ();
 
@@ -47,20 +43,11 @@ public class newParticle : MonoBehaviour,  IPointerDownHandler {
 	// Update is called once per frame
 	void Update () {
 
-		if (activeForce == type){
-			
-			if (decrment) {
-				
-				numAvailable--;
-				decrment = false;
-				activeForce = ForceType.Empty;
-			
-			}
-		}
-
 		setSprite ();
+
         if (numAvailable > 0) {
-            numberText.text = numAvailable.ToString();
+            //displays the number of a certain force remaining in the "Bank"
+			numberText.text = numAvailable.ToString();
         }
         else {
             numberText.text = "";
@@ -70,7 +57,8 @@ public class newParticle : MonoBehaviour,  IPointerDownHandler {
 
 	//detects the first half of a click, the pointer down.
 	public void OnPointerDown(PointerEventData data){
-		
+
+		//closes the force drawer and places a force where the button used to be
 		closeButton.GetComponent<ClosePannel> ().Close();
 		place ();
 
@@ -78,39 +66,22 @@ public class newParticle : MonoBehaviour,  IPointerDownHandler {
 
 	public void place(){
 
-		if (activeForce != ForceType.Empty) {
-
+		if (type != ForceType.Empty) {
+			//creates the new force at the current mouse position, sets its type to match the button, and makes it dragable 
 			Transform temp;
-			decrment = true;
-			mousePos = ConvertToWorldUnits (Input.mousePosition);
-			temp = Instantiate (force, mousePos, rotation);
-			temp.GetComponent<Properties>().setType (activeForce);
-			temp.GetComponent<DragAndDrop> ().OnMouseDown ();
+			numAvailable--; //removes a force from the "bank"
+			mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
+			temp = Instantiate (force, mousePos, rotation); //creates the force
+			temp.GetComponent<Properties> ().setType (type); //sets its type
+			temp.GetComponent<DragAndDrop> ().OnMouseDown (); //initiates dragging via DragAndDrop Script
 
 		}
 
 	}
 
 	void setSprite (){
-
+		//sets the sprite to the proper image based on the type enum.
         if (numAvailable > 0) {
-            /*if (Place.GetComponent<PlaceForce>().activeForce == type) {
-
-                switch (type) {
-                case ForceType.Graviton:
-                    this.GetComponent<Image>().sprite = hGravSprite;
-                    break;
-                case ForceType.Fluxion:
-                    this.GetComponent<Image>().sprite = hFluxSprite;
-                    break;
-                case ForceType.Electron:
-                    this.GetComponent<Image>().sprite = hElecSprite;
-                    break;
-                }
-
-            }
-            else {*/
-
                 switch (type) {
                 case ForceType.Graviton:
                     this.GetComponent<Image>().sprite = gravSprite;
@@ -122,14 +93,17 @@ public class newParticle : MonoBehaviour,  IPointerDownHandler {
                     this.GetComponent<Image>().sprite = elecSprite;
                     break;
                 }
-            //}
+			//shows the image by setting its opacity to full
             this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+
         }
         else {
+			//hides the empty button by setting its opacity to 0
             this.GetComponent<Image>().color = new Color (0f, 0f, 0f, 0f);
         }
 	}
-		
+
+	//converts pixel units to world units, I don't really know how
 	public Vector2 ConvertToWorldUnits(Vector2 TouchLocation) {
 
 		Vector2 returnVec2;
