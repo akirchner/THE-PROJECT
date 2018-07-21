@@ -7,7 +7,8 @@ using System.Timers;
 public class Finalization : MonoBehaviour
 {
 
-    public int targetCount;
+	public bool isTutorial = false;
+	public int targetCount;
     public Transform ProgressBar;
     int mParticleCount, mDecrementDelay;
     bool mFull;
@@ -30,12 +31,21 @@ public class Finalization : MonoBehaviour
 	void Update () {
 
         foreach (GameObject i in mGoals) {
+			
             mEnd.Add(i.GetComponent<Finalization>().isFull());
-        }
+        
+		}
 
         if (mEnd.TrueForAll(x => x)) {
-            Initiate.Fade("End", Color.black, 4f);
-        } else {
+            
+			if (isTutorial) {
+				Initiate.Fade ("TutorialEnd", Color.black, 4f);
+			} 
+			else {
+				Initiate.Fade ("End", Color.black, 4f);
+			}
+		} 
+		else {
             mEnd.Clear();
         }
 
