@@ -141,40 +141,40 @@ public class Particle : MonoBehaviour
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce += force;
+                        totalXForce -= force;
                     }
                     else
                     {
-                        totalXForce -= force;
+                        totalXForce += force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce += force;
+                        totalYForce -= force;
                     }
                     else
                     {
-                        totalYForce -= force;
+                        totalYForce += force;
                     }
                 }
                 else
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce -= force;
+                        totalXForce += force;
                     }
                     else
                     {
-                        totalXForce += force;
+                        totalXForce -= force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce -= force;
+                        totalYForce += force;
                     }
                     else
                     {
-                        totalYForce += force;
+                        totalYForce -= force;
                     }
                 }
             }
