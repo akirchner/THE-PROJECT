@@ -254,8 +254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  The beam can be manipuated  \nwith forces found in the \n drawer on the
-    right, drag \n one onto the target "
+  m_Text: " The yellow force is an \n electron, which either attracts \n and repels
+    the beam depending \n on the beam's charge "
 --- !u!222 &60138433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -329,8 +329,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " The goal of the game is to \ndirect the beam, generated on \n the left,
-    into the Goal on the right. "
+  m_Text: " These beams react to the electric force, \n yellow, and have either positive
+    or negative \n charge, shown on the base of the generator  "
 --- !u!222 &66071965
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -779,7 +779,7 @@ RectTransform:
   m_GameObject: {fileID: 380516824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 66071963}
   m_Father: {fileID: 1127616501}
