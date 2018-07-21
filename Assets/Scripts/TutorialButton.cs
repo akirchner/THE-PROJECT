@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialButton : MonoBehaviour {
 
-	int currentStatus = 1;
+	public int currentStatus = 1;
 	public Transform close;
     public GameObject button1,button2,button3,target;
 
@@ -36,18 +36,20 @@ public class TutorialButton : MonoBehaviour {
 				target.GetComponent<Transform> ().position = (new Vector3 (1000, 0, 0));
 				break;
 
-			case 2:
+		case 2:
 				
 						//turn button1 off by setting its scale to 0
-				button1.GetComponent<Transform> ().localScale = (new Vector3 (0, 0, 0));
-       	        		//turn button2 on by setting its scale to 1
+			button1.GetComponent<Transform> ().localScale = (new Vector3 (0, 0, 0));
+			if (button2 != null) {
+				//turn button2 on by setting its scale to 1
 				button2.GetComponent<Transform> ().localScale = (new Vector3 (1, 1, 0));
-						//turn button3 off by setting its scale to 0
-				button3.GetComponent<Transform> ().localScale = (new Vector3 (0, 0, 0));
-				if (target != null) {
-					//move target onto screen
-					target.GetComponent<Transform> ().position = (new Vector3 (-10, 12, 0));
-				}
+			}		
+				//turn button3 off by setting its scale to 0
+			button3.GetComponent<Transform> ().localScale = (new Vector3 (0, 0, 0));
+			if (target != null) {
+				//move target onto screen
+				target.GetComponent<Transform> ().position = (new Vector3 (-10, 12, 0));
+			}
                 break;
 			default:
 				break;
