@@ -484,6 +484,7 @@ MonoBehaviour:
   wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
   beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
   mirror: {fileID: 0}
+  wormhole: {fileID: 0}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
@@ -631,6 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e59df688e274f248bfd76d2fe6c9fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStatus: 1
   close: {fileID: 1902732006}
   button1: {fileID: 0}
   button2: {fileID: 0}
@@ -2017,6 +2019,11 @@ Prefab:
       propertyPath: m_Name
       value: Goal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114022360051555780, guid: aabc3b81e8d63664cb4d8ead8307bf0f,
+        type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
   m_IsPrefabParent: 0
@@ -2110,6 +2117,11 @@ Prefab:
     - target: {fileID: 1844638754330038, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
       propertyPath: m_Name
       value: Goal (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022360051555780, guid: aabc3b81e8d63664cb4d8ead8307bf0f,
+        type: 2}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
@@ -2969,6 +2981,11 @@ Prefab:
     - target: {fileID: 1844638754330038, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
       propertyPath: m_Name
       value: Goal (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022360051555780, guid: aabc3b81e8d63664cb4d8ead8307bf0f,
+        type: 2}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabc3b81e8d63664cb4d8ead8307bf0f, type: 2}
