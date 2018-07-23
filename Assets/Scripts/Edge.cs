@@ -38,9 +38,9 @@ public class Edge : MonoBehaviour
                 {
                     if (canBeTeleported)
                     {
-                        Vector3 relativeDisplacement = new Vector3(Mathf.Abs(this.gameObject.transform.position.x) - Mathf.Abs(col.transform.position.x), Mathf.Abs(this.gameObject.transform.position.y) - Mathf.Abs(col.transform.position.y), 0);
+                        Vector3 relativeDisplacement = new Vector3(this.gameObject.transform.position.x - col.transform.position.x, this.gameObject.transform.position.y - col.transform.position.y, 0);
                         this.gameObject.transform.position = wormholes[i].transform.position;
-                        this.gameObject.transform.position -= relativeDisplacement;
+                        this.gameObject.transform.position += relativeDisplacement;
                         canBeTeleported = false;
                         initialMillis = timer.ElapsedMilliseconds;
                     }
