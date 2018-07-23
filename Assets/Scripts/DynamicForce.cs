@@ -42,6 +42,7 @@ public class DynamicForce : MonoBehaviour
         currentX = transform.position.x;
         currentY = transform.position.y;
 
+
         foreach (GameObject i in mActiveForces)
         {
             switch (i.GetComponent<Properties>().type)
