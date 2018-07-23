@@ -38,7 +38,7 @@ public class DynamicForce : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        mActiveForces = mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
+        mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
         currentX = transform.position.x;
         currentY = transform.position.y;
 
