@@ -4,290 +4,251 @@ using UnityEngine;
 
 public class DynamicForce : MonoBehaviour
 {
-    List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mass, charge, fluxcapacity;
+    List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mMass, mCharge, mFluxCapacity;
+    public bool reactGrav, reactElec, reactFlux, positiveCharge;
+    List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
-    List<GameObject> allObjects;
     float currentX, currentY;
+    Vector2 gravForce, elecForce, fluxForce, resultant;
     public float gravityConstant = 1;
     public float electricConstant = 1;
     public float fluxConstant = 1;
-    public bool affectedByGravity;
-    public bool affectedByElec;
-    public bool affectedByFlux;
-    public bool positiveCharge = false;
     public Rigidbody2D rb;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         gravDistanceX = new List<float>();
         gravDistanceY = new List<float>();
         elecDistanceX = new List<float>();
         elecDistanceY = new List<float>();
         fluxDistanceX = new List<float>();
         fluxDistanceY = new List<float>();
-        allObjects = new List<GameObject>();
-        mass = new List<float>();
-        charge = new List<float>();
-        fluxcapacity = new List<float>();
+        mMass = new List<float>();
+        mCharge = new List<float>();
+        mFluxCapacity = new List<float>();
+        mActiveForces = new List<GameObject>();
+        gravForce = new Vector2();
+        elecForce = new Vector2();
+        fluxForce = new Vector2();
+        resultant = new Vector2();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        dragableF = GameObject.FindGameObjectsWithTag("DragableForce");
-        staticF = GameObject.FindGameObjectsWithTag("StaticForce");
-        dynamicF = GameObject.FindGameObjectsWithTag("DynamicForce");
+        mActiveForces = mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
+        currentX = transform.position.x;
+        currentY = transform.position.y;
 
-        for (int i = 0; i < dragableF.Length; i++)
+        foreach (GameObject i in mActiveForces)
         {
-            allObjects.Add(dragableF[i]);
-        }
-
-        for (int i = 0; i < staticF.Length; i++)
-        {
-            allObjects.Add(staticF[i]);
-        }
-
-        for (int i = 0; i < dynamicF.Length; i++)
-        {
-            allObjects.Add(dynamicF[i]);
-        }
-
-        currentX = this.transform.position.x;
-        currentY = this.transform.position.y;
-        float[] gravForce, elecForce, fluxForce;
-        gravForce = new float[2];
-        elecForce = new float[2];
-        fluxForce = new float[2];
-
-        float resultantXForce = 0;
-        float resultantYForce = 0;
-
-        for (int i = 0; i < allObjects.ToArray().Length; i++)
-        {
-            try
+            switch (i.GetComponent<Properties>().type)
             {
-                switch (allObjects[i].GetComponent<Properties>().type)
-                {
-                    case ForceType.Graviton:
-                        gravDistanceX.Add((float)allObjects[i].transform.position.x);
-                        gravDistanceY.Add((float)allObjects[i].transform.position.y);
-                        mass.Add((float)allObjects[i].GetComponent<Properties>().size);
-                        break;
-                    case ForceType.Electron:
-                        elecDistanceX.Add((float)allObjects[i].transform.position.x);
-                        elecDistanceY.Add((float)allObjects[i].transform.position.y);
-                        charge.Add((float)allObjects[i].GetComponent<Properties>().size);
-                        break;
-                    case ForceType.Fluxion:
-                        fluxDistanceX.Add((float)allObjects[i].transform.position.x);
-                        fluxDistanceY.Add((float)allObjects[i].transform.position.y);
-                        fluxcapacity.Add((float)allObjects[i].GetComponent<Properties>().size);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            catch (System.Exception)
-            {
-
+                case ForceType.Graviton:
+                    gravDistanceX.Add((float)i.transform.position.x);
+                    gravDistanceY.Add((float)i.transform.position.y);
+                    mMass.Add((float)i.GetComponent<Properties>().size);
+                    break;
+                case ForceType.Electron:
+                    elecDistanceX.Add((float)i.transform.position.x);
+                    elecDistanceY.Add((float)i.transform.position.y);
+                    mCharge.Add((float)i.GetComponent<Properties>().size);
+                    break;
+                case ForceType.Fluxion:
+                    fluxDistanceX.Add((float)i.transform.position.x);
+                    fluxDistanceY.Add((float)i.transform.position.y);
+                    mFluxCapacity.Add((float)i.GetComponent<Properties>().size);
+                    break;
+                default:
+                    break;
             }
         }
 
-        gravForce = gravity(gravDistanceX.ToArray(), gravDistanceY.ToArray(), mass.ToArray());
-        elecForce = electrostatic(elecDistanceX.ToArray(), elecDistanceY.ToArray(), charge.ToArray());
-        fluxForce = flux(fluxDistanceX.ToArray(), fluxDistanceY.ToArray(), fluxcapacity.ToArray());
+        elecForce = Electrostatic(elecDistanceX, elecDistanceY, mCharge, reactElec);
+        fluxForce = Flux(fluxDistanceX, fluxDistanceY, mFluxCapacity, reactFlux);
+        gravForce = Gravity(gravDistanceX, gravDistanceY, mMass, reactGrav);
 
-        if (!affectedByGravity)
-        {
-            gravForce[0] = 0;
-            gravForce[1] = 0;
-        }
-
-        if (!affectedByElec)
-        {
-            elecForce[0] = 0;
-            elecForce[1] = 0;
-        }
-
-        if (!affectedByFlux)
-        {
-            fluxForce[0] = 0;
-            fluxForce[1] = 0;
-        }
-
-        resultantXForce = (gravForce[0] + elecForce[0] + fluxForce[0]);
-        resultantYForce = (gravForce[1] + elecForce[1] + fluxForce[1]);
-
-        Vector2 resultant = new Vector2(resultantXForce, resultantYForce);
+        resultant = gravForce + elecForce + fluxForce;
         rb.AddForce(resultant, ForceMode2D.Impulse);
+
         gravDistanceX.Clear();
         gravDistanceY.Clear();
-        mass.Clear();
+        mMass.Clear();
         elecDistanceX.Clear();
         elecDistanceY.Clear();
-        charge.Clear();
+        mCharge.Clear();
         fluxDistanceX.Clear();
         fluxDistanceY.Clear();
-        fluxcapacity.Clear();
+        mFluxCapacity.Clear();
     }
 
-    private float[] gravity(float[] xDistance, float[] yDistance, float[] mass)
+    private Vector2 Gravity(List<float> xDistance, List<float> yDistance, List<float> mass, bool active)
     {
-
         float totalXForce = 0;
         float totalYForce = 0;
-        
-        for (int i = 0; i < xDistance.Length; i++)
+        float force;
+
+        if (active)
         {
-
-            if(xDistance[i] == currentX && yDistance[i] == currentY)
-            {
-
-            }
-            else
+            for (int i = 0; i < xDistance.Count; i++)
             {
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+                float distanceMagnitude = distance.magnitude;
+
+                if(distanceMagnitude <= 5)
+                {
+                    distanceMagnitude = 5;
+                }
+
+                force = (mass[i] * gravityConstant) / (Mathf.Pow(distanceMagnitude, 2));
 
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce -= (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalXForce -= force;
                 }
                 else
                 {
-                    totalXForce += (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalXForce += force;
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce -= (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalYForce -= force;
                 }
                 else
                 {
-                    totalYForce += (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalYForce += force;
                 }
             }
-
-            
         }
 
-        float[] gravForce = new float[2];
-        gravForce[0] = totalXForce;
-        gravForce[1] = totalYForce;
+        gravForce.x = totalXForce;
+        gravForce.y = totalYForce;
 
         return gravForce;
     }
 
-    private float[] electrostatic(float[] xDistance, float[] yDistance, float[] charge)
+    private Vector2 Electrostatic(List<float> xDistance, List<float> yDistance, List<float> charge, bool active)
     {
         float totalXForce = 0;
         float totalYForce = 0;
+        float force;
 
-        for (int i = 0; i < xDistance.Length; i++)
+        if (active)
         {
-
-            if (xDistance[i] == currentX && yDistance[i] == currentY)
+            for (int i = 0; i < xDistance.Count; i++)
             {
 
-            }
-            else
-            {
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+                float distanceMagnitude = distance.magnitude;
+
+                if(distanceMagnitude <= 5)
+                {
+                    distanceMagnitude = 5;
+                }
+
+                force = (charge[i] * gravityConstant) / (Mathf.Pow(distanceMagnitude, 2));
 
                 if (positiveCharge)
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalXForce -= force;
                     }
                     else
                     {
-                        totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalXForce += force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalYForce -= force;
                     }
                     else
                     {
-                        totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalYForce += force;
                     }
                 }
                 else
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalXForce += force;
                     }
                     else
                     {
-                        totalXForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalXForce -= force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce -= (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalYForce += force;
                     }
                     else
                     {
-                        totalYForce += (charge[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+                        totalYForce -= force;
                     }
                 }
             }
         }
-            
 
-        float[] elecForce = new float[2];
-        elecForce[0] = totalXForce;
-        elecForce[1] = totalYForce;
+        elecForce.x = totalXForce;
+        elecForce.y = totalYForce;
 
         return elecForce;
     }
 
-    private float[] flux(float[] xDistance, float[] yDistance, float[] fluxcapacity)
+    private Vector2 Flux(List<float> xDistance, List<float> yDistance, List<float> fluxcapacity, bool active)
     {
         float totalXForce = 0;
         float totalYForce = 0;
+        float force;
 
-        for (int i = 0; i < xDistance.Length; i++)
+        if (active)
         {
-
-            if(currentX == xDistance[i] && currentY == yDistance[i])
+            for (int i = 0; i < xDistance.Count; i++)
             {
 
-            }
-            else
-            {
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
+                float distanceMagnitude = distance.magnitude;
+
+                if(distanceMagnitude <= 5)
+                {
+                    distanceMagnitude = 5;
+                }
+
+                force = (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distanceMagnitude, 2));
 
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalXForce += force;
                 }
                 else
                 {
-                    totalXForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalXForce -= force;
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce += (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalYForce += force;
                 }
                 else
                 {
-                    totalYForce -= (fluxcapacity[i] * fluxConstant) / (Mathf.Pow(distance.magnitude, 2));
+                    totalYForce -= force;
                 }
             }
         }
 
-        float[] fluxForce = new float[2];
-        fluxForce[0] = totalXForce;
-        fluxForce[1] = totalYForce;
+        fluxForce.x = totalXForce;
+        fluxForce.y = totalYForce;
 
         return fluxForce;
+    }
+
+    public void SetSprite()
+    {
+
     }
 }

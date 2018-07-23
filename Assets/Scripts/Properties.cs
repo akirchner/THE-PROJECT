@@ -22,13 +22,22 @@ public class Properties : MonoBehaviour
 	public Sprite gravSprite;
 	public Sprite elecSprite;
 	public Sprite fluxSprite;
+    public Sprite ef, eg, fg, fn, fp, gf, gn, gp;
     bool mStart;
 
     // Use this for initialization
     void Start()
     {
-        setType(type);
         Beam.UpdateForces(gameObject, true);
+
+        if(this.CompareTag("DynamicForce"))
+        {
+            setSprite();
+        }
+        else
+        {
+            setType(type);
+        }
     }
 
     // Update is called once per frame
@@ -62,6 +71,11 @@ public class Properties : MonoBehaviour
 			this.GetComponent<SpriteRenderer> ().sprite = elecSprite;
             break;
         }
+
+    }
+
+    private void setSprite()
+    {
 
     }
 
