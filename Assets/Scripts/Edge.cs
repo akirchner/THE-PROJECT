@@ -12,6 +12,7 @@ public class Edge : MonoBehaviour
     void Start()
     {
         timer = new System.Diagnostics.Stopwatch();
+        timer.Start();
         wormholes = GameObject.FindGameObjectsWithTag("Wormhole");
         canBeTeleported = true;
     }
@@ -19,7 +20,7 @@ public class Edge : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(timer.ElapsedMilliseconds - initialMillis >= 15)
+        if(timer.ElapsedMilliseconds - initialMillis >= 35)
         {
             canBeTeleported = true;
         }
