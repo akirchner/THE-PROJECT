@@ -528,6 +528,7 @@ MonoBehaviour:
   wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
   beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
   mirror: {fileID: 0}
+  wormhole: {fileID: 0}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
@@ -2964,27 +2965,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &2090452921
-EdgeCollider2D:
+--- !u!114 &2090452921
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2090452916}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 32.001205, y: 20.28075}
-  - {x: 31.871197, y: -20.02074}
-  - {x: -31.831156, y: -20.150745}
-  - {x: -31.831156, y: 19.890734}
-  - {x: 31.961157, y: 20.02074}
-  - {x: 31.831154, y: -20.020742}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec57a25a6fc0450fadf2ca776045205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colDepth: 4
+  zPosition: 0
 --- !u!1001 &2099342253
 Prefab:
   m_ObjectHideFlags: 0
