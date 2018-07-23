@@ -420,6 +420,7 @@ MonoBehaviour:
   wall: {fileID: 4958309095177250, guid: 4cd096e693899b249b9b84d5e35072a7, type: 2}
   beam: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 2}
   mirror: {fileID: 4381810591350326, guid: 66c0576f993c32a4fa19f71a0131c9c2, type: 2}
+  wormhole: {fileID: 4890767343764674, guid: 6969f77b20fe5844f92086c079d7734a, type: 2}
 --- !u!4 &327110789
 Transform:
   m_ObjectHideFlags: 0
@@ -648,7 +649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1370264009}
-  place: {fileID: 0}
   offMin: {x: 0.3, y: 0.3}
   offMax: {x: 0.7, y: 0.7}
   onMin: {x: 0, y: 0}
@@ -1889,7 +1889,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 363995652}
-  place: {fileID: 0}
   offMin: {x: 0.82, y: 0}
   offMax: {x: 1, y: 1}
   onMin: {x: 0.98, y: 0}
