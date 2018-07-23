@@ -7,5 +7,6 @@ public class GameProperties {
     public static string previousLevel;
     public static string currentLevel;
     public static string currentLevelPack = "";
-    public static bool[,] saveData = new bool[3, 15];
+    public static int currentTutorial;
+    public static bool[,] saveData = new bool[4, 15];
 }
