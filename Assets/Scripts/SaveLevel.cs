@@ -92,6 +92,11 @@ public class SaveLevel : MonoBehaviour {
 				extraData.Add(gameObj.transform.localScale.x);
 				extraData.Add(gameObj.transform.localScale.y);
                 break;
+            case "Wormhole":
+                id = 7;
+                extraData.Add(gameObj.GetComponent<Wormhole>().id);
+                extraData.Add(0);
+                break;
             default:
                 id = -1;
                 Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");

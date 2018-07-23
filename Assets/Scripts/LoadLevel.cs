@@ -11,7 +11,7 @@ public class LoadLevel : MonoBehaviour {
     private List<bool> beamProperties;
     private string line, filepath;
     private Transform currentObject;
-    public Transform dragableForce, dynamicForce, staticForce, goal, wall, beam, mirror;
+    public Transform dragableForce, dynamicForce, staticForce, goal, wall, beam, mirror, wormhole;
 
 	// Use this for initialization
 	void Start () {
@@ -93,6 +93,10 @@ public class LoadLevel : MonoBehaviour {
                     currentObject = Instantiate(mirror, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
 					currentObject.transform.localScale = new Vector3((float)levelData[i][4], (float)levelData[i][5], 1);
 					break;
+                case 7:
+                    currentObject = Instantiate(wormhole, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
+                    currentObject.GetComponent<Wormhole>().id = (int)levelData[i][4];
+                    break;
                 default:
                     Console.WriteLine("Whoops, something went wrong in LoadLevel.cs. The object ID did not correspond with any preset values.");
                     break;
