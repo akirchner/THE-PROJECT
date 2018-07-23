@@ -12,13 +12,13 @@ public class SaveGame : MonoBehaviour {
     void Start() {
         switch(GameProperties.levelFilename.Substring(0, 4)) {
         case "Grav":
-            packID = 0;
-            break;
-        case "Elec":
             packID = 1;
             break;
-        case "Flux":
+        case "Elec":
             packID = 2;
+            break;
+        case "Flux":
+            packID = 3;
             break;
         default:
             break;
@@ -28,7 +28,7 @@ public class SaveGame : MonoBehaviour {
 
         sw = File.CreateText(Path.Combine(Application.persistentDataPath, "gameData.txt"));
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 15; j++) {
                 sw.WriteLine(GameProperties.saveData[i,j] ? 1 : 0);
             }
