@@ -5,7 +5,7 @@ using UnityEngine;
 public class DynamicForce : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY, mMass, mCharge, mFluxCapacity;
-    public bool reactGrav, reactElec, reactFlux, positiveCharge;
+    public ReactType reactType;
     List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
@@ -14,6 +14,14 @@ public class DynamicForce : MonoBehaviour
     public float electricConstant = 1;
     public float fluxConstant = 1;
     public Rigidbody2D rb;
+
+    public enum ReactType
+    {
+        Gravity,
+        Positive,
+        Negative,
+        Flux
+    }
 
     // Use this for initialization
     void Start()
@@ -67,9 +75,9 @@ public class DynamicForce : MonoBehaviour
             }
         }
 
-        elecForce = Electrostatic(elecDistanceX, elecDistanceY, mCharge, reactElec);
-        fluxForce = Flux(fluxDistanceX, fluxDistanceY, mFluxCapacity, reactFlux);
-        gravForce = Gravity(gravDistanceX, gravDistanceY, mMass, reactGrav);
+        elecForce = Electrostatic(elecDistanceX, elecDistanceY, mCharge, reactType == ReactType.Positive || reactType == ReactType.Negative);
+        fluxForce = Flux(fluxDistanceX, fluxDistanceY, mFluxCapacity, reactType == ReactType.Flux);
+        gravForce = Gravity(gravDistanceX, gravDistanceY, mMass, reactType == ReactType.Gravity);
 
         resultant = gravForce + elecForce + fluxForce;
         rb.AddForce(resultant, ForceMode2D.Impulse);
@@ -152,7 +160,7 @@ public class DynamicForce : MonoBehaviour
 
                 force = (charge[i] * gravityConstant) / (Mathf.Pow(distanceMagnitude, 2));
 
-                if (positiveCharge)
+                if (reactType == ReactType.Positive)
                 {
                     if (currentX - xDistance[i] > 0)
                     {

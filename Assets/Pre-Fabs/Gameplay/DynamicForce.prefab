@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086150273509614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.083567, y: -8.521139, z: -0.3125}
+  m_LocalPosition: {x: -16.292437, y: -14.807682, z: -0.3125}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,13 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f1dee8756f6645a758b4baa9eb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reactType: 3
   gravityConstant: 1
   electricConstant: 1
   fluxConstant: 1
-  affectedByGravity: 1
-  affectedByElec: 0
-  affectedByFlux: 0
-  positiveCharge: 0
   rb: {fileID: 0}
 --- !u!114 &114968891749991734
 MonoBehaviour:
@@ -115,6 +112,14 @@ MonoBehaviour:
   gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
   elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
   fluxSprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
+  ef: {fileID: 21300000, guid: 75b963d4b86b2b84aa7f7912ddb40bb5, type: 3}
+  eg: {fileID: 21300000, guid: b601ec2280bb6e64887c82141f8f5b1d, type: 3}
+  fg: {fileID: 21300000, guid: 71ef6ffd3975be9439588b9c9972228b, type: 3}
+  fn: {fileID: 21300000, guid: c8e13d5101d312f48b6c8ec784d69915, type: 3}
+  fp: {fileID: 21300000, guid: 4cce81d53a9b8e7449c6f1f1572ac08c, type: 3}
+  gf: {fileID: 21300000, guid: 98c5ede0a15e36c489a0063bcce83ac3, type: 3}
+  gn: {fileID: 21300000, guid: 9334df17201106447b077ae426d41041, type: 3}
+  gp: {fileID: 21300000, guid: a546d6c5789030d498c4083814c7a393, type: 3}
 --- !u!212 &212065813708944744
 SpriteRenderer:
   m_ObjectHideFlags: 1
