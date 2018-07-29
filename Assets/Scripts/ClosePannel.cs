@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ClosePannel : MonoBehaviour {
 
-	public RectTransform panel;
+	public RectTransform panel,subImage;
 	public Vector2 offMin = new Vector2 (.82f,0f);
 	public Vector2 offMax = new Vector2 (1f,1f);
 	public Vector2 onMin = new Vector2 (.98f,0f);
@@ -20,9 +20,9 @@ public class ClosePannel : MonoBehaviour {
 	public void Close () {
 
 		if (onScreen == false){
-
 			panel.anchorMax = onMax;
 			panel.anchorMin = onMin;
+			subImage.rotation = Quaternion.Euler(0f,0f,180f);
 
 			onScreen = true;
 
@@ -32,6 +32,7 @@ public class ClosePannel : MonoBehaviour {
 
 			panel.anchorMax = offMax;
 			panel.anchorMin = offMin;
+			subImage.rotation = Quaternion.Euler(0f,0f,0f);
 
 			onScreen = false;
 

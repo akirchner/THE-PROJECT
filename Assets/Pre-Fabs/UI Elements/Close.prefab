@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  subImage: {fileID: 224242787678303886}
   offMin: {x: 0.82, y: 0}
   offMax: {x: 1, y: 1}
   onMin: {x: 0.98, y: 0}
