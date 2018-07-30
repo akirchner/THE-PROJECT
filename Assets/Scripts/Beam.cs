@@ -7,17 +7,14 @@ public class Beam : MonoBehaviour
 
     private System.Diagnostics.Stopwatch timer;
     private float initialMillis;
-    public int angle, charge;
     public Rigidbody2D particle, particleClone;
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
-    GameObject[] dragableF, staticF, dynamicF;
     List<bool> mOut;
     public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
     private List<Sprite> sprites;
     private string grav, elec, flux, spriteSearcher;
     private Vector2 velocity;
     public static readonly List<GameObject> mForces = new List<GameObject>();
-    Sprite[] spriteArray;
     static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
     // Use this for initialization
