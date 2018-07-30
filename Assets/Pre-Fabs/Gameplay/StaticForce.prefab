@@ -95,6 +95,14 @@ MonoBehaviour:
   gravSprite: {fileID: 21300000, guid: 12e4439f123c83b419f434b939d0d14b, type: 3}
   elecSprite: {fileID: 21300000, guid: fc26f70dbf73d564a9ab83d6512b0643, type: 3}
   fluxSprite: {fileID: 21300000, guid: a90045f65fdf42b4d9c6f8ebdfd13820, type: 3}
+  ef: {fileID: 21300000, guid: 75b963d4b86b2b84aa7f7912ddb40bb5, type: 3}
+  eg: {fileID: 21300000, guid: b601ec2280bb6e64887c82141f8f5b1d, type: 3}
+  fg: {fileID: 21300000, guid: 71ef6ffd3975be9439588b9c9972228b, type: 3}
+  fn: {fileID: 21300000, guid: c8e13d5101d312f48b6c8ec784d69915, type: 3}
+  fp: {fileID: 21300000, guid: 4cce81d53a9b8e7449c6f1f1572ac08c, type: 3}
+  gf: {fileID: 21300000, guid: 98c5ede0a15e36c489a0063bcce83ac3, type: 3}
+  gn: {fileID: 21300000, guid: 9334df17201106447b077ae426d41041, type: 3}
+  gp: {fileID: 21300000, guid: a546d6c5789030d498c4083814c7a393, type: 3}
 --- !u!212 &212291398181519728
 SpriteRenderer:
   m_ObjectHideFlags: 1
