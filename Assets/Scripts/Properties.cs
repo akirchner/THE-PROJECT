@@ -17,7 +17,7 @@ public class Properties : MonoBehaviour
 {
 
     public ForceType type;
-    public float size;
+    public float size = 1;
     public string movementType;
     public Sprite gravSprite;
     public Sprite elecSprite;
