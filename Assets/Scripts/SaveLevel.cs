@@ -22,7 +22,7 @@ public class SaveLevel : MonoBehaviour {
 	void Update () {
         if(Input.GetKeyDown("`")) {
             Debug.Log("Saving!");
-            Save("newLevel.txt");
+            Save("znewLevel.txt");
         }
 	}
 

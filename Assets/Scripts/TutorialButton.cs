@@ -29,12 +29,18 @@ public class TutorialButton : MonoBehaviour {
 
         switch (stage) {
 			case 1:
-			
-					//turn button1 on by settting its scale to 1
-				button1.GetComponent<Transform> ().localScale = (new Vector3 (1, 1, 0));
-					//move target off of screen
-				target.GetComponent<Transform> ().position = (new Vector3 (1000, 0, 0));
-				break;
+                if(button1 != null)
+                {
+                    //turn button1 on by settting its scale to 1
+                    button1.GetComponent<Transform>().localScale = (new Vector3(1, 1, 0));
+                }
+
+                if (target != null)
+                {
+                    //move target off of screen
+                    target.GetComponent<Transform>().position = (new Vector3(1000, 0, 0));
+                }
+                break;
 
 		case 2:
 				
@@ -46,6 +52,7 @@ public class TutorialButton : MonoBehaviour {
 			}		
 				//turn button3 off by setting its scale to 0
 			button3.GetComponent<Transform> ().localScale = (new Vector3 (0, 0, 0));
+
 			if (target != null) {
 				//move target onto screen
 				target.GetComponent<Transform> ().position = (new Vector3 (-10, 12, 0));

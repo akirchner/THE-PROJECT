@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EditSize : MonoBehaviour {
+public class MirrorSize : MonoBehaviour {
 
 	public float scaleFactor = 2;
 	public Transform top, bottom;
@@ -11,9 +11,9 @@ public class EditSize : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		topPos = top.transform.position;
@@ -22,7 +22,7 @@ public class EditSize : MonoBehaviour {
 	}
 
 	float Rotation(Vector3 a, Vector3 b){
-		float angle = Vector3.SignedAngle(new Vector3(1,0,0),new Vector3((a.x-b.x),(a.y-b.y),0),new Vector3(0,0,1)) ;
+		float angle = Vector3.SignedAngle(new Vector3(0,1,0),new Vector3((a.x-b.x),(a.y-b.y),0),new Vector3(0,0,1)) ;
 		return angle;
 	}
 
@@ -40,6 +40,8 @@ public class EditSize : MonoBehaviour {
 	void Apply(Vector3 position, float rotation, float scale){
 		this.transform.position = position;
 		this.transform.rotation = Quaternion.Euler(0, 0, (float)rotation);
-		this.transform.localScale = new Vector3((float) scale, 1, 1);
+		this.transform.localScale = new Vector3(.5f,(float) scale, 1);
 	}
 }
+
+

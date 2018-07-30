@@ -255,9 +255,4 @@ public class DynamicForce : MonoBehaviour
 
         return fluxForce;
     }
-
-    public void SetSprite()
-    {
-
-    }
 }
