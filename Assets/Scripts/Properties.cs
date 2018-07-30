@@ -31,6 +31,8 @@ public class Properties : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Beam.UpdateForces(gameObject, true);
+
         spriteSearcher = new string[8];
         sprites = new Sprite[8];
 
@@ -47,8 +49,6 @@ public class Properties : MonoBehaviour
         {
             spriteSearcher[i] = sprites[i].ToString();
         }
-
-        Beam.UpdateForces(gameObject, true);
 
         if(this.CompareTag("DynamicForce"))
         {
