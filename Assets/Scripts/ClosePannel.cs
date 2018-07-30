@@ -22,7 +22,9 @@ public class ClosePannel : MonoBehaviour {
 		if (onScreen == false){
 			panel.anchorMax = onMax;
 			panel.anchorMin = onMin;
-			subImage.rotation = Quaternion.Euler(0f,0f,180f);
+			if (subImage != null) {
+				subImage.rotation = Quaternion.Euler (0f, 0f, 180f);
+			}
 
 			onScreen = true;
 
@@ -32,7 +34,9 @@ public class ClosePannel : MonoBehaviour {
 
 			panel.anchorMax = offMax;
 			panel.anchorMin = offMin;
-			subImage.rotation = Quaternion.Euler(0f,0f,0f);
+			if (subImage != null) {
+				subImage.rotation = Quaternion.Euler (0f, 0f, 0f);
+			}
 
 			onScreen = false;
 
