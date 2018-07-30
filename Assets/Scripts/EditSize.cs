@@ -22,13 +22,13 @@ public class EditSize : MonoBehaviour {
 	}
 
 	float Rotation(Vector3 a, Vector3 b){
-		float angle = Vector3.SignedAngle(new Vector3(0,1,0),new Vector3((a.x-b.x),(a.y-b.y),0),new Vector3(0,0,1)) ;
+		float angle = Vector3.SignedAngle(new Vector3(1,0,0),new Vector3((a.x-b.x),(a.y-b.y),0),new Vector3(0,0,1)) ;
 		return angle;
 	}
 
 	float Magnitude(Vector3 a, Vector3 b){
 		float magnitude = Vector3.Magnitude(new Vector3((a.x - b.x),(a.y - b.y),0));
-		return magnitude/scaleFactor;
+		return magnitude*scaleFactor;
 	}
 
 	Vector3 Midpoint(Vector3 a, Vector3 b){
@@ -40,6 +40,6 @@ public class EditSize : MonoBehaviour {
 	void Apply(Vector3 position, float rotation, float scale){
 		this.transform.position = position;
 		this.transform.rotation = Quaternion.Euler(0, 0, (float)rotation);
-		this.transform.localScale = new Vector3(1, (float) scale, 1);
+		this.transform.localScale = new Vector3((float) scale, 1, 1);
 	}
 }
