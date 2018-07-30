@@ -58,18 +58,19 @@ public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
 	//detects the first half of a click, the pointer down.
 	public void OnPointerDown(PointerEventData data){
 
-		//closes the force drawer and places a force where the button used to be
-		closeButton.GetComponent<ClosePannel> ().Close();
 		place ();
 
 	}
 
-	public void place(){
+    //closes the force drawer and places a force where the button used to be
+    public void place(){
 
-		if (type != ForceType.Empty) {
-			//creates the new force at the current mouse position, sets its type to match the button, and makes it dragable 
-			Transform temp;
-			numAvailable--; //removes a force from the "bank"
+		if(numAvailable > 0) {
+            closeButton.GetComponent<ClosePannel>().Close();
+
+            //creates the new force at the current mouse position, sets its type to match the button, and makes it dragable 
+            Transform temp;
+            numAvailable--; //removes a force from the "bank"
 			mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
 			temp = Instantiate (force, mousePos, rotation); //creates the force
 			temp.GetComponent<Properties> ().setType (type); //sets its type
@@ -91,6 +92,9 @@ public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
                     break;
                 case ForceType.Electron:
                     this.GetComponent<Image>().sprite = elecSprite;
+                    break;
+                default:
+                    Debug.Log("Invalid ForceType while setting sprite! ForceSpawner.cs");
                     break;
                 }
 			//shows the image by setting its opacity to full
