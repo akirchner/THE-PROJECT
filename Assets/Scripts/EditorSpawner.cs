@@ -9,6 +9,7 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 	public bool hasSize;
 	public Transform element, close;
 	public ForceType type;
+	int wormholeID = 0;
 
 	Vector3 mousePos = new Vector3 ();
 	Quaternion rotation = Quaternion.identity;
@@ -32,13 +33,12 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 
 	//detects the first half of a click, the pointer down.
 	public void OnPointerDown(PointerEventData data){
-		Debug.Log ("clicked");
 		click (hasSize);
 
 	}
 
 	public void click(bool hasSize){
-		if (hasSize) { //only scaleing objects like walls
+		if (hasSize) { //only scaleing objects like walls, goals and mirrors
 			
 			Instantiate(element, new Vector3(0,0,0), Quaternion.identity);
 			close.GetComponent<ClosePannel>().Close();
@@ -46,14 +46,41 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 		} 
 
 		else { //only point objects like forces
+			if(element.tag == "Wormhole"){
+				
+				close.GetComponent<ClosePannel>().Close();
 
-			close.GetComponent<ClosePannel>().Close();
-			Transform temp;
-			mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
-			temp = Instantiate (element, mousePos, rotation); //creates the force
-			temp.GetComponent<Properties> ().setType (type); //sets its type
-			temp.GetComponent<DragAndDrop> ().OnMouseDown (); //initiates dragging via DragAndDrop Script
+				for (int i = 0; i < 2; i++){ //spawns two connected wormholes
+					Transform temp;
+					mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
+					temp = Instantiate (element, mousePos, rotation); //creates the force
+					temp.GetComponent<Wormhole> ().id = wormholeID; //sets its type
+					if(i == 1){
+						temp.GetComponent<DragAndDrop> ().OnMouseDown (); //initiates dragging via DragAndDrop Script
+					}
+				}
 
+				wormholeID++;
+
+			}
+
+			else if(element.tag == "Beam"){
+				
+			}
+
+			else if(element.tag == "DynamicForce"){
+
+			}
+
+			else {
+				close.GetComponent<ClosePannel>().Close();
+				Transform temp;
+				mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
+				temp = Instantiate (element, mousePos, rotation); //creates the force
+				temp.GetComponent<Properties> ().setType (type); //sets its type
+				temp.GetComponent<DragAndDrop> ().OnMouseDown (); //initiates dragging via DragAndDrop Script
+
+			}
 		}
 
 	}
