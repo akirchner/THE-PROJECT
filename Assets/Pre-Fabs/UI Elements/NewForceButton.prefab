@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222917038059310912}
   - component: {fileID: 114086033191229068}
   - component: {fileID: 114908396491766602}
-  - component: {fileID: 114142160000739472}
+  - component: {fileID: 114534367205364740}
   m_Layer: 0
   m_Name: NewForceButton
   m_TagString: ForceButton
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!114 &114086033191229068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,14 +92,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114142160000739472
+--- !u!114 &114534367205364740
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -115,16 +115,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1949224447640016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 86153b869ee9d4297b0224db55cde730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
   elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
   fluxSprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
-  closeButton: {fileID: 224318402754936800, guid: 8f6a8361a8ad20a41a145a46cfac37e3,
-    type: 2}
+  closeButton: {fileID: 0}
   numberText: {fileID: 114066291270741956}
-  numAvailable: 1
+  numAvailable: 0
   type: 0
   force: {fileID: 4327935188189770, guid: cfd49b241ae2ee4409d63bcc73b4242b, type: 2}
   Camera: {fileID: 0}
@@ -167,18 +166,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114086033191229068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114142160000739472}
-        m_MethodName: Activate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &222082052753388148
