@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class newParticle : MonoBehaviour, IPointerDownHandler {
+public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
 
 	//all the sprites
 	public Sprite gravSprite, elecSprite, fluxSprite;
