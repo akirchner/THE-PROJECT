@@ -473,12 +473,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 196192767}
---- !u!114 &324005928 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114142160000739472, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
-    type: 2}
-  m_PrefabInternal: {fileID: 2099342253}
-  m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
 --- !u!1 &327110786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,12 +999,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 415197053}
---- !u!114 &749155392 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114142160000739472, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
-    type: 2}
-  m_PrefabInternal: {fileID: 1595098916}
-  m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
 --- !u!1 &793979956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1632,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2082350826}
+      objectReference: {fileID: 0}
     - target: {fileID: 114908396491766602, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1746,6 +1734,21 @@ Prefab:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 2090452916}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 2090452916}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1902732006}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
   m_IsPrefabParent: 0
@@ -1799,6 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2120036638}
+  subImage: {fileID: 0}
   offMin: {x: 0.3, y: 0.3}
   offMax: {x: 0.7, y: 0.7}
   onMin: {x: 0, y: 0}
@@ -2553,7 +2557,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 749155392}
+      objectReference: {fileID: 0}
     - target: {fileID: 114908396491766602, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2580,6 +2584,26 @@ Prefab:
       value: 
       objectReference: {fileID: 2090452916}
     - target: {fileID: 114142160000739472, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1902732006}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 2090452916}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: numAvailable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: type
       value: 2
@@ -2892,12 +2916,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224189324249006910, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
     type: 2}
   m_PrefabInternal: {fileID: 1239525068}
---- !u!114 &2082350826 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114142160000739472, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
-    type: 2}
-  m_PrefabInternal: {fileID: 1239525068}
-  m_Script: {fileID: 11500000, guid: cc184beb33475f843854ae74b7c735a3, type: 3}
 --- !u!1 &2090452916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,7 +3144,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 324005928}
+      objectReference: {fileID: 0}
     - target: {fileID: 114908396491766602, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3162,6 +3180,16 @@ Prefab:
       propertyPath: numAvailable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 2090452916}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1902732006}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
   m_IsPrefabParent: 0
