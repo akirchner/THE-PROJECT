@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wormhole : MonoBehaviour {
-    public int id, lastID;
+    public int id;
+    private int lastID;
     private Color color;
 
 	// Use this for initialization
