@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4155112363193068}
-  - component: {fileID: 114968891749991734}
+  - component: {fileID: 114998113992163906}
   - component: {fileID: 114716073088775358}
   - component: {fileID: 50615048628962980}
   - component: {fileID: 58606413587050068}
@@ -90,12 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f1dee8756f6645a758b4baa9eb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactType: 3
+  reactType: 0
   gravityConstant: 1
   electricConstant: 1
   fluxConstant: 1
   rb: {fileID: 50615048628962980}
---- !u!114 &114968891749991734
+--- !u!114 &114998113992163906
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -103,15 +103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1086150273509614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab78a1b8d1227547b4598347d7c2193, type: 3}
+  m_Script: {fileID: 11500000, guid: ed971c6ae47433845955bdb1ce429ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   size: 1
-  movementType: 
-  gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
-  elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
-  fluxSprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
   ef: {fileID: 21300000, guid: 75b963d4b86b2b84aa7f7912ddb40bb5, type: 3}
   eg: {fileID: 21300000, guid: b601ec2280bb6e64887c82141f8f5b1d, type: 3}
   fg: {fileID: 21300000, guid: 71ef6ffd3975be9439588b9c9972228b, type: 3}
