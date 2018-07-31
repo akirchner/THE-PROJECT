@@ -53,26 +53,34 @@ public class DynamicForce : MonoBehaviour
 
         foreach (GameObject i in mActiveForces)
         {
-            switch (i.GetComponent<Properties>().type)
+            try
             {
-                case ForceType.Graviton:
-                    gravDistanceX.Add((float)i.transform.position.x);
-                    gravDistanceY.Add((float)i.transform.position.y);
-                    mMass.Add((float)i.GetComponent<Properties>().size);
-                    break;
-                case ForceType.Electron:
-                    elecDistanceX.Add((float)i.transform.position.x);
-                    elecDistanceY.Add((float)i.transform.position.y);
-                    mCharge.Add((float)i.GetComponent<Properties>().size);
-                    break;
-                case ForceType.Fluxion:
-                    fluxDistanceX.Add((float)i.transform.position.x);
-                    fluxDistanceY.Add((float)i.transform.position.y);
-                    mFluxCapacity.Add((float)i.GetComponent<Properties>().size);
-                    break;
-                default:
-                    break;
+                switch (i.GetComponent<Properties>().type)
+                {
+                    case ForceType.Graviton:
+                        gravDistanceX.Add((float)i.transform.position.x);
+                        gravDistanceY.Add((float)i.transform.position.y);
+                        mMass.Add((float)i.GetComponent<Properties>().size);
+                        break;
+                    case ForceType.Electron:
+                        elecDistanceX.Add((float)i.transform.position.x);
+                        elecDistanceY.Add((float)i.transform.position.y);
+                        mCharge.Add((float)i.GetComponent<Properties>().size);
+                        break;
+                    case ForceType.Fluxion:
+                        fluxDistanceX.Add((float)i.transform.position.x);
+                        fluxDistanceY.Add((float)i.transform.position.y);
+                        mFluxCapacity.Add((float)i.GetComponent<Properties>().size);
+                        break;
+                    default:
+                        break;
+                }
             }
+            catch(System.Exception)
+            {
+
+            }
+            
         }
 
         elecForce = Electrostatic(elecDistanceX, elecDistanceY, mCharge, reactType == ReactType.Positive || reactType == ReactType.Negative);
