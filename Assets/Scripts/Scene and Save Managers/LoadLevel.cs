@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour {
     private List<List<double>> levelData;
@@ -80,7 +78,8 @@ public class LoadLevel : MonoBehaviour {
                     break;
                 case 4:
                     currentObject = Instantiate(dynamicForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
-                    currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
+                    currentObject.GetComponent<DynamicProperties>().production = parseForceType((int) levelData[i][4]);
+                    currentObject.GetComponent<DynamicProperties>().reaction = parseDynamicReaction((int)levelData[i][5]);
                     break;
                 case 5:
                     currentObject = Instantiate(staticForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
@@ -115,6 +114,21 @@ public class LoadLevel : MonoBehaviour {
             return ForceType.Electron;
         default:
             return ForceType.Empty;
+        }
+    }
+
+    private ReactType parseDynamicReaction(int id) {
+        switch(id) {
+        case 1:
+            return ReactType.Gravity;
+        case 2:
+            return ReactType.Flux;
+        case 3:
+            return ReactType.Positive;
+        case 4:
+            return ReactType.Negative;
+        default:
+            return ReactType.Gravity;
         }
     }
 

@@ -15,7 +15,7 @@ public class LoadGame : MonoBehaviour {
         if (File.Exists(filepath)) {
             sr = new StreamReader(filepath);
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < GameProperties.saveData.GetLength(0) - 1; i++) {
                 for (int j = 0; j < 15; j++) {
                     GameProperties.saveData[i, j] = sr.ReadLine().Equals("1");
                 }

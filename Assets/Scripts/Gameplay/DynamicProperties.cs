@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum ReactType
+{
+    Gravity,
+    Positive,
+    Negative,
+    Flux
+}
+
 public class DynamicProperties : MonoBehaviour
 {
-    public ForceType type;
-    public float size = 1;
+    
+
+    public ForceType production;
+    public ReactType reaction;
+    public bool isEditor = false;
     public Sprite ef, eg, fg, fn, fp, gf, gn, gp;
     private string[] spriteSearcher;
     private Sprite[] sprites;
-    string produces, reacts;
+    private string produces, reacts;
 
     // Use this for initialization
     void Start()
     {
-        Beam.UpdateForces(gameObject, true);
+        if(!isEditor)
+        {
+            Beam.UpdateForces(gameObject, true);
+        }
 
         spriteSearcher = new string[8];
         sprites = new Sprite[8];
@@ -40,19 +54,25 @@ public class DynamicProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(isEditor)
+        {
+            setSprite();
+        }
     }
 
     private void OnDestroy()
     {
-        Beam.UpdateForces(gameObject, false);
+        if(isEditor)
+        {
+            Beam.UpdateForces(gameObject, false);
+        }
     }
 
     private void setSprite()
     {
-        DynamicForce.ReactType reactType = this.GetComponent<DynamicForce>().reactType;
+ 
 
-        switch (reactType.ToString())
+        switch (reaction.ToString())
         {
             case "Gravity":
                 reacts = "g";
@@ -71,7 +91,7 @@ public class DynamicProperties : MonoBehaviour
                 break;
         }
 
-        switch (type.ToString())
+        switch (production.ToString())
         {
             case "Graviton":
                 produces = "g";
@@ -98,7 +118,7 @@ public class DynamicProperties : MonoBehaviour
 
     public ForceType getType()
     {
-        return this.type;
+        return this.production;
     }
 
 }
