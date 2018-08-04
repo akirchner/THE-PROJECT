@@ -14,8 +14,8 @@ public enum ReactType
 
 public class DynamicProperties : MonoBehaviour
 {
-    
 
+    public Transform dynamicForce, close;
     public ForceType production;
     public ReactType reaction;
     public bool isEditor = false;
@@ -102,6 +102,22 @@ public class DynamicProperties : MonoBehaviour
                 reaction = ReactType.Flux;
                 break;
         }
+    }
+
+    public void spawn()
+    {
+        if(produces == reacts || (produces == "e" && (reacts == "n" || reacts == "p")))
+        {
+
+        }
+        else
+        {
+            Transform temp;
+            temp = Instantiate(dynamicForce, new Vector3(0, 0, 0), Quaternion.identity);
+            //temp.GetComponent<DynamicProperties>().reaction = reaction;
+            //temp.GetComponent<DynamicProperties>().production = production;
+            close.GetComponent<ClosePannel>().Close();
+        }     
     }
 
     private void setSprite()
