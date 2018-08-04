@@ -5,7 +5,7 @@ using UnityEngine;
 public class DynamicForce : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY;
-    public DynamicProperties.ReactType reactType;
+    private DynamicProperties.ReactType reactType;
     List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
@@ -33,6 +33,7 @@ public class DynamicForce : MonoBehaviour
     void FixedUpdate()
     {
         mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
+        reactType = GetComponent<DynamicProperties>().reaction;
         currentX = transform.position.x;
         currentY = transform.position.y;
 
@@ -99,7 +100,7 @@ public class DynamicForce : MonoBehaviour
                     distanceMagnitude = 5;
                 }
 
-                force = 200 / Mathf.Pow(distanceMagnitude, 2);
+                force = 1 / Mathf.Pow(distanceMagnitude, 2);
 
                 if (currentX - xDistance[i] > 0)
                 {
@@ -146,7 +147,7 @@ public class DynamicForce : MonoBehaviour
                     distanceMagnitude = 5;
                 }
 
-                force = 200 / Mathf.Pow(distanceMagnitude, 2);
+                force = 1 / Mathf.Pow(distanceMagnitude, 2);
 
                 if (reactType == DynamicProperties.ReactType.Positive)
                 {
@@ -216,7 +217,7 @@ public class DynamicForce : MonoBehaviour
                     distanceMagnitude = 5;
                 }
 
-                force = 200 / Mathf.Pow(distanceMagnitude, 2);
+                force = 1 / Mathf.Pow(distanceMagnitude, 2);
 
                 if (currentX - xDistance[i] > 0)
                 {
