@@ -75,17 +75,17 @@ public class SaveLevel : MonoBehaviour {
             case "DragableForce":
                 id = 3;
                 extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(gameObj.GetComponent<Properties>().size);
+                extraData.Add(0);
                 break;
             case "DynamicForce":
                 id = 4;
                 extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(gameObj.GetComponent<Properties>().size);
+                extraData.Add(0);
                 break;
             case "StaticForce":
                 id = 5;
                 extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(gameObj.GetComponent<Properties>().size);
+                extraData.Add(0);
                 break;
             case "Mirror":
                 id = 6;

@@ -77,17 +77,14 @@ public class LoadLevel : MonoBehaviour {
                 case 3:
                     currentObject = Instantiate(dragableForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     currentObject.GetComponent<Properties>().setType(parseForceType((int) levelData[i][4]));
-                    currentObject.GetComponent<Properties>().size = (float) levelData[i][5];
                     break;
                 case 4:
                     currentObject = Instantiate(dynamicForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
-                    currentObject.GetComponent<Properties>().size = (float)levelData[i][5];
                     break;
                 case 5:
                     currentObject = Instantiate(staticForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                     currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
-                    currentObject.GetComponent<Properties>().size = (float)levelData[i][5];
                     break;
                 case 6:
                     currentObject = Instantiate(mirror, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
