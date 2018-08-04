@@ -25,7 +25,7 @@ public class SaveLevel : MonoBehaviour {
         }
 	}
 
-    private int ParseForceType(ForceType type)
+    private int parseForceType(ForceType type)
     {
         switch(type) {
         case ForceType.Graviton:
@@ -34,6 +34,21 @@ public class SaveLevel : MonoBehaviour {
             return 2;
         case ForceType.Electron:
             return 3;
+        default:
+            return 0;
+        }
+    }
+
+    private int parseDynamicReaction(ReactType type) {
+        switch(type) {
+        case ReactType.Gravity:
+            return 1;
+        case ReactType.Flux:
+            return 2;
+        case ReactType.Positive:
+            return 3;
+        case ReactType.Negative:
+            return 4;
         default:
             return 0;
         }
@@ -73,17 +88,17 @@ public class SaveLevel : MonoBehaviour {
                 break;
             case "DragableForce":
                 id = 3;
-                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
+                extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
                 extraData.Add(0); //If you change this, you have to zero this field in old level files
                 break;
             case "DynamicForce":
                 id = 4;
-                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(0);
+                extraData.Add(parseForceType(gameObj.GetComponent<DynamicProperties>().production));
+                extraData.Add(parseDynamicReaction(gameObj.GetComponent<DynamicProperties>().reaction));
                 break;
             case "StaticForce":
                 id = 5;
-                extraData.Add(ParseForceType(gameObj.GetComponent<Properties>().getType()));
+                extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
                 extraData.Add(0); //If you change this, you have to zero this field in old level files
                 break;
             case "Mirror":

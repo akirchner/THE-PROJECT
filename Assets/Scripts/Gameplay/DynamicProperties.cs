@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum ReactType
+{
+    Gravity,
+    Positive,
+    Negative,
+    Flux
+}
+
 public class DynamicProperties : MonoBehaviour
 {
-    public enum ReactType
-    {
-        Gravity,
-        Positive,
-        Negative,
-        Flux
-    }
+    
 
     public ForceType production;
     public ReactType reaction;
