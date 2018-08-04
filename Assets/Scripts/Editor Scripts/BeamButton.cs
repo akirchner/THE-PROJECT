@@ -15,11 +15,12 @@ public class BeamButton : MonoBehaviour {
 	static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
 	void Start () {
+
         sprites = new Sprite[11];
 
         sprites[0] = g;
         sprites[1] = p;
-        sprites[2] = g;
+        sprites[2] = n;
         sprites[3] = f;
         sprites[4] = gp;
         sprites[5] = gn;
