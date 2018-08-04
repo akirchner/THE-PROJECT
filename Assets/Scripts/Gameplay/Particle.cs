@@ -123,6 +123,7 @@ public class Particle : MonoBehaviour
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
 
                 force = (mass[i] * gravityConstant) / (Mathf.Pow(distance.magnitude, 2));
+				Debug.Log ((mass [i] * gravityConstant));
 
                 if (currentX - xDistance[i] > 0)
                 {

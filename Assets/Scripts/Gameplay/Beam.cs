@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Beam : MonoBehaviour
-{
+public class Beam : MonoBehaviour {
 
     private System.Diagnostics.Stopwatch timer;
     private float initialMillis;
