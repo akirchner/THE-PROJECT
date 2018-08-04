@@ -53,6 +53,9 @@ TagManager:
   - name: Background
     uniqueID: 1547746333
     locked: 0
+  - name: Interaction
+    uniqueID: 3648912889
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -64,9 +67,6 @@ TagManager:
     locked: 0
   - name: Dynamic
     uniqueID: 19895721
-    locked: 0
-  - name: Interaction
-    uniqueID: 3648912889
     locked: 0
   - name: UI
     uniqueID: 28288663
