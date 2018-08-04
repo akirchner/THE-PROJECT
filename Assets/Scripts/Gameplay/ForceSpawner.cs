@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
 
+	public bool isEditor;
 	//all the sprites
 	public Sprite gravSprite, elecSprite, fluxSprite;
 
@@ -45,11 +46,15 @@ public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
 
 		setSprite ();
 
-        if (numAvailable > 0) {
-            //displays the number of a certain force remaining in the "Bank"
-			numberText.text = numAvailable.ToString();
-        }
+		if (numAvailable > 0) {
+			//displays the number of a certain force remaining in the "Bank"
+			numberText.text = numAvailable.ToString ();
+		} 
+		else if (numAvailable == 0 && isEditor) {
+			numberText.text = "0";
+		}
         else {
+			numAvailable = 0;
             numberText.text = "";
         }
 
@@ -58,8 +63,12 @@ public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
 	//detects the first half of a click, the pointer down.
 	public void OnPointerDown(PointerEventData data){
 
-		place ();
-
+		if (isEditor) {
+		
+		} 
+		else {
+			place ();
+		}
 	}
 
     //closes the force drawer and places a force where the button used to be
@@ -103,7 +112,11 @@ public class ForceSpawner : MonoBehaviour, IPointerDownHandler {
         }
         else {
 			//hides the empty button by setting its opacity to 0
-            this.GetComponent<Image>().color = new Color (0f, 0f, 0f, 0f);
+			if (isEditor) {
+			} 
+			else {
+				this.GetComponent<Image> ().color = new Color (0f, 0f, 0f, 0f);
+			}
         }
 	}
 
