@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Editor.unity
     guid: 21943d08d6e16c04289cee4a1abae054
   - enabled: 1
+    path: Assets/Scenes/Editor Level.unity
+    guid: 4fc8a49a5f1f0a34496fccde8fce6c6e
+  - enabled: 1
     path: Assets/Scenes/Player Pack.unity
     guid: 3d5e87dfa42759e46895928483a20292
   - enabled: 1
