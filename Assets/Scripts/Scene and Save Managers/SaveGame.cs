@@ -23,6 +23,9 @@ public class SaveGame : MonoBehaviour {
         case "Mixed":
             packID = 4;
             break;
+        case "Worm":
+            packID = 5;
+            break;
         default:
             break;
         }
