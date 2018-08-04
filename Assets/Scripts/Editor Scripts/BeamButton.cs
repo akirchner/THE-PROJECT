@@ -9,24 +9,24 @@ public class BeamButton : MonoBehaviour {
 	int elecInt = 0;
 	string grav, elec, flux;
 	public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
+    public Sprite[] sprites;
 	List<bool> mOut;
-	private List<Sprite> sprites;
 	static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
 	void start(){
-		sprites = new List<Sprite>();
+        sprites = new Sprite[11];
 
-		sprites.Add(g);
-		sprites.Add(p);
-		sprites.Add(n);
-		sprites.Add(f);
-		sprites.Add(gp);
-		sprites.Add(gn);
-		sprites.Add(gf);
-		sprites.Add(pf);
-		sprites.Add(nf);
-		sprites.Add(gpf);
-		sprites.Add(gnf);
+        sprites[0] = g;
+        sprites[1] = p;
+        sprites[2] = g;
+        sprites[3] = f;
+        sprites[4] = gp;
+        sprites[5] = gn;
+        sprites[6] = gf;
+        sprites[7] = pf;
+        sprites[8] = nf;
+        sprites[9] = gpf;
+        sprites[10] = gnf;
 
 	}
 
@@ -130,7 +130,7 @@ public class BeamButton : MonoBehaviour {
 
 		string spriteSearcher = (grav + elec + flux);
 
-		for(int i = 0; i < 9; i++)
+		for(int i = 0; i < sprites.Length; i++)
 		{
 			if(stringChecker[i] == spriteSearcher)
 			{
