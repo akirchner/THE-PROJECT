@@ -14,7 +14,6 @@ public enum ForceType
 public class Properties : MonoBehaviour
 {
     public ForceType type;
-    public float size = 1;
     public Sprite gravSprite, elecSprite, fluxSprite;
     private string[] spriteSearcher;
     private Sprite[] sprites;
