@@ -36,5 +36,7 @@ sysinfo.txt
 *.unitypackage
 
 # Project-specific files
-newLevel.txt
-newLevel.txt.meta
+znewLevel.txt
+znewLevel.txt.meta
+Packages/manifest.json
+ProjectSettings/ProjectVersion.txt
