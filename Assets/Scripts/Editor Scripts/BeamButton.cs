@@ -9,6 +9,7 @@ public class BeamButton : MonoBehaviour {
 	int elecInt = 0;
 	string grav, elec, flux;
 	public Sprite g, p, n, f, gp, gn, gf, pf, nf, gpf, gnf;
+	List<bool> mOut;
 	private List<Sprite> sprites;
 	static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
