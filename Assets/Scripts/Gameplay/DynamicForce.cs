@@ -5,7 +5,7 @@ using UnityEngine;
 public class DynamicForce : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY;
-    private DynamicProperties.ReactType reactType;
+    private ReactType reactType;
     List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
