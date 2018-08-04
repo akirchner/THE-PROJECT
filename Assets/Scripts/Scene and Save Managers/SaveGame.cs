@@ -20,7 +20,7 @@ public class SaveGame : MonoBehaviour {
         case "Flux":
             packID = 3;
             break;
-        case "Mixed":
+        case "Mixd":
             packID = 4;
             break;
         case "Worm":
