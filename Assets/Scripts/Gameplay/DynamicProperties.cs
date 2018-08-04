@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DynamicProperties : MonoBehaviour
 {
@@ -109,8 +110,13 @@ public class DynamicProperties : MonoBehaviour
         {
             if (produces + reacts == spriteSearcher[i].Substring(0, 2).ToLower())
             {
-                this.GetComponent<SpriteRenderer>().sprite = sprites[i];
-            }
+				if (isEditor) {
+					this.GetComponent<Image> ().sprite = sprites [i];
+				} 
+				else {
+					this.GetComponent<SpriteRenderer> ().sprite = sprites [i];
+				}
+			}
         }
     }
 

@@ -1157,6 +1157,7 @@ GameObject:
   - component: {fileID: 323800807}
   - component: {fileID: 323800809}
   - component: {fileID: 323800808}
+  - component: {fileID: 323800810}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1215,6 +1216,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323800806}
+--- !u!114 &323800810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323800806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed971c6ae47433845955bdb1ce429ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  production: 0
+  reaction: 0
+  isEditor: 1
+  ef: {fileID: 21300000, guid: 75b963d4b86b2b84aa7f7912ddb40bb5, type: 3}
+  eg: {fileID: 21300000, guid: b601ec2280bb6e64887c82141f8f5b1d, type: 3}
+  fg: {fileID: 21300000, guid: 71ef6ffd3975be9439588b9c9972228b, type: 3}
+  fn: {fileID: 21300000, guid: c8e13d5101d312f48b6c8ec784d69915, type: 3}
+  fp: {fileID: 21300000, guid: 4cce81d53a9b8e7449c6f1f1572ac08c, type: 3}
+  gf: {fileID: 21300000, guid: 98c5ede0a15e36c489a0063bcce83ac3, type: 3}
+  gn: {fileID: 21300000, guid: 9334df17201106447b077ae426d41041, type: 3}
+  gp: {fileID: 21300000, guid: a546d6c5789030d498c4083814c7a393, type: 3}
 --- !u!1 &327110786
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,7 +4032,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 957165732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1503258162}
+        m_MethodName: create
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &957165732
@@ -5893,6 +5927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d718bac3869c37c40a0b9e6c62724d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beam: {fileID: 4774962813671480, guid: b7cd335f62370f9459aa9c849dbb0387, type: 2}
+  close: {fileID: 667182450}
   g: {fileID: 21300000, guid: 3c73a392e658b10428dc9bc765f79344, type: 3}
   p: {fileID: 21300000, guid: 84ceabb7e16cd4a41ada44dafbff7c8f, type: 3}
   n: {fileID: 21300000, guid: 748f0cfb9bdc83844ad4637d5dbabf84, type: 3}
@@ -5904,6 +5940,7 @@ MonoBehaviour:
   nf: {fileID: 21300000, guid: 4e9da09395b015343b5fdfe5dfb26b96, type: 3}
   gpf: {fileID: 21300000, guid: 52ca0c8b23dca62438dbb95b84d2ec09, type: 3}
   gnf: {fileID: 21300000, guid: f3a413ef0c6a61746a7091a46abb7436, type: 3}
+  sprites: []
 --- !u!114 &1503258163
 MonoBehaviour:
   m_ObjectHideFlags: 0

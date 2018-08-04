@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BeamButton : MonoBehaviour {
 
+	public Transform beam, close;
 	bool reactGrav, reactElec, reactFlux, beamPositive;
 	int elecInt = 0;
 	string grav, elec, flux;
@@ -13,7 +14,7 @@ public class BeamButton : MonoBehaviour {
 	List<bool> mOut;
 	static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
-	void start(){
+	void Start () {
         sprites = new Sprite[11];
 
         sprites[0] = g;
@@ -34,20 +35,17 @@ public class BeamButton : MonoBehaviour {
 	void Update () {
 		if (elecInt % 3 == 0) {
 
-			reactElec = true;
-			beamPositive = true;
+			elec = "p";
 
 		} 
 		else if (elecInt % 3 == 1) {
 
-			reactElec = true;
-			beamPositive = false;
+			elec = "n";
 
 		} 
 		else {
 			
-			reactElec = false;
-			beamPositive = false;
+			elec = "";
 
 		}
 
@@ -55,80 +53,74 @@ public class BeamButton : MonoBehaviour {
 	
 	}
 
-	public List<bool> GetProperties() {
-		mOut.Clear();
-		mOut.Add(reactGrav);
-		mOut.Add(reactElec);
-		mOut.Add(reactFlux);
-		mOut.Add(beamPositive);
-
-		return mOut;
+	public void create(){
+		Transform temp;
+		temp = Instantiate (beam, new Vector3(0,0,0), Quaternion.identity);
+		temp.GetComponent<Beam> ().SetProperites (reactGrav, reactElec, reactFlux, beamPositive);
+		close.GetComponent<ClosePannel> ().Close();
 	}
 
 	public void GravClick(){
-		if (reactGrav) {
+		if (grav == "g") {
 			
-			reactGrav = false;
+			grav = "";
 		
 		} 
 		else {
 		
-			reactGrav = true;
+			grav = "g";
 		
 		}
 	}
 
 	public void ElecClick(){
-
+		elecInt++;
 	}
 
 	public void FluxClick(){
-		if (reactFlux) {
+		if (flux == "f") {
 
-			reactFlux = false;
+			flux = "";
 
 		} 
 		else {
 
-			reactFlux = true;
+			flux = "f";
 
 		}
 	}
 
 	void SetSprite()
 	{
-		if (reactGrav)
-		{
-			grav = "g";
-		}
-		else
-		{
-			grav = "";
-		}
-
-		if (reactElec && beamPositive)
-		{
-			elec = "p";
-		}
-		else if (reactElec)
-		{
-			elec = "n";
-		}
-		else
-		{
-			elec = "";
-		}
-
-		if(reactFlux)
-		{
-			flux = "f";
-		}
-		else
-		{
-			flux = "";
-		}
-
+		
 		string spriteSearcher = (grav + elec + flux);
+		if(spriteSearcher != ""){
+			if (grav == "g") {
+				reactGrav = true;
+			} 
+			else {
+				reactGrav = false;
+			}
+			if (elec == "p") {
+				reactElec = true;
+				beamPositive = true;
+			} 
+			else if(elec == "n") {
+				reactElec = true;
+				beamPositive = false;
+			}
+			else {
+				reactGrav = false;
+				beamPositive = false;
+			}
+			if (flux == "f") {
+				reactFlux = true;
+			} 
+			else {
+				reactFlux = false;
+			}
+		} 
+
 
 		for(int i = 0; i < sprites.Length; i++)
 		{
