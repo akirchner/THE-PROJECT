@@ -69,6 +69,41 @@ public class DynamicProperties : MonoBehaviour
         }
     }
 
+    public void setProduction(int type)
+    {
+        switch(type)
+        {
+            case 0:
+                production = ForceType.Graviton;
+                break;
+            case 1:
+                production = ForceType.Electron;
+                break;
+            case 2:
+                production = ForceType.Fluxion;
+                break;
+        }
+    }
+
+    public void setReaction(int type)
+    {
+        switch(type)
+        {
+            case 0:
+                reaction = ReactType.Gravity;
+                break;
+            case 1:
+                reaction = ReactType.Negative;
+                break;
+            case 2:
+                reaction = ReactType.Positive;
+                break;
+            case 3:
+                reaction = ReactType.Flux;
+                break;
+        }
+    }
+
     private void setSprite()
     {
  
