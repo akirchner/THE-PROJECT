@@ -67,9 +67,9 @@ public class DynamicForce : MonoBehaviour
             
         }
 
-        elecForce = Electrostatic(elecDistanceX, elecDistanceY, reactType == DynamicProperties.ReactType.Positive || reactType == DynamicProperties.ReactType.Negative);
-        fluxForce = Flux(fluxDistanceX, fluxDistanceY, reactType == DynamicProperties.ReactType.Flux);
-        gravForce = Gravity(gravDistanceX, gravDistanceY, reactType == DynamicProperties.ReactType.Gravity);
+        elecForce = Electrostatic(elecDistanceX, elecDistanceY, reactType == ReactType.Positive || reactType == ReactType.Negative);
+        fluxForce = Flux(fluxDistanceX, fluxDistanceY, reactType == ReactType.Flux);
+        gravForce = Gravity(gravDistanceX, gravDistanceY, reactType == ReactType.Gravity);
 
         resultant = gravForce + elecForce + fluxForce;
         rb.AddForce(resultant, ForceMode2D.Impulse);
@@ -149,7 +149,7 @@ public class DynamicForce : MonoBehaviour
 
                 force = 1 / Mathf.Pow(distanceMagnitude, 2);
 
-                if (reactType == DynamicProperties.ReactType.Positive)
+                if (reactType == ReactType.Positive)
                 {
                     if (currentX - xDistance[i] > 0)
                     {
