@@ -14,8 +14,8 @@ public enum ReactType
 
 public class DynamicProperties : MonoBehaviour
 {
-    
 
+    public Transform dynamicForce, close;
     public ForceType production;
     public ReactType reaction;
     public bool isEditor = false;
@@ -67,6 +67,57 @@ public class DynamicProperties : MonoBehaviour
         {
             Beam.UpdateForces(gameObject, false);
         }
+    }
+
+    public void setProduction(int type)
+    {
+        switch(type)
+        {
+            case 0:
+                production = ForceType.Graviton;
+                break;
+            case 1:
+                production = ForceType.Electron;
+                break;
+            case 2:
+                production = ForceType.Fluxion;
+                break;
+        }
+    }
+
+    public void setReaction(int type)
+    {
+        switch(type)
+        {
+            case 0:
+                reaction = ReactType.Gravity;
+                break;
+            case 1:
+                reaction = ReactType.Negative;
+                break;
+            case 2:
+                reaction = ReactType.Positive;
+                break;
+            case 3:
+                reaction = ReactType.Flux;
+                break;
+        }
+    }
+
+    public void spawn()
+    {
+        if(produces == reacts || (produces == "e" && (reacts == "n" || reacts == "p")))
+        {
+
+        }
+        else
+        {
+            Transform temp;
+            temp = Instantiate(dynamicForce, new Vector3(0, 0, 0), Quaternion.identity);
+            //temp.GetComponent<DynamicProperties>().reaction = reaction;
+            //temp.GetComponent<DynamicProperties>().production = production;
+            close.GetComponent<ClosePannel>().Close();
+        }     
     }
 
     private void setSprite()
