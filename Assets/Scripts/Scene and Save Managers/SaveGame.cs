@@ -20,6 +20,9 @@ public class SaveGame : MonoBehaviour {
         case "Flux":
             packID = 3;
             break;
+        case "Mixed":
+            packID = 4;
+            break;
         default:
             break;
         }
