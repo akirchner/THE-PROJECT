@@ -69,10 +69,16 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 			}
 
 			else if(element.tag == "DynamicForce"){
+                close.GetComponent<ClosePannel>().Close();
+                Transform temp;
+                mousePos = ConvertToWorldUnits(Input.mousePosition); //finds mouse position
+                temp = Instantiate(element, mousePos, rotation); //creates the force
+                temp.GetComponent<DynamicProperties>().production = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().production;
+                temp.GetComponent<DynamicProperties>().reaction = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().reaction;
 
-			}
+            }
 
-			else {
+            else {
 				close.GetComponent<ClosePannel>().Close();
 				Transform temp;
 				mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position

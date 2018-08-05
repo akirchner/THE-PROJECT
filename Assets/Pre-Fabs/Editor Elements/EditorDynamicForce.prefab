@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 50761315303745544}
   - component: {fileID: 58828772101329360}
   - component: {fileID: 212424597644532136}
+  - component: {fileID: 114535008088905908}
   m_Layer: 10
-  m_Name: DynamicForce
+  m_Name: EditorDynamicForce
   m_TagString: DynamicForce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed971c6ae47433845955bdb1ce429ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dynamicForce: {fileID: 0}
-  close: {fileID: 0}
   production: 0
   reaction: 0
   isEditor: 0
@@ -103,6 +102,20 @@ MonoBehaviour:
   gf: {fileID: 21300000, guid: 98c5ede0a15e36c489a0063bcce83ac3, type: 3}
   gn: {fileID: 21300000, guid: 9334df17201106447b077ae426d41041, type: 3}
   gp: {fileID: 21300000, guid: a546d6c5789030d498c4083814c7a393, type: 3}
+  produces: 
+  reacts: 
+--- !u!114 &114535008088905908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225693145094492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d152b945dab4797479cf7af55855a3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDragged: 0
 --- !u!114 &114792895311359970
 MonoBehaviour:
   m_ObjectHideFlags: 1

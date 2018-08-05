@@ -15,23 +15,27 @@ public enum ReactType
 public class DynamicProperties : MonoBehaviour
 {
 
-    public Transform dynamicForce, close;
     public ForceType production;
     public ReactType reaction;
     public bool isEditor = false;
     public Sprite ef, eg, fg, fn, fp, gf, gn, gp;
     private string[] spriteSearcher;
     private Sprite[] sprites;
-    private string produces, reacts;
+    public string produces, reacts;
 
     // Use this for initialization
     void Start()
     {
-        if(!isEditor)
+        try
         {
             Beam.UpdateForces(gameObject, true);
         }
+        catch(System.Exception)
+        {
+            Debug.Log("Where's the beam?");
+        }
 
+        
         spriteSearcher = new string[8];
         sprites = new Sprite[8];
 
@@ -55,17 +59,18 @@ public class DynamicProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isEditor)
-        {
-            setSprite();
-        }
+        setSprite();
     }
 
     private void OnDestroy()
     {
-        if(isEditor)
+        try
         {
             Beam.UpdateForces(gameObject, false);
+        }
+        catch(System.Exception)
+        {
+            Debug.Log("Where's the beam?");
         }
     }
 
@@ -102,22 +107,6 @@ public class DynamicProperties : MonoBehaviour
                 reaction = ReactType.Flux;
                 break;
         }
-    }
-
-    public void spawn()
-    {
-        if(produces == reacts || (produces == "e" && (reacts == "n" || reacts == "p")))
-        {
-
-        }
-        else
-        {
-            Transform temp;
-            temp = Instantiate(dynamicForce, new Vector3(0, 0, 0), Quaternion.identity);
-            //temp.GetComponent<DynamicProperties>().reaction = reaction;
-            //temp.GetComponent<DynamicProperties>().production = production;
-            close.GetComponent<ClosePannel>().Close();
-        }     
     }
 
     private void setSprite()

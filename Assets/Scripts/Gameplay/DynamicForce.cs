@@ -32,7 +32,16 @@ public class DynamicForce : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
+        try
+        {
+            mActiveForces = FindObjectOfType<Beam>().GetComponent<Beam>().GetActiveForces();
+        }
+        catch(System.Exception)
+        {
+            mActiveForces = new List<GameObject>();
+            Debug.Log("There is no beam!");
+        }
+
         reactType = GetComponent<DynamicProperties>().reaction;
         currentX = transform.position.x;
         currentY = transform.position.y;
