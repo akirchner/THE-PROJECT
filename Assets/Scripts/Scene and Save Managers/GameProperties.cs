@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameProperties {
-    public static string levelFilename;
+	public static string levelFilename;
     public static string previousLevel;
     public static string currentLevel;
     public static string currentLevelPack = "";
