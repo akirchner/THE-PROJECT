@@ -24,7 +24,6 @@ public class TrashCan : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D coll) {
-		Debug.Log ("Bonk");
 		Transform temp = coll.transform;
 		if (temp.GetComponent<DragAndDrop> ().isDragged) {
 			trash = temp;
