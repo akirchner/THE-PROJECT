@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 
 	public bool hasSize;
+    private bool validCombo;
 	public Transform element, close;
 	public ForceType type;
 	int wormholeID = 0;
@@ -69,12 +70,46 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 			}
 
 			else if(element.tag == "DynamicForce"){
-                close.GetComponent<ClosePannel>().Close();
-                Transform temp;
-                mousePos = ConvertToWorldUnits(Input.mousePosition); //finds mouse position
-                temp = Instantiate(element, mousePos, rotation); //creates the force
-                temp.GetComponent<DynamicProperties>().production = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().production;
-                temp.GetComponent<DynamicProperties>().reaction = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().reaction;
+                validCombo = true;
+                ForceType production = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().production;
+                ReactType reaction = GameObject.Find("Dynamic Force Panel").GetComponentInChildren<DynamicProperties>().reaction;
+
+                //Checks to see if the production and reaction of the dynamic force are the same, which isn't a valid game state.
+                switch(production)
+                {
+                    case ForceType.Graviton:
+                        if(reaction == ReactType.Gravity)
+                        {
+                            validCombo = false;
+                        }
+                        break;
+                    case ForceType.Electron:
+                        if(reaction == ReactType.Positive || reaction == ReactType.Negative)
+                        {
+                            validCombo = false;
+                        }
+                        break;
+                    case ForceType.Fluxion:
+                        if(reaction == ReactType.Flux)
+                        {
+                            validCombo = false;
+                        }
+                        break;
+                    default:
+                        Debug.Log("Unknown ForceType!");
+                        validCombo = false;
+                        break;
+                }
+
+                if(validCombo)
+                {
+                    close.GetComponent<ClosePannel>().Close();
+                    Transform temp;
+                    mousePos = ConvertToWorldUnits(Input.mousePosition); //finds mouse position
+                    temp = Instantiate(element, mousePos, rotation); //creates the force
+                    temp.GetComponent<DynamicProperties>().production = production;
+                    temp.GetComponent<DynamicProperties>().reaction = reaction;
+                }
 
             }
 
