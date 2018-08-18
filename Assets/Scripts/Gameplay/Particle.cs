@@ -6,6 +6,7 @@ public class Particle : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY;
     private List<bool> mProperties;
+    private System.Diagnostics.Stopwatch timer;
     List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
@@ -18,6 +19,8 @@ public class Particle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        timer = new System.Diagnostics.Stopwatch();
+        timer.Start();
         rb = GetComponent<Rigidbody2D>();
         gravDistanceX = new List<float>();
         gravDistanceY = new List<float>();
@@ -35,6 +38,11 @@ public class Particle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (timer.ElapsedMilliseconds >= 20000)
+        {
+            Destroy(this.gameObject);
+        }
+
         mActiveForces = GetComponentInParent<Beam>().GetActiveForces();
         currentX = transform.position.x;
         currentY = transform.position.y;
