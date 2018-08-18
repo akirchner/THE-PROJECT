@@ -704,15 +704,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
-  m_Text: 'Thomas Hugart: Engine/Level Design
+  m_Text: 'Thomas Hugart: Engine, Level Design
 
-    Zack Johnson: Art/Level Design
+    Zack Johnson: Art, Level Design, Editor
 
-    Emilio Alvarez: Google Master/Debugger
+    Emilio Alvarez: Google Master, Debugger
 
-    Adrian Kirchner: Music/Level Loading
+    Adrian Kirchner: Music, Save Management
 
-    Silas Obey: Fourth Dimensional Being'
+    Silas Obey: Level Design'
 --- !u!222 &1160491763
 CanvasRenderer:
   m_ObjectHideFlags: 0
