@@ -71,7 +71,23 @@ public class DynamicForce : MonoBehaviour
             }
             catch(System.Exception)
             {
-
+                switch(i.GetComponent<DynamicProperties>().production)
+                {
+                    case ForceType.Graviton:
+                        gravDistanceX.Add((float)i.transform.position.x);
+                        gravDistanceY.Add((float)i.transform.position.y);
+                        break;
+                    case ForceType.Electron:
+                        elecDistanceX.Add((float)i.transform.position.x);
+                        elecDistanceY.Add((float)i.transform.position.y);
+                        break;
+                    case ForceType.Fluxion:
+                        fluxDistanceX.Add((float)i.transform.position.x);
+                        fluxDistanceY.Add((float)i.transform.position.y);
+                        break;
+                    default:
+                        break;
+                }
             }
             
         }
@@ -107,6 +123,7 @@ public class DynamicForce : MonoBehaviour
                 if(distanceMagnitude <= 5)
                 {
                     distanceMagnitude = 5;
+
                 }
 
                 force = 1 / Mathf.Pow(distanceMagnitude, 2);
