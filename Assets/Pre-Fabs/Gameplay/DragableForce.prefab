@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50353297070951214}
   - component: {fileID: 58503045615285332}
   - component: {fileID: 212234378117020150}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DragableForce
   m_TagString: DragableForce
   m_Icon: {fileID: 0}
@@ -91,19 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  size: 1
-  movementType: 
   gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
   elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
   fluxSprite: {fileID: 21300000, guid: 294bc845c7d3c8d47b447b92023870b8, type: 3}
-  ef: {fileID: 0}
-  eg: {fileID: 0}
-  fg: {fileID: 0}
-  fn: {fileID: 0}
-  fp: {fileID: 0}
-  gf: {fileID: 0}
-  gn: {fileID: 0}
-  gp: {fileID: 0}
 --- !u!114 &114480882772441218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,8 +139,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -646054407
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayer: -1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
