@@ -26,6 +26,9 @@ public class SaveGame : MonoBehaviour {
         case "Worm":
             packID = 5;
             break;
+		case "Dync":
+			packID = 6;
+			break;
         default:
             break;
         }
