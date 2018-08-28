@@ -624,7 +624,7 @@ Prefab:
     - target: {fileID: 114685756553172956, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
+      value: Worm-Mixed1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
