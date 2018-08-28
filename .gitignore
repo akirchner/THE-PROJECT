@@ -37,6 +37,8 @@ sysinfo.txt
 
 # Project-specific files
 znewLevel.txt
+editor.txt
+editor.txt.meta
 znewLevel.txt.meta
 Packages/manifest.json
 ProjectSettings/ProjectVersion.txt
