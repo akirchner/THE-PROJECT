@@ -21,7 +21,7 @@ public class SaveLevel : MonoBehaviour {
 	void Update () {
         if(Input.GetKeyDown("`")) {
             Debug.Log("Saving!");
-            Save("znewLevel.txt");
+            save("znewLevel.txt");
         }
 	}
 
@@ -54,7 +54,7 @@ public class SaveLevel : MonoBehaviour {
         }
     }
 
-    void Save (string filename) {
+    public void save (string filename) {
         sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, filename));
 
         sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<ForceSpawner>().numAvailable);
