@@ -10,24 +10,18 @@ public class MainMenuControl : MonoBehaviour {
 
         GameProperties.previousLevel = GameProperties.currentLevel;
 
-        if (level.Substring(0, 4).ToUpper() == "PACK")
-        {
+        if (level.Substring(0, 4).ToUpper() == "PACK") {
             GameProperties.currentLevelPack = level.Substring(5, 1);
         }
-
-        if (level == "CurrentPack")
-        {
-            if(GameProperties.currentLevelPack == "")
-            {
+        else if (level == "CurrentPack") {
+            if (GameProperties.currentLevelPack == "") {
                 level = "Level Select";
             }
-            else
-            {
+            else {
                 level = "Pack " + GameProperties.currentLevelPack;
             }
         }
-
-        if (level == "PreviousLevel") {
+        else if (level == "PreviousLevel") {
             level = GameProperties.previousLevel;
         }
         else if (level == "NextLevel") {
@@ -43,6 +37,10 @@ public class MainMenuControl : MonoBehaviour {
                 GameProperties.levelFilename = GameProperties.levelFilename.Substring(0, 4) + (Int32.Parse(GameProperties.levelFilename.Substring(4, 2)) + 1).ToString().PadLeft(2, '0') + ".txt";
                 level = "Level";
             }
+        }
+        else if (level == "Editor Level") {
+            GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("editor.txt");
+            GameProperties.levelFilename = "editor.txt";
         }
 
 		SceneManager.LoadScene (level);
