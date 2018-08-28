@@ -15,7 +15,6 @@ public class BeamButton : MonoBehaviour {
 	static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
 
 	void Start () {
-
         sprites = new Sprite[11];
 
         sprites[0] = g;
@@ -111,7 +110,7 @@ public class BeamButton : MonoBehaviour {
 				beamPositive = false;
 			}
 			else {
-				reactGrav = false;
+				reactElec = false;
 				beamPositive = false;
 			}
 			if (flux == "f") {
