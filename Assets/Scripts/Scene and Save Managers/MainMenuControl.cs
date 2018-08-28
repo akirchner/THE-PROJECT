@@ -38,6 +38,9 @@ public class MainMenuControl : MonoBehaviour {
                 level = "Level";
             }
         }
+        else if (level =="Editor") {
+            GameProperties.levelFilename = "editor.txt";
+        }
         else if (level == "Editor Level") {
             GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("editor.txt");
             GameProperties.levelFilename = "editor.txt";
