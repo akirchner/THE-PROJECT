@@ -21,7 +21,7 @@ public class SaveLevel : MonoBehaviour {
 	void Update () {
         if(Input.GetKeyDown("`")) {
             Debug.Log("Saving!");
-            Save("znewLevel.txt");
+            save("znewLevel.txt");
         }
 	}
 
