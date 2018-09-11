@@ -105,8 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23568f0e458d1b143bf2a1d44cbc559d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
-  charge: 0
   particle: {fileID: 50848049336137410, guid: 5b9d9421233b7ae4a9816b5b13b75233, type: 2}
   particleClone: {fileID: 0}
   mReactGrav: 1
