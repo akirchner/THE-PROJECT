@@ -57,6 +57,7 @@ public class Beam : MonoBehaviour {
         velocity.Normalize();
 
         particleClone = Instantiate(item, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        Debug.Log("Counting up!");
         particleClone.GetComponent<Particle>().SetProperties(GetProperties());
         particleClone.transform.SetParent(transform);
 
@@ -76,7 +77,6 @@ public class Beam : MonoBehaviour {
         mOut.Add(mReactElec);
         mOut.Add(mReactFlux);
         mOut.Add(mBeamPositive);
-
         return mOut;
     }
 
