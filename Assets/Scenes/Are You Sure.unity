@@ -862,6 +862,7 @@ GameObject:
   - component: {fileID: 1594903054}
   - component: {fileID: 1594903053}
   - component: {fileID: 1594903052}
+  - component: {fileID: 1594903055}
   m_Layer: 0
   m_Name: BFB
   m_TagString: Untagged
@@ -925,7 +926,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1594903053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1594903055}
+        m_MethodName: toggleSecret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1594903053
@@ -961,6 +973,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594903050}
+--- !u!114 &1594903055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594903050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff255a4ca7e02f40a26f8a1346ec9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921285826
 GameObject:
   m_ObjectHideFlags: 0

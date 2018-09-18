@@ -9,4 +9,5 @@ public class GameProperties {
     public static string currentLevelPack = "";
     public static int currentTutorial;
     public static bool[,] saveData = new bool[7, 15];
+    public static bool bigfalconbeam = false;
 }

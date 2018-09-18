@@ -5,7 +5,7 @@ using UnityEngine;
 public class Beam : MonoBehaviour {
 
     private System.Diagnostics.Stopwatch timer;
-    private float initialMillis;
+    private float initialMillis, periodicity;
     public Rigidbody2D particle, particleClone;
     public bool mReactGrav, mReactElec, mReactFlux, mBeamPositive;
     List<bool> mOut;
@@ -42,7 +42,16 @@ public class Beam : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (timer.ElapsedMilliseconds - initialMillis >= 60)
+        if(GameProperties.bigfalconbeam)
+        {
+            periodicity = 6;
+        }
+        else
+        {
+            periodicity = 60;
+        }
+
+        if (timer.ElapsedMilliseconds - initialMillis >= periodicity)
         {
             Spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
