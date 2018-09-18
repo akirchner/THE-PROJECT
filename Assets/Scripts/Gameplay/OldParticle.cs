@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
-public class Particle : MonoBehaviour
+public class OldParticle : MonoBehaviour
 {
     List<float> gravDistanceX, gravDistanceY, elecDistanceX, elecDistanceY, fluxDistanceX, fluxDistanceY;
     private List<bool> mProperties;
-    private System.Diagnostics.Stopwatch timer;
+    private Stopwatch timer;
     List<GameObject> mActiveForces;
     GameObject[] dragableF, staticF, dynamicF;
     float currentX, currentY;
@@ -16,7 +17,7 @@ public class Particle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        timer = new System.Diagnostics.Stopwatch();
+        timer = new Stopwatch();
         timer.Start();
         rb = GetComponent<Rigidbody2D>();
         gravDistanceX = new List<float>();
@@ -30,7 +31,6 @@ public class Particle : MonoBehaviour
         elecForce = new Vector2();
         fluxForce = new Vector2();
         resultant = new Vector2();
-
     }
 
     // Update is called once per frame
@@ -116,25 +116,25 @@ public class Particle : MonoBehaviour
             for (int i = 0; i < xDistance.Count; i++)
             {
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
-                force = 246 / (Mathf.Pow(distance.magnitude, 2));
-                float forceRatio = force / distance.magnitude;
+
+                force = 200 / (Mathf.Pow(distance.magnitude, 2));
 
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce -= distance.x * forceRatio;
+                    totalXForce -= force;
                 }
                 else
                 {
-                    totalXForce -= distance.x * forceRatio;
+                    totalXForce += force;
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce -= distance.y * forceRatio;
+                    totalYForce -= force;
                 }
                 else
                 {
-                    totalYForce -= distance.y * forceRatio;
+                    totalYForce += force;
                 }
             }
         }
@@ -157,47 +157,46 @@ public class Particle : MonoBehaviour
             {
 
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
-                force = 246 / (Mathf.Pow(distance.magnitude, 2));
-                float forceRatio = force / distance.magnitude;
+                force = 200 / (Mathf.Pow(distance.magnitude, 2));
 
                 if (mProperties[3])
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce -= distance.x * forceRatio;
+                        totalXForce -= force;
                     }
                     else
                     {
-                        totalXForce -= distance.x * forceRatio;
+                        totalXForce += force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce -= distance.y * forceRatio;
+                        totalYForce -= force;
                     }
                     else
                     {
-                        totalYForce -= distance.y * forceRatio;
+                        totalYForce += force;
                     }
                 }
                 else
                 {
                     if (currentX - xDistance[i] > 0)
                     {
-                        totalXForce += distance.x * forceRatio;
+                        totalXForce += force;
                     }
                     else
                     {
-                        totalXForce += distance.x * forceRatio;
+                        totalXForce -= force;
                     }
 
                     if (currentY - yDistance[i] > 0)
                     {
-                        totalYForce += distance.y * forceRatio;
+                        totalYForce += force;
                     }
                     else
                     {
-                        totalYForce += distance.y * forceRatio;
+                        totalYForce -= force;
                     }
                 }
             }
@@ -221,25 +220,24 @@ public class Particle : MonoBehaviour
             {
 
                 Vector2 distance = new Vector2(currentX - xDistance[i], currentY - yDistance[i]);
-                force = 246 / (Mathf.Pow(distance.magnitude, 2));
-                float forceRatio = force / distance.magnitude;
+                force = 200 / (Mathf.Pow(distance.magnitude, 2));
 
                 if (currentX - xDistance[i] > 0)
                 {
-                    totalXForce += distance.x * forceRatio;
+                    totalXForce += force;
                 }
                 else
                 {
-                    totalXForce += distance.x * forceRatio;
+                    totalXForce -= force;
                 }
 
                 if (currentY - yDistance[i] > 0)
                 {
-                    totalYForce += distance.y * forceRatio;
+                    totalYForce += force;
                 }
                 else
                 {
-                    totalYForce += distance.y * forceRatio;
+                    totalYForce -= force;
                 }
             }
         }
