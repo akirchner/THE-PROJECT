@@ -78,7 +78,7 @@ public class SaveLevel : MonoBehaviour {
                 break;
             case "Goal":
                 id = 1;
-                extraData.Add(gameObj.GetComponent<Finalization>().targetCount);
+                extraData.Add(gameObj.GetComponent<Goal>().targetCount);
                 extraData.Add(gameObj.transform.localScale.x);
                 break;
             case "Wall":

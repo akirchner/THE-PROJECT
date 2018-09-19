@@ -15,6 +15,7 @@ public class Beam : MonoBehaviour {
     private Vector2 velocity;
     public static readonly List<GameObject> mForces = new List<GameObject>();
     static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
+	bool bfb;
 
     // Use this for initialization
     void Start()
@@ -37,12 +38,14 @@ public class Beam : MonoBehaviour {
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         initialMillis = timer.ElapsedMilliseconds;
+
+		bfb = GameProperties.bigfalconbeam;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(GameProperties.bigfalconbeam)
+        if(bfb)
         {
             periodicity = 6;
         }

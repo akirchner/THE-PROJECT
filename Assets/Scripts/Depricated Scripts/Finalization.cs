@@ -12,7 +12,6 @@ public class Finalization : MonoBehaviour
     public Transform ProgressBar;
     int mParticleCount, mDecrementDelay;
     bool mFull;
-    private bool bfb;
     List<bool> mEnd;
     Vector3 mStep;
     GameObject[] mGoals;
@@ -21,12 +20,7 @@ public class Finalization : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-        bfb = GameProperties.bigfalconbeam;
-
-        if(bfb)
-        {
-            targetCount *= 10;
-        }
+	
 
         mDecrementDelay = 35;
         mStep = new Vector3((18f / targetCount), 0, 0);
@@ -90,12 +84,6 @@ public class Finalization : MonoBehaviour
         else if (mDecrementDelay <= 0 && mParticleCount > 0)
         {
             mParticleCount--;
-
-            if(bfb)
-            {
-                mParticleCount -= 9;
-                ProgressBar.localScale -= (mStep * 9);
-            }
 
             ProgressBar.localScale -= mStep;
             mDecrementDelay = 2;
