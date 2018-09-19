@@ -7,7 +7,7 @@ using System.Timers;
 public class Goal : MonoBehaviour {
 
 	public bool isTutorial = false;
-	bool bfb;
+	bool bfb; //shhhhh. . .
 	int bfbCount = 0;
 	public Transform ProgressBar;
 	public int targetCount = 50; //exists only to make save level and load level happy, this actually never changes and could be replaced by (50) in all three files
@@ -22,12 +22,13 @@ public class Goal : MonoBehaviour {
 		bfb = GameProperties.bigfalconbeam;
 
 		mEnd = new List<bool>();
-		mGoals = GameObject.FindGameObjectsWithTag("Goal");
+		mGoals = GameObject.FindGameObjectsWithTag("Goal"); // finds all goals in the scene
 
 	}
 
 	void Update() {
-		foreach (GameObject i in mGoals) {
+		//checks each goal for completion status
+		foreach (GameObject i in mGoals) { 
 
 			mEnd.Add(i.GetComponent<Goal>().isFull());
 
@@ -48,6 +49,7 @@ public class Goal : MonoBehaviour {
 
 		updateCount (false);
 
+		//sets the size of the green bar that fills the goal graphically
 		if(mParticleCount >= 0 && mParticleCount <= 50) {
 			ProgressBar.localScale = new Vector3 (mParticleCount * (18f / 50f), 1, 0);
 		}
@@ -71,6 +73,7 @@ public class Goal : MonoBehaviour {
 		}
 	}
 
+	//runs (false) evry frame unless OnTrigger was called that frame in which case it is called (true)
 	void updateCount(bool isIncreaseing) {
 		if (isIncreaseing) {
 			
@@ -88,6 +91,8 @@ public class Goal : MonoBehaviour {
 		}
 	}
 
+
+	//allows each instance of a goal to get the other's completion status
 	public bool isFull() {
 		return mFull;
 	}
