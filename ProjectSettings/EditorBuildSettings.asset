@@ -84,6 +84,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Share Level.unity
     guid: eb4fe910d68932642af7f5eae760c8fa
   - enabled: 1
+    path: Assets/Scenes/Encode.unity
+    guid: 2ec807be1bfc57a4fa9c09781ecaaf63
+  - enabled: 1
     path: Assets/Scenes/Buy Now!.unity
     guid: c401dc3d194a1a447852c5a11bdaa6fd
   m_configObjects: {}
