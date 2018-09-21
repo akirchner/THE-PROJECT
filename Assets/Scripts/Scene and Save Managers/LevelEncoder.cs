@@ -13,7 +13,7 @@ public class LevelEncoder : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        EncodeLevel("Grav", 0, 1);
+        EncodeLevel("Grav", 0, 2);
     }
 
     // Update is called once per frame
@@ -55,9 +55,18 @@ public class LevelEncoder : MonoBehaviour
 
         sr.Close();
 
-        builder.Append(NumToLet((Int32.Parse(levelData[0]) % 26) + 1, Int32.Parse(levelData[0]) > 25));
-        builder.Append(NumToLet((Int32.Parse(levelData[1]) % 26) + 1, Int32.Parse(levelData[1]) > 25));
-        builder.Append(NumToLet((Int32.Parse(levelData[2]) % 26) + 1, Int32.Parse(levelData[2]) > 25));
+        if(Int32.Parse(levelData[0]) < 2 && Int32.Parse(levelData[1]) < 2 && Int32.Parse(levelData[2]) < 2)
+        {
+            builder.Append(ParseDrawer(Int32.Parse(levelData[0]), Int32.Parse(levelData[1]), Int32.Parse(levelData[2])));
+        }
+        else
+        {
+            builder.Append(NumToLet((Int32.Parse(levelData[0]) % 26) + 1, Int32.Parse(levelData[0]) > 25));
+            builder.Append(NumToLet((Int32.Parse(levelData[1]) % 26) + 1, Int32.Parse(levelData[1]) > 25));
+            builder.Append(NumToLet((Int32.Parse(levelData[2]) % 26) + 1, Int32.Parse(levelData[2]) > 25));
+        }
+
+        
 
         for (int i = 3; i < levelData.Count; i++)
         {
@@ -212,6 +221,7 @@ public class LevelEncoder : MonoBehaviour
 
         }
 
+        builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 51) > 25));
         Debug.Log(builder.ToString());
     }
 
@@ -286,24 +296,104 @@ public class LevelEncoder : MonoBehaviour
 
 
 
+    private string ParseDrawer(int g, int e, int f)
+    {
+        string id = "#";
+
+        
+        switch(g)
+        {
+            case 0:
+                switch (e)
+                {
+                    case 0:
+                        switch (f)
+                        {
+                            case 0:
+                                id = NumToLet(12, false);
+                                break;
+                            case 1:
+                                id = NumToLet(13, false);
+                                break;
+                        }
+                        break;
+                    case 1:
+                        switch (f)
+                        {
+                            case 0:
+                                id = NumToLet(14, false);
+                                break;
+                            case 1:
+                                id = NumToLet(15, false);
+                                break;
+                        }
+                        break;
+                }
+                break;
+            case 1:
+                switch (e)
+                {
+                    case 0:
+                        switch (f)
+                        {
+                            case 0:
+                                id = NumToLet(16, false);
+                                break;
+                            case 1:
+                                id = NumToLet(17, false);
+                                break;
+                        }
+                        break;
+                    case 1:
+                        switch (f)
+                        {
+                            case 0:
+                                id = NumToLet(18, false);
+                                break;
+                            case 1:
+                                id = NumToLet(19, false);
+                                break;
+                        }
+                        break;
+                }
+                break;
+        }
+
+        return id;
+    }
+
+
+
     private string[] ParsePosition(float x, float y)
     {
         string[] position = new string[3];
         float xDec = ToNearestFifth(Math.Abs(x));
+        float xDecOrg = x % 1;
         x += roundUp;
         float yDec = ToNearestFifth(Math.Abs(y));
+        float yDecOrg = y % 1;
         y += roundUp;
 
-        if(Math.Abs(x) <= 25)
+        if(xDec == 0)
         {
-            position[0] = NumToLet((Math.Abs(x) - xDec) + 1, true);
+            x = (float) Math.Round(x);
+        }
+
+        if (yDec == 0)
+        {
+            y = (float)Math.Round(y);
+        }
+
+        if (Math.Abs(x) <= 25)
+        {
+            position[0] = NumToLet(Mathf.Round((Math.Abs(x) - xDecOrg) + 1), true);
         }
         else
         {
-            position[0] = ((Math.Abs(x) - xDec) % 26).ToString();
+            position[0] = (Mathf.Round((Math.Abs(x) - xDecOrg)) % 26).ToString();
         }
 
-        position[1] = NumToLet((Math.Abs(y) - yDec) + 1, y > 0);
+        position[1] = NumToLet((Math.Abs(y) - yDecOrg) + 1, y > 0);
 
         int decimalSearcher = 0;
 
