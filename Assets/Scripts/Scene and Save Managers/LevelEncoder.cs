@@ -13,7 +13,7 @@ public class LevelEncoder : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        EncodeLevel("Grav", 0, 2);
+        EncodeLevel("Grav", 0, 1);
     }
 
     // Update is called once per frame
@@ -221,7 +221,7 @@ public class LevelEncoder : MonoBehaviour
 
         }
 
-        builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 51) > 25));
+        builder.Append(NumToLet((builder.Length % 26), (builder.Length % 51) > 25));
         Debug.Log(builder.ToString());
     }
 
@@ -384,15 +384,8 @@ public class LevelEncoder : MonoBehaviour
             y = (float)Math.Round(y);
         }
 
-        if (Math.Abs(x) <= 25)
-        {
-            position[0] = NumToLet(Mathf.Round((Math.Abs(x) - xDecOrg) + 1), true);
-        }
-        else
-        {
-            position[0] = (Mathf.Round((Math.Abs(x) - xDecOrg)) % 26).ToString();
-        }
 
+        position[0] = NumToLet((Mathf.Round((Math.Abs(x) - xDecOrg)) % 26) + 1, Math.Abs(x) >= 26);
         position[1] = NumToLet((Math.Abs(y) - yDecOrg) + 1, y > 0);
 
         int decimalSearcher = 0;
