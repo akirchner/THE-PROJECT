@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelEncoder : MonoBehaviour
 {
-    private string filepath, code, line;
-    private int roundUp;
+    private string filepath, line, pack;
+    private int roundUp, levelNumber1, levelNumber2;
+    private InputField field;
 
     // Use this for initialization
     void Start()
     {
-        //EncodeLevel("Dync", 1, 3);
+        pack = "User";
+        field = GameObject.Find("InputField").GetComponent<InputField>();
     }
 
     // Update is called once per frame
@@ -22,7 +25,7 @@ public class LevelEncoder : MonoBehaviour
 
     }
 
-    void EncodeLevel(string pack, int levelNumber1, int levelNumber2)
+    void EncodeLevel()
     {
         StringBuilder builder = new StringBuilder();
         if (Application.platform == RuntimePlatform.Android)
@@ -231,6 +234,7 @@ public class LevelEncoder : MonoBehaviour
 
         builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 52) > 25));
         Debug.Log(builder.ToString());
+        field.text = builder.ToString();
     }
 
 
@@ -408,7 +412,7 @@ public class LevelEncoder : MonoBehaviour
             y = (float) Math.Round(y);
         }
 
-        position[0] = NumToLet((Mathf.Round((Math.Abs(x) - xDecOrg)) % 26) + 1, Math.Abs(x) > 26);
+        position[0] = NumToLet((Mathf.Round((Math.Abs(x) - xDecOrg)) % 26) + 1, Math.Abs(x) > 25.5);
         position[1] = NumToLet((Mathf.Round(Math.Abs(y) - yDecOrg)) + 1, y > 0);
 
         int decimalSearcher = 0;
@@ -573,5 +577,12 @@ public class LevelEncoder : MonoBehaviour
         }
 
         return number;
+    }
+
+    public void SetLevel(int number)
+    {
+        levelNumber1 = number / 10;
+        levelNumber2 = number % 10;
+        EncodeLevel();
     }
 }

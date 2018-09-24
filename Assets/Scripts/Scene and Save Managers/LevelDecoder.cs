@@ -4,10 +4,12 @@ using System.IO;
 using UnityEngine;
 
 public class LevelDecoder : MonoBehaviour {
+    string tempCode;
+    int number1, number2;
 
 	// Use this for initialization
 	void Start () {
-        DecodeLevel("pJwnfQboregbQbOSegbQobQaubQoBsaubaqeDdmaeQPgyaeqpaaaqEdkkf", 2, 0);
+        tempCode = GameProperties.levelcode;
     }
 
     // Update is called once per frame
@@ -15,7 +17,7 @@ public class LevelDecoder : MonoBehaviour {
 		
 	}
 
-    void DecodeLevel(string tempCode, int number1, int number2)
+    void DecodeLevel()
     {
         StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "User" + number1 + number2 + ".txt"));
         char[] code = tempCode.ToCharArray();
@@ -460,5 +462,12 @@ public class LevelDecoder : MonoBehaviour {
         }
 
         return scale;
+    }
+
+    public void SetLevel(int number)
+    {
+        number1 = number / 10;
+        number2 = number % 10;
+        DecodeLevel();
     }
 }
