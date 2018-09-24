@@ -13,7 +13,7 @@ public class LevelEncoder : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        EncodeLevel("Grav", 0, 1);
+        //EncodeLevel("Dync", 1, 3);
     }
 
     // Update is called once per frame
@@ -86,6 +86,7 @@ public class LevelEncoder : MonoBehaviour
             switch (tempID)
             {
                 case 0: //Beam
+                    Debug.Log("Beam!");
                     bool[] properties = new bool[4];
 
                     for(int j = 0; j < properties.Length; j++)
@@ -96,14 +97,17 @@ public class LevelEncoder : MonoBehaviour
                     id = ParseBeam(properties);
                     break;
                 case 1: //Goal
+                    Debug.Log("Goal!");
                     id = "Q";
                     scale = ParseScale(xData2, 1);
                     break;
                 case 2: //Wall
+                    Debug.Log("Wall");
                     id = "P";
                     scale = ParseScale(xData1, xData2);
                     break;
                 case 3: //Dragable
+                    Debug.Log("Dragable Force!");
                     switch (xData1.ToString())
                     {
                         case "1":
@@ -122,6 +126,7 @@ public class LevelEncoder : MonoBehaviour
                     }
                     break;
                 case 4: //Dynamic
+                    Debug.Log("Dynamic Force!");
                     string production = "#";
                     string reaction = "#";
 
@@ -164,6 +169,7 @@ public class LevelEncoder : MonoBehaviour
 
                     break;
                 case 5: //Static
+                    Debug.Log("Static Force!");
                     switch(xData1.ToString())
                     {
                         case "1":
@@ -182,10 +188,12 @@ public class LevelEncoder : MonoBehaviour
                     }
                     break;
                 case 6: //Mirror
+                    Debug.Log("Mirror!");
                     id = "O";
                     scale = ParseScale(xData1, xData2);
                     break;
                 case 7: //Wormhole
+                    Debug.Log("Wormhole!");
                     id = NumToLet(xData1 + 18, true);
                     break;
                 default:
@@ -221,7 +229,7 @@ public class LevelEncoder : MonoBehaviour
 
         }
 
-        builder.Append(NumToLet((builder.Length % 26), (builder.Length % 51) > 25));
+        builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 52) > 25));
         Debug.Log(builder.ToString());
     }
 
@@ -368,11 +376,27 @@ public class LevelEncoder : MonoBehaviour
     {
         string[] position = new string[3];
         float xDec = ToNearestFifth(Math.Abs(x));
-        float xDecOrg = x % 1;
-        x += roundUp;
+        float xDecOrg = Math.Abs(x) % 1;
+        if(x > 0)
+        {
+            x += roundUp;
+        }
+        else
+        {
+            x -= roundUp;
+        }
+
         float yDec = ToNearestFifth(Math.Abs(y));
-        float yDecOrg = y % 1;
-        y += roundUp;
+        float yDecOrg = Math.Abs(y) % 1;
+
+        if (y > 0)
+        {
+            y += roundUp;
+        }
+        else
+        {
+            y -= roundUp;
+        }
 
         if(xDec == 0)
         {
@@ -381,12 +405,11 @@ public class LevelEncoder : MonoBehaviour
 
         if (yDec == 0)
         {
-            y = (float)Math.Round(y);
+            y = (float) Math.Round(y);
         }
 
-
-        position[0] = NumToLet((Mathf.Round((Math.Abs(x) - xDecOrg)) % 26) + 1, Math.Abs(x) >= 26);
-        position[1] = NumToLet((Math.Abs(y) - yDecOrg) + 1, y > 0);
+        position[0] = NumToLet((Mathf.Round((Math.Abs(x) - xDecOrg)) % 26) + 1, Math.Abs(x) > 26);
+        position[1] = NumToLet((Mathf.Round(Math.Abs(y) - yDecOrg)) + 1, y > 0);
 
         int decimalSearcher = 0;
 
@@ -402,7 +425,7 @@ public class LevelEncoder : MonoBehaviour
             yDec -= 0.2f;
         }
 
-        position[2] = NumToLet(decimalSearcher + 1, x > 0);
+        position[2] = NumToLet(decimalSearcher + 1, x >= 0);
 
         return position;
     }

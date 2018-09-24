@@ -7,11 +7,11 @@ public class LevelDecoder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DecodeLevel("pfABbkkQpAQdmcAeFxr", 2, 0);
+        DecodeLevel("pJwnfQboregbQbOSegbQobQaubQoBsaubaqeDdmaeQPgyaeqpaaaqEdkkf", 2, 0);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -21,9 +21,13 @@ public class LevelDecoder : MonoBehaviour {
         char[] code = tempCode.ToCharArray();
         int i = 0;
 
-        //length checksum here
+        if((code.Length - 1) % 52 != LetToNum(code[code.Length - 1]))
+        {
+            Debug.Log("Hey! You failed the code checksum! Length: " + (code.Length - 1));
+            Debug.Log(LetToNum(code[code.Length - 1]));
+        }
 
-        if(LetToNum(code[i]) >= 12 && char.IsLower(code[i]))
+        if(LetToNum(code[i]) >= 11 && char.IsLower(code[i]))
         {
             int[] forces = ParseDrawer(code[i]);
             sw.WriteLine(forces[0]);
@@ -43,17 +47,19 @@ public class LevelDecoder : MonoBehaviour {
         {
             char tempID = code[i];
             float[] position = ParsePosition(code[i + 1], code[i + 2], code[i + 3]);
-            double xPos = position[0];
-            double yPos = position[1];
+            double xPos = System.Math.Round(position[0], 1);
+            double yPos = System.Math.Round(position[1], 1);
             i += 4;
             int id;
             double rotation, xData1, xData2;
 
+            Debug.Log(tempID);
             switch(tempID)
             {
                 case 'A':
                 case 'B':
                 case 'C':
+                    Debug.Log("Static force!");
                     id = 5;
                     rotation = 0;
                     xData1 = ParseForceType(tempID);
@@ -62,6 +68,7 @@ public class LevelDecoder : MonoBehaviour {
                 case 'D':
                 case 'E':
                 case 'F':
+                    Debug.Log("Dragable force!");
                     id = 3;
                     rotation = 0;
                     xData1 = ParseForceType(tempID);
@@ -75,6 +82,7 @@ public class LevelDecoder : MonoBehaviour {
                 case 'L':
                 case 'M':
                 case 'N':
+                    Debug.Log("Dynamic force!");
                     id = 4;
                     rotation = 0;
                     int[] type = ParseDynamicForce(tempID);
@@ -82,6 +90,7 @@ public class LevelDecoder : MonoBehaviour {
                     xData2 = type[1];
                     break;
                 case 'O':
+                    Debug.Log("Mirror!");
                     id = 6;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     float[] scale = ParseScale(code[i + 2], code[i + 3]);
@@ -90,6 +99,7 @@ public class LevelDecoder : MonoBehaviour {
                     i += 4;
                     break;
                 case 'P':
+                    Debug.Log("Wall!");
                     id = 2;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     float[] scale2 = ParseScale(code[i + 2], code[i + 3]);
@@ -98,6 +108,7 @@ public class LevelDecoder : MonoBehaviour {
                     i += 4;
                     break;
                 case 'Q':
+                    Debug.Log("Goal!");
                     id = 1;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     xData1 = 50;
@@ -113,6 +124,7 @@ public class LevelDecoder : MonoBehaviour {
                 case 'X':
                 case 'Y':
                 case 'Z':
+                    Debug.Log("Wormhole!");
                     id = 7;
                     rotation = 0;
                     xData1 = LetToNum(tempID) - 18;
@@ -129,6 +141,7 @@ public class LevelDecoder : MonoBehaviour {
                 case 'i':
                 case 'j':
                 case 'k':
+                    Debug.Log("Beam!");
                     id = 0;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     i += 2;
@@ -136,7 +149,7 @@ public class LevelDecoder : MonoBehaviour {
                     xData2 = 0;
                     break;
                 default:
-                    Debug.Log("Invalid ID character! Char: " + tempID);
+                    Debug.Log("Invalid ID character! Char: " + tempID + " Location: " + (i - 4));
                     id = -1;
                     rotation = -1;
                     xData1 = -1;
