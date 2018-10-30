@@ -597,7 +597,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009615739
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 52ca0c8b23dca62438dbb95b84d2ec09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -776,3 +776,49 @@ EdgeCollider2D:
   - {x: -36.959824, y: -19.879993}
   - {x: 37.069714, y: -20.100922}
   - {x: 36.88275, y: 19.815607}
+--- !u!1001 &2080622449
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048911958271606, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474378965610744, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b54fc7e39fb9d7540bf8985191f9fa22, type: 2}
+  m_IsPrefabParent: 0
