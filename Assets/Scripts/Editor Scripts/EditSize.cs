@@ -8,11 +8,6 @@ public class EditSize : MonoBehaviour {
 	public Transform top, bottom;
 	Vector3 topPos = new Vector3();
 	Vector3 botPos = new Vector3();
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

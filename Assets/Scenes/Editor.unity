@@ -8245,7 +8245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d718bac3869c37c40a0b9e6c62724d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beam: {fileID: 4774962813671480, guid: b7cd335f62370f9459aa9c849dbb0387, type: 2}
+  beam: {fileID: 4932514903162076, guid: b7cd335f62370f9459aa9c849dbb0387, type: 2}
   close: {fileID: 667182450}
   g: {fileID: 21300000, guid: 3c73a392e658b10428dc9bc765f79344, type: 3}
   p: {fileID: 21300000, guid: 84ceabb7e16cd4a41ada44dafbff7c8f, type: 3}

@@ -56,7 +56,7 @@ public class BeamButton : MonoBehaviour {
 	public void create(){
 		Transform temp;
 		temp = Instantiate (beam, new Vector3(0,0,0), Quaternion.identity);
-		temp.GetComponent<Beam> ().SetProperites (reactGrav, reactElec, reactFlux, beamPositive);
+		temp.GetChild(0).GetComponent<Beam>().SetProperites (reactGrav, reactElec, reactFlux, beamPositive);
 		close.GetComponent<ClosePannel> ().Close();
 	}
 
