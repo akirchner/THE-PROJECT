@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162815253}
   m_Layer: 0
-  m_Name: Controll Systems
+  m_Name: Control Systems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,7 +1356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '  Level Select  '
+  m_Text: ' Level Select '
 --- !u!222 &1420624004
 CanvasRenderer:
   m_ObjectHideFlags: 0
