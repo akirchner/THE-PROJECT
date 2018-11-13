@@ -10,7 +10,6 @@ public class Goal : MonoBehaviour {
 	bool bfb; //shhhhh. . .
 	int bfbCount = 0;
 	public Transform ProgressBar;
-	public int targetCount = 50; //exists only to make save level and load level happy, this actually never changes and could be replaced by (50) in all three files
 	int mParticleCount = 0;
 	int mDecrementDelay = 35;
 	bool mFull = false;

@@ -65,7 +65,6 @@ public class LoadLevel : MonoBehaviour {
                     break;
                 case 1:
                     currentObject = Instantiate(goal, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
-                    currentObject.GetComponent<Goal>().targetCount = (int)levelData[i][4];
                     currentObject.transform.localScale = new Vector3((float)levelData[i][5], 1, 1);
                     break;
                 case 2:

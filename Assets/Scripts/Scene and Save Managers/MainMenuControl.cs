@@ -46,7 +46,7 @@ public class MainMenuControl : MonoBehaviour {
             GameProperties.levelFilename = "editor.txt";
         }
 
-		SceneManager.LoadScene (level);
+		SceneManager.LoadScene(level);
         GameProperties.currentLevel = level;
 
 	}
