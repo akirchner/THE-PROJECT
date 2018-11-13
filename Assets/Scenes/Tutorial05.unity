@@ -1696,7 +1696,7 @@ Prefab:
         type: 2}
       propertyPath: closeButton
       value: 
-      objectReference: {fileID: 443455458}
+      objectReference: {fileID: 0}
     - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: numAvailable
@@ -2431,7 +2431,7 @@ Prefab:
         type: 2}
       propertyPath: closeButton
       value: 
-      objectReference: {fileID: 443455458}
+      objectReference: {fileID: 0}
     - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
         type: 2}
       propertyPath: Camera
@@ -2976,7 +2976,7 @@ Prefab:
         type: 2}
       propertyPath: closeButton
       value: 
-      objectReference: {fileID: 443455458}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
   m_IsPrefabParent: 0
