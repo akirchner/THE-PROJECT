@@ -8,7 +8,15 @@ public class MainMenuControl : MonoBehaviour {
 
 	public void LoadScene (string level){
 
-        GameProperties.previousLevel = GameProperties.currentLevel;
+		if(level == "Editor/Share Level"){// this checks the old 'previous level' and thus does need to go here
+			if (GameProperties.previousLevel == "Editor") {
+				level = "Editor";
+			}
+			else{
+				level = "Share Level";
+			}
+		}
+		GameProperties.previousLevel = GameProperties.currentLevel;
 
         if (level.Substring(0, 4).ToUpper() == "PACK") {
             GameProperties.currentLevelPack = level.Substring(5, 1);
@@ -42,8 +50,8 @@ public class MainMenuControl : MonoBehaviour {
             GameProperties.levelFilename = "editor.txt";
         }
         else if (level == "Editor Level") {
-            GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("editor.txt");
-            GameProperties.levelFilename = "editor.txt";
+            GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit00.txt");
+            GameProperties.levelFilename = "Edit00.txt";
         }
 
 		SceneManager.LoadScene(level);
