@@ -95,4 +95,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Submit Level.unity
     guid: e98bbe9bd909d9243acb6e03ddef1f13
+  - enabled: 1
+    path: Assets/Scenes/Bug Report.unity
+    guid: 2d0dcc6c6477edc43ad48eeae600e48f
   m_configObjects: {}
