@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Editor Save.unity
     guid: a4365d075fe6a304b8b83b8d235d48ca
+  - enabled: 1
+    path: Assets/Scenes/Submit Level.unity
+    guid: e98bbe9bd909d9243acb6e03ddef1f13
   m_configObjects: {}
