@@ -122,6 +122,7 @@ public class SaveLevel : MonoBehaviour {
                 sw.WriteLine(gameObj.transform.position.x);
                 sw.WriteLine(gameObj.transform.position.y);
                 sw.WriteLine(gameObj.transform.eulerAngles.z);
+                Debug.Log(gameObj.transform.eulerAngles.z + " Tag: " + gameObj.tag);
                 foreach (double i in extraData) {
                     sw.WriteLine(i);
                 }

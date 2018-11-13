@@ -61,7 +61,6 @@ public class LoadLevel : MonoBehaviour
             sr.Close();
             if (GameProperties.currentLevel == "Editor")
             {
-                Debug.Log("EDIT MODE");
                 for (int i = 0; i < levelData.Count; i++)
                 {
                     switch ((int)levelData[i][0])
@@ -75,8 +74,10 @@ public class LoadLevel : MonoBehaviour
                             }
                             currentObject.GetChild(0).GetComponent<Beam>().SetProperites(beamProperties[0], beamProperties[1], beamProperties[2], beamProperties[3]);
                             currentObject.GetChild(0).SetPositionAndRotation(new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.identity);
-                            float rotation = (float)levelData[i][3]*Mathf.Deg2Rad;
-                            currentObject.GetChild(1).SetPositionAndRotation(new Vector3(6*Mathf.Cos(rotation) - (float)levelData[i][1], 6*Mathf.Sin(rotation) - (float)levelData[i][2], 0), Quaternion.identity);
+                            
+                            float rotation = ((float)levelData[i][3]-90)*Mathf.Deg2Rad;
+
+                            currentObject.GetChild(1).SetPositionAndRotation(new Vector3(6f*Mathf.Cos(rotation) + (float)levelData[i][1], 6f*Mathf.Sin(rotation) + (float)levelData[i][2], 0), Quaternion.identity);
                             break;
                         case 1:
                             currentObject = Instantiate(goal, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
@@ -115,7 +116,6 @@ public class LoadLevel : MonoBehaviour
             }
             else
             {
-                Debug.Log("PLAY MODE");
                 for (int i = 0; i < levelData.Count; i++)
                 {
                     switch ((int)levelData[i][0])

@@ -60,7 +60,6 @@ public class MainMenuControl : MonoBehaviour {
 		//saves the editor temp file and loads it into editor level
         else if (level == "Editor Level") {
             GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit01.txt");
-            Debug.Log("Saved!");    
             GameProperties.levelFilename = "Edit01.txt";
         }
 
