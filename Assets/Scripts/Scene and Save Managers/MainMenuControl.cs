@@ -55,12 +55,13 @@ public class MainMenuControl : MonoBehaviour {
         }
 		//sets the level file to the editor temp file when the editor is loaded
         else if (level =="Editor") {
-            GameProperties.levelFilename = "Edit00.txt";
+            GameProperties.levelFilename = "Edit01.txt";
         }
 		//saves the editor temp file and loads it into editor level
         else if (level == "Editor Level") {
-            GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit00.txt");
-            GameProperties.levelFilename = "Edit00.txt";
+            GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit01.txt");
+            Debug.Log("Saved!");    
+            GameProperties.levelFilename = "Edit01.txt";
         }
 
 		//main case of LoadScene
