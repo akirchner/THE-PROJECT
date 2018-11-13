@@ -8,7 +8,15 @@ public class MainMenuControl : MonoBehaviour {
 
 	public void LoadScene (string level){
 
-        GameProperties.previousLevel = GameProperties.currentLevel;
+		if(level == "Editor/Share Level"){// this checks the old 'previous level' and thus does need to go here
+			if (GameProperties.previousLevel == "Editor") {
+				level = "Editor";
+			}
+			else{
+				level = "Share Level";
+			}
+		}
+		GameProperties.previousLevel = GameProperties.currentLevel;
 
         if (level.Substring(0, 4).ToUpper() == "PACK") {
             GameProperties.currentLevelPack = level.Substring(5, 1);
