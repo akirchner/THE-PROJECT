@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114908396491766602}
   - component: {fileID: 114534367205364740}
   m_Layer: 0
-  m_Name: NewForceButton
+  m_Name: NewForceButton - Copy
   m_TagString: ForceButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
