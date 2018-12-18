@@ -80,12 +80,17 @@ public class LoadLevel : MonoBehaviour
                         currentObject.GetChild(1).SetPositionAndRotation(new Vector3(6f*Mathf.Cos(rotation) + (float)levelData[i][1], 6f*Mathf.Sin(rotation) + (float)levelData[i][2], 0), Quaternion.identity);
                         break;
                     case 1:
-                        currentObject = Instantiate(goal, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
-                        currentObject.transform.localScale = new Vector3((float)levelData[i][5], 1, 1);
+                        currentObject = Instantiate(goal, new Vector3(0, 0, 0), Quaternion.identity);
+
+                        double offset = levelData[i][5] / (0.1709577 * 2);
+                        currentObject.transform.GetChild(2).localPosition = new Vector3((float)(levelData[i][1] + (offset * Math.Cos(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] + (offset * Math.Sin(levelData[i][3] * Math.PI / 180))), 0);
+                        currentObject.transform.GetChild(1).localPosition = new Vector3((float)(levelData[i][1] - (offset * Math.Cos(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] - (offset * Math.Sin(levelData[i][3] * Math.PI / 180))), 0);
                         break;
                     case 2:
-                        currentObject = Instantiate(wall, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
-                        currentObject.transform.localScale = new Vector3((float)levelData[i][4], (float)levelData[i][5], 1);
+                        currentObject = Instantiate(wall, new Vector3(0, 0, 0), Quaternion.identity);
+
+                        currentObject.transform.GetChild(2).localPosition = new Vector3((float)(levelData[i][1] + (levelData[i][4] * Math.Cos(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] + (levelData[i][4] * Math.Sin(levelData[i][3] * Math.PI / 180))), 0);
+                        currentObject.transform.GetChild(1).localPosition = new Vector3((float)(levelData[i][1] - (levelData[i][4] * Math.Cos(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] - (levelData[i][4] * Math.Sin(levelData[i][3] * Math.PI / 180))), 0);
                         break;
                     case 3:
                         currentObject = Instantiate(dragableForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
@@ -101,8 +106,10 @@ public class LoadLevel : MonoBehaviour
                         currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
                         break;
                     case 6:
-                        currentObject = Instantiate(mirror, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
-                        currentObject.transform.localScale = new Vector3((float)levelData[i][4], (float)levelData[i][5], 1);
+                        currentObject = Instantiate(mirror, new Vector3(0, 0, 0), Quaternion.identity);
+
+                        currentObject.transform.GetChild(1).localPosition = new Vector3((float)(levelData[i][1] + (levelData[i][5] * Math.Sin(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] - (levelData[i][5] * Math.Cos(levelData[i][3] * Math.PI / 180))), 0);
+                        currentObject.transform.GetChild(2).localPosition = new Vector3((float)(levelData[i][1] - (levelData[i][5] * Math.Sin(levelData[i][3] * Math.PI / 180))), (float)(levelData[i][2] + (levelData[i][5] * Math.Cos(levelData[i][3] * Math.PI / 180))), 0);
                         break;
                     case 7:
                         currentObject = Instantiate(wormhole, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
