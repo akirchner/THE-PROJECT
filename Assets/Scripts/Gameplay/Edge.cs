@@ -11,6 +11,7 @@ public class Edge : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        wormholes = GameObject.FindGameObjectsWithTag("Wormhole");
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
         canBeTeleported = true;
