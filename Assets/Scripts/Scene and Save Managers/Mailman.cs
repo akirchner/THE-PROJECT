@@ -13,14 +13,14 @@ public class Mailman : MonoBehaviour
         
     }
 
-    void Send()
+    void Send(string subject, string body)
     {
         MailMessage mail = new MailMessage();
 
         mail.From = new MailAddress("zetagamesmailman@gmail.com");
         mail.To.Add("zetagames18@gmail.com");
-        mail.Subject = "New Level Code";
-        mail.Body = "---Insert Code Here---";
+        mail.Subject = subject;
+        mail.Body = body;
 
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
@@ -30,7 +30,16 @@ public class Mailman : MonoBehaviour
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
                 { return true; };
         smtpServer.Send(mail);
+    }
 
-        Debug.Log("Sent mail!");
+    public void SubmitReport()
+    {
+        Send("Bug Report " + UnityEngine.Random.Range(1, 1000000), GameProperties.bugDescription);
+        GameProperties.bugDescription = "";
+    }
+
+    public void SendLevel()
+    {
+        Send("Level Code", "---Insert Level Code Here---");
     }
 }

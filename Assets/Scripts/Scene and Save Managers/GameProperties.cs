@@ -11,4 +11,5 @@ public class GameProperties {
     public static bool[,] saveData = new bool[8, 15];
     public static bool bigfalconbeam = false;
     public static string levelcode;
+    public static string bugDescription;
 }

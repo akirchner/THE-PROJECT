@@ -180,8 +180,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " Please describe the issue, including what happend \n and what you were
-    doing at the time: "
+  m_Text: ' Please describe the issue. If you wish to be contacted further about this
+    issue, please provide an email.'
 --- !u!222 &193418335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.699997, y: 54.8}
+  m_AnchoredPosition: {x: 2.7000122, y: 54.8}
   m_SizeDelta: {x: -34, y: -142.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511400363
@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.699997, y: -5.300003}
+  m_AnchoredPosition: {x: 2.7000122, y: -5.300003}
   m_SizeDelta: {x: -34, y: -22.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196259310
@@ -670,6 +670,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1383321042
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484972492731296, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0e86f80f30179b04888b71fd0890b209, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1551847179
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +884,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1736311936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114682682586028178, guid: 61bec5dee7eeefd47af7816f96198aa4,
+          type: 2}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Submit Report
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1736311936
@@ -1087,7 +1141,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2060663556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114682682586028178, guid: 61bec5dee7eeefd47af7816f96198aa4,
+          type: 2}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2060663556
