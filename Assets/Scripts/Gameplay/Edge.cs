@@ -11,16 +11,16 @@ public class Edge : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        wormholes = GameObject.FindGameObjectsWithTag("Wormhole");
         timer = new System.Diagnostics.Stopwatch();
         timer.Start();
-        wormholes = GameObject.FindGameObjectsWithTag("Wormhole");
         canBeTeleported = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(timer.ElapsedMilliseconds - initialMillis >= 35)
+        if (timer.ElapsedMilliseconds - initialMillis >= 35)
         {
             canBeTeleported = true;
         }
@@ -30,23 +30,30 @@ public class Edge : MonoBehaviour
     {
         if(col.CompareTag("Wormhole"))
         {
-            int searchID = col.GetComponent<Wormhole>().id;
-            Vector3 safetyPosition = col.transform.position;
-
-            for(int i = 0; i < wormholes.Length; i++)
+            try
             {
-                if(wormholes[i].GetComponent<Wormhole>().id == searchID && wormholes[i].transform.position != safetyPosition)
+                int searchID = col.GetComponent<Wormhole>().id;
+                Vector3 safetyPosition = col.transform.position;
+
+                for (int i = 0; i < wormholes.Length; i++)
                 {
-                    if (canBeTeleported)
+                    if (wormholes[i].GetComponent<Wormhole>().id == searchID && wormholes[i].transform.position != safetyPosition)
                     {
-                        Vector3 relativeDisplacement = new Vector3(this.gameObject.transform.position.x - col.transform.position.x, this.gameObject.transform.position.y - col.transform.position.y, 0);
-                        this.gameObject.transform.position = wormholes[i].transform.position;
-                        this.gameObject.transform.position += relativeDisplacement;
-                        canBeTeleported = false;
-                        initialMillis = timer.ElapsedMilliseconds;
+                        if (canBeTeleported)
+                        {
+                            Vector3 relativeDisplacement = new Vector3(this.gameObject.transform.position.x - col.transform.position.x, this.gameObject.transform.position.y - col.transform.position.y, 0);
+                            this.gameObject.transform.position = wormholes[i].transform.position;
+                            this.gameObject.transform.position += relativeDisplacement;
+                            canBeTeleported = false;
+                            initialMillis = timer.ElapsedMilliseconds;
+                        }
                     }
                 }
+            } catch(System.NullReferenceException e)
+            {
+                
             }
+            
         }
         else
         {

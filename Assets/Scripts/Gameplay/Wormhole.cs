@@ -45,6 +45,12 @@ public class Wormhole : MonoBehaviour {
             case 5:
                 color = Color.cyan;
                 break;
+            case 6:
+                color = Color.grey;
+                break;
+            case 7:
+                color = Color.white;
+                break;
             default:
                 Debug.Log("What is my identity?");
                 break;

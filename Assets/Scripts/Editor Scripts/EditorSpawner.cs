@@ -10,7 +10,7 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
     private bool validCombo;
 	public Transform element, close;
 	public ForceType type;
-	int wormholeID = 0;
+    bool[] availableID;
 
 	Vector3 mousePos = new Vector3 ();
 	Quaternion rotation = Quaternion.identity;
@@ -30,6 +30,12 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 		WorldToPixelAmount.x = Screen.width / WorldUnitsInCamera.x;
 		WorldToPixelAmount.y = Screen.height / WorldUnitsInCamera.y;
 
+        availableID = new bool[8];
+
+        for(int i = 0; i < 8; i++)
+        {
+            availableID[i] = true;
+        }
 	}
 
 	//detects the first half of a click, the pointer down.
@@ -50,19 +56,24 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 			if(element.tag == "Wormhole"){
 				
 				close.GetComponent<ClosePannel>().Close();
+                int id = findFirstID();
 
-				for (int i = 0; i < 2; i++){ //spawns two connected wormholes
-					Transform temp;
-					mousePos = ConvertToWorldUnits (Input.mousePosition); //finds mouse position
-					temp = Instantiate (element, mousePos, rotation); //creates the force
-					temp.GetComponent<Wormhole> ().id = wormholeID; //sets its type
-					if(i == 1){
-						temp.GetComponent<DragAndDrop> ().OnMouseDown (); //initiates dragging via DragAndDrop Script
-					}
-				}
+                if (id != -1)
+                {
+                    for (int i = 0; i < 2; i++)
+                    { //spawns two connected wormholes
+                        Transform temp;
+                        mousePos = ConvertToWorldUnits(Input.mousePosition); //finds mouse position
+                        temp = Instantiate(element, mousePos, rotation); //creates the force
+                        temp.GetComponent<Wormhole>().id = id; //sets its type
+                        if (i == 1)
+                        {
+                            temp.GetComponent<DragAndDrop>().OnMouseDown(); //initiates dragging via DragAndDrop Script
+                        }
+                    }
 
-				wormholeID++;
-
+                    setAvailableID(id, false);
+                }
 			}
 
 			else if(element.tag == "Beam"){
@@ -139,4 +150,21 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 		return returnVec2;
 	}
 		
+    public int findFirstID()
+    {
+        for(int i = 0; i < 8; i++)
+        {
+            if(availableID[i])
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void setAvailableID(int id, bool avail)
+    {
+        availableID[id] = avail;
+    }
 }

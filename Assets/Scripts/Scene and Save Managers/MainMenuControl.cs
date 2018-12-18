@@ -46,6 +46,7 @@ public class MainMenuControl : MonoBehaviour {
                 }
                 else {
                     level = "Pack " + (Int32.Parse(GameProperties.currentLevelPack) + 1).ToString();
+                    GameProperties.currentLevelPack = (Int32.Parse(GameProperties.currentLevelPack) + 1).ToString();
                 }
             }
             else {
