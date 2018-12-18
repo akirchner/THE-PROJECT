@@ -63,6 +63,10 @@ public class MainMenuControl : MonoBehaviour {
             GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit01.txt");
             GameProperties.levelFilename = "Edit01.txt";
         }
+        else if(level == "Editor Level Restart")
+        {
+            level = "Editor Level";
+        }
         else if(level == "Submit Report")
         {
             GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
