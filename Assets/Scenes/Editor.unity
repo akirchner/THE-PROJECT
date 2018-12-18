@@ -1893,7 +1893,7 @@ MonoBehaviour:
   staticForce: {fileID: 4938189839878606, guid: fed31db4586dbdd4dab550a81712c8e1,
     type: 2}
   goal: {fileID: 4837473638171430, guid: 350f6b89586afd841a0af1e28c0e6d00, type: 2}
-  wall: {fileID: 4504296953657298, guid: a52b8206cbd13c442aafb09b39ad45ed, type: 2}
+  wall: {fileID: 4086792999630524, guid: 26f3de49dee30154495bb8303341f26d, type: 2}
   beam: {fileID: 4932514903162076, guid: b7cd335f62370f9459aa9c849dbb0387, type: 2}
   mirror: {fileID: 4504296953657298, guid: a52b8206cbd13c442aafb09b39ad45ed, type: 2}
   wormhole: {fileID: 4370772987023628, guid: 260979fb97c91de4797862982ec8ca77, type: 2}
