@@ -2168,6 +2168,11 @@ Prefab:
       propertyPath: closeButton
       value: 
       objectReference: {fileID: 224439435}
+    - target: {fileID: 114534367205364740, guid: 06a2adb816c7cfc4ba78e6c72fa67056,
+        type: 2}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06a2adb816c7cfc4ba78e6c72fa67056, type: 2}
   m_IsPrefabParent: 0
