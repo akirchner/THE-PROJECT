@@ -9,7 +9,6 @@ public class EditRotation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Apply (Rotation (target.position));
-
 	}
 
 	float Rotation(Vector3 a){

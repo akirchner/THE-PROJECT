@@ -11,6 +11,7 @@ public class SaveLevel : MonoBehaviour {
     List<double> extraData;
     List<bool> beamList;
     StringBuilder beamProperties;
+	public GameObject theBeam;
 
     // Use this for initialization
     void Start () {
@@ -19,6 +20,7 @@ public class SaveLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("According to saveLevel:" + theBeam.transform.eulerAngles.z);
         if(Input.GetKeyDown("`")) {
             Debug.Log("Saving!");
             save("znewLevel.txt");
@@ -122,6 +124,8 @@ public class SaveLevel : MonoBehaviour {
                 sw.WriteLine(gameObj.transform.position.x);
                 sw.WriteLine(gameObj.transform.position.y);
                 sw.WriteLine(gameObj.transform.eulerAngles.z);
+				Debug.Log (gameObj.name);
+				Debug.Log (gameObj.transform.eulerAngles.z + " saved");
 
                 foreach (double i in extraData) {
                     sw.WriteLine(i);
