@@ -5,6 +5,7 @@ using UnityEngine;
 public class EditRotation : MonoBehaviour {
 
 	public Transform target;
+    private float rotation;
 	float x,y;
 	// Update is called once per frame
 	void Update () {
@@ -19,6 +20,12 @@ public class EditRotation : MonoBehaviour {
 	}
 
 	void Apply(float rotation){
-		this.transform.rotation = Quaternion.Euler (0, 0, (float)rotation + 90);
+        this.transform.rotation = Quaternion.Euler(0, 0, rotation + 90);
+        this.rotation = rotation + 90;
 	}
+
+    public float getRotation()
+    {
+        return rotation;
+    }
 }

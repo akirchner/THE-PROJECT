@@ -20,7 +20,6 @@ public class SaveLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("According to saveLevel:" + theBeam.transform.eulerAngles.z);
         if(Input.GetKeyDown("`")) {
             Debug.Log("Saving!");
             save("znewLevel.txt");
@@ -123,9 +122,15 @@ public class SaveLevel : MonoBehaviour {
                 sw.WriteLine(id);
                 sw.WriteLine(gameObj.transform.position.x);
                 sw.WriteLine(gameObj.transform.position.y);
-                sw.WriteLine(gameObj.transform.eulerAngles.z);
-				Debug.Log (gameObj.name);
-				Debug.Log (gameObj.transform.eulerAngles.z + " saved");
+
+                if(GameProperties.previousLevel == "Editor" && gameObj.CompareTag("Beam"))
+                {
+                    sw.WriteLine(gameObj.GetComponent<EditRotation>().getRotation());
+                }
+                else
+                {
+                    sw.WriteLine(gameObj.transform.eulerAngles.z);
+                }
 
                 foreach (double i in extraData) {
                     sw.WriteLine(i);
