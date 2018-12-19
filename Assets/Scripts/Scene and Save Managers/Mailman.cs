@@ -40,6 +40,6 @@ public class Mailman : MonoBehaviour
 
     public void SendLevel()
     {
-        Send("Level Code", "---Insert Level Code Here---");
+        Send("Level Code " + UnityEngine.Random.Range(1, 1000000), GameProperties.levelcode);
     }
 }
