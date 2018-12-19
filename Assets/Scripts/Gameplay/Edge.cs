@@ -49,7 +49,7 @@ public class Edge : MonoBehaviour
                         }
                     }
                 }
-            } catch(System.NullReferenceException e)
+            } catch(System.NullReferenceException)
             {
                 
             }

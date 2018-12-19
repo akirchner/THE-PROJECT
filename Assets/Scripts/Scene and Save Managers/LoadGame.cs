@@ -10,19 +10,30 @@ public class LoadGame : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        filepath = Path.Combine(Application.persistentDataPath, "gameData.txt");
+        try
+        {
+            filepath = Path.Combine(Application.persistentDataPath, "gameData.txt");
 
-        if (File.Exists(filepath)) {
-            sr = new StreamReader(filepath);
+            if (File.Exists(filepath))
+            {
+                sr = new StreamReader(filepath);
 
-            for (int i = 0; i < GameProperties.saveData.GetLength(0) - 1; i++) {
-                for (int j = 0; j < 15; j++) {
-                    GameProperties.saveData[i, j] = sr.ReadLine().Equals("1");
+                for (int i = 0; i < GameProperties.saveData.GetLength(0) - 1; i++)
+                {
+                    for (int j = 0; j < 15; j++)
+                    {
+                        GameProperties.saveData[i, j] = sr.ReadLine().Equals("1");
+                    }
                 }
-            }
 
-            sr.Close();
+                sr.Close();
+            }
         }
+        catch(NullReferenceException)
+        {
+            Debug.Log("No save file found!");
+        }
+        
 	}
 	
 	// Update is called once per frame
