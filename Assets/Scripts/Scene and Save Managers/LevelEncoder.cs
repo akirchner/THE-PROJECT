@@ -89,7 +89,6 @@ public class LevelEncoder : MonoBehaviour
             switch (tempID)
             {
                 case 0: //Beam
-                    Debug.Log("Beam!");
                     bool[] properties = new bool[4];
 
                     for(int j = 0; j < properties.Length; j++)
@@ -100,17 +99,14 @@ public class LevelEncoder : MonoBehaviour
                     id = ParseBeam(properties);
                     break;
                 case 1: //Goal
-                    Debug.Log("Goal!");
                     id = "Q";
                     scale = ParseScale(xData2, 1);
                     break;
                 case 2: //Wall
-                    Debug.Log("Wall");
                     id = "P";
                     scale = ParseScale(xData1, xData2);
                     break;
                 case 3: //Dragable
-                    Debug.Log("Dragable Force!");
                     switch (xData1.ToString())
                     {
                         case "1":
@@ -129,7 +125,6 @@ public class LevelEncoder : MonoBehaviour
                     }
                     break;
                 case 4: //Dynamic
-                    Debug.Log("Dynamic Force!");
                     string production = "#";
                     string reaction = "#";
 
@@ -172,7 +167,6 @@ public class LevelEncoder : MonoBehaviour
 
                     break;
                 case 5: //Static
-                    Debug.Log("Static Force!");
                     switch(xData1.ToString())
                     {
                         case "1":
@@ -191,12 +185,10 @@ public class LevelEncoder : MonoBehaviour
                     }
                     break;
                 case 6: //Mirror
-                    Debug.Log("Mirror!");
                     id = "O";
                     scale = ParseScale(xData1, xData2);
                     break;
                 case 7: //Wormhole
-                    Debug.Log("Wormhole!");
                     id = NumToLet(xData1 + 18, true);
                     break;
                 default:
@@ -233,7 +225,6 @@ public class LevelEncoder : MonoBehaviour
         }
 
         builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 52) > 25));
-        Debug.Log(builder.ToString());
         field.text = builder.ToString();
     }
 

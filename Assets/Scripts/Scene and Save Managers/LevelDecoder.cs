@@ -55,13 +55,11 @@ public class LevelDecoder : MonoBehaviour {
             int id;
             double rotation, xData1, xData2;
 
-            Debug.Log(tempID);
             switch(tempID)
             {
                 case 'A':
                 case 'B':
                 case 'C':
-                    Debug.Log("Static force!");
                     id = 5;
                     rotation = 0;
                     xData1 = ParseForceType(tempID);
@@ -70,7 +68,6 @@ public class LevelDecoder : MonoBehaviour {
                 case 'D':
                 case 'E':
                 case 'F':
-                    Debug.Log("Dragable force!");
                     id = 3;
                     rotation = 0;
                     xData1 = ParseForceType(tempID);
@@ -84,7 +81,6 @@ public class LevelDecoder : MonoBehaviour {
                 case 'L':
                 case 'M':
                 case 'N':
-                    Debug.Log("Dynamic force!");
                     id = 4;
                     rotation = 0;
                     int[] type = ParseDynamicForce(tempID);
@@ -92,7 +88,6 @@ public class LevelDecoder : MonoBehaviour {
                     xData2 = type[1];
                     break;
                 case 'O':
-                    Debug.Log("Mirror!");
                     id = 6;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     float[] scale = ParseScale(code[i + 2], code[i + 3]);
@@ -101,7 +96,6 @@ public class LevelDecoder : MonoBehaviour {
                     i += 4;
                     break;
                 case 'P':
-                    Debug.Log("Wall!");
                     id = 2;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     float[] scale2 = ParseScale(code[i + 2], code[i + 3]);
@@ -110,7 +104,6 @@ public class LevelDecoder : MonoBehaviour {
                     i += 4;
                     break;
                 case 'Q':
-                    Debug.Log("Goal!");
                     id = 1;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     xData1 = 50;
@@ -126,7 +119,6 @@ public class LevelDecoder : MonoBehaviour {
                 case 'X':
                 case 'Y':
                 case 'Z':
-                    Debug.Log("Wormhole!");
                     id = 7;
                     rotation = 0;
                     xData1 = LetToNum(tempID) - 18;
@@ -143,7 +135,6 @@ public class LevelDecoder : MonoBehaviour {
                 case 'i':
                 case 'j':
                 case 'k':
-                    Debug.Log("Beam!");
                     id = 0;
                     rotation = ParseRotation(code[i], code[i + 1]);
                     i += 2;
@@ -468,6 +459,46 @@ public class LevelDecoder : MonoBehaviour {
     {
         number1 = number / 10;
         number2 = number % 10;
-        DecodeLevel();
+
+        if(GameProperties.previousLevel == "Editor Level")
+        {
+            string filepath;
+
+            StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "User" + number1 + number2 + ".txt"));
+
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                filepath = Application.persistentDataPath + "/Edit01.txt";
+
+                if (!File.Exists(filepath))
+                {
+                    WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/Edit01.txt");
+                    while (!load.isDone) { }
+
+                    File.WriteAllBytes(filepath, load.bytes);
+                }
+            }
+            else
+            {
+                filepath = Path.Combine(Application.streamingAssetsPath, "Edit01.txt");
+            }
+
+            StreamReader sr = new StreamReader(filepath);
+
+            string line = sr.ReadLine();
+
+            while (line != null)
+            {
+                sw.WriteLine(line);
+                line = sr.ReadLine();
+            }
+
+            sr.Close();
+            sw.Close();
+        }
+        else
+        {
+            DecodeLevel();
+        }
     }
 }

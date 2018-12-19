@@ -19,6 +19,11 @@ public class MainMenuControl : MonoBehaviour {
 			}
 		}
 
+        if(level == "Player Pack")
+        {
+            GameProperties.currentLevelPack = "Player";
+        }
+
 		GameProperties.previousLevel = GameProperties.currentLevel;
 
 		//saves the current pack number for future reference
@@ -30,7 +35,10 @@ public class MainMenuControl : MonoBehaviour {
             if (GameProperties.currentLevelPack == "") {
                 level = "Level Select";
             }
-            else {
+            else if(GameProperties.currentLevelPack == "Player") {
+                level = "Player Pack";
+            }
+            else { 
                 level = "Pack " + GameProperties.currentLevelPack;
             }
         }
