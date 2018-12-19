@@ -43,6 +43,10 @@ public class Goal : MonoBehaviour {
             {
                 Initiate.Fade("Editor End", Color.black, 4f);
             }
+            else if(GameProperties.currentLevelPack == "Player")
+            {
+                Initiate.Fade("Player End", Color.black, 4f);
+            }
             else {
 				Initiate.Fade ("End", Color.black, 4f);
 			}
