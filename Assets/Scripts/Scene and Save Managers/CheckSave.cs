@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CheckSave : MonoBehaviour {
     public int packID, levelID;
-    public Transform check;
 
 	// Use this for initialization
 	void Start () {

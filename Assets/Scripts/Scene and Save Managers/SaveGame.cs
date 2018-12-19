@@ -29,8 +29,8 @@ public class SaveGame : MonoBehaviour {
 		case "Dync":
 			packID = 6;
 			break;
-        case "Edit":
-            packID = 7;
+        case "User":
+            packID = 9;
             break;
         default:
             break;
