@@ -101,4 +101,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Submit Report.unity
     guid: fc029d4f70e23d646a03c8f11ab35ce3
+  - enabled: 1
+    path: Assets/Scenes/Editor End.unity
+    guid: 80a0aed6131f5824e8f8240c634b5ee5
   m_configObjects: {}

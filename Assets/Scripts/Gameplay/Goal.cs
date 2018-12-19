@@ -35,10 +35,15 @@ public class Goal : MonoBehaviour {
 
 		if (mEnd.TrueForAll(x => x)) {
 
-			if (isTutorial) {
-				Initiate.Fade ("TutorialEnd", Color.black, 4f);
-			} 
-			else {
+            if (isTutorial)
+            {
+                Initiate.Fade("TutorialEnd", Color.black, 4f);
+            }
+            else if (GameProperties.currentLevel == "Editor Level")
+            {
+                Initiate.Fade("Editor End", Color.black, 4f);
+            }
+            else {
 				Initiate.Fade ("End", Color.black, 4f);
 			}
 		} 
