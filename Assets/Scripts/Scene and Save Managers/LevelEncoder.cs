@@ -226,6 +226,7 @@ public class LevelEncoder : MonoBehaviour
 
         builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 52) > 25));
         field.text = builder.ToString();
+        GameProperties.levelcode = builder.ToString();
     }
 
 
