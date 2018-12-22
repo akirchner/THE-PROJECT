@@ -11,8 +11,8 @@ public class MainMenuControl : MonoBehaviour {
 
 		//handles the back button in scene: Editor Save, which leads to different scenes depending on where you came from
 		if(level == "Editor/Share Level"){// this checks the old 'previous level' and thus does need to go here
-			if (GameProperties.previousLevel == "Editor") {
-				level = "Editor";
+			if (GameProperties.previousLevel == "Editor Level") {
+                level = "Editor LevelEsc";
 			}
 			else{
 				level = "Share Level";
@@ -78,6 +78,10 @@ public class MainMenuControl : MonoBehaviour {
         else if(level == "Submit Report")
         {
             GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
+        }
+
+        if(level == "Editor LevelEsc") {
+            level = "Editor Level";
         }
 
 		//main case of LoadScene
