@@ -301,6 +301,11 @@ Prefab:
       propertyPath: m_Name
       value: Level Button 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
@@ -695,6 +700,11 @@ Prefab:
       propertyPath: m_Name
       value: Level Button 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
@@ -945,6 +955,11 @@ Prefab:
     - target: {fileID: 1160267128063780, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
       propertyPath: m_Name
       value: Level Button 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
@@ -2751,6 +2766,11 @@ Prefab:
       propertyPath: m_Name
       value: Level Button 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
   m_IsPrefabParent: 0
@@ -2862,7 +2882,7 @@ Prefab:
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.88566667
+      value: 0.874
       objectReference: {fileID: 0}
     - target: {fileID: 224105172937896550, guid: 4388d7680948f9c4394bc2dda51a89e8,
         type: 2}
@@ -3810,6 +3830,11 @@ Prefab:
     - target: {fileID: 1160267128063780, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
       propertyPath: m_Name
       value: Level Button 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114217582014794862, guid: 4388d7680948f9c4394bc2dda51a89e8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4388d7680948f9c4394bc2dda51a89e8, type: 2}
