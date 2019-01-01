@@ -24,6 +24,8 @@ public class Music : MonoBehaviour
     private AudioSource source;
     public AudioClip[] music = new AudioClip[14];
 
+    private int fadeTimer = 120;
+
     private static Music instance = null;
     public static Music Instance { get { return instance; } }
 
@@ -63,7 +65,7 @@ public class Music : MonoBehaviour
         {
             if (fadingOut)
             {
-                if (whenAreWe > 120)
+                if (whenAreWe > fadeTimer)
                 {
                     whenAreWe = 0;
                     source.loop = false;
@@ -102,20 +104,20 @@ public class Music : MonoBehaviour
                 }
                 else
                 {
-                    source.volume -= (float)(1.0 / 120);
+                    source.volume -= (float)(1.0 / fadeTimer);
                     whenAreWe++;
                 }
             }
             else
             {
-                if (whenAreWe > 120)
+                if (whenAreWe > fadeTimer)
                 {
                     whenAreWe = 0;
                     fadingIn = false;
                 }
                 else
                 {
-                    source.volume += (float)(1.0 / 120);
+                    source.volume += (float)(1.0 / fadeTimer);
                     whenAreWe++;
                 }
             }
