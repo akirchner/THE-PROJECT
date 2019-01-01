@@ -768,7 +768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.034764826, y: 0.34626997}
   m_AnchorMax: {x: 0.97540516, y: 0.8201389}
-  m_AnchoredPosition: {x: 1, y: 0.10000038}
+  m_AnchoredPosition: {x: 1, y: 0.1000061}
   m_SizeDelta: {x: 2, y: 0.099998474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778882088
@@ -803,8 +803,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Make sure you have selected a level on the previous screen before submitting.
+  m_Text: 'By summiting your level you are granting Zeta Games all rights to use and
+    reproduce it as our own.
+
     Are you sure?
+
+
+    *Confirm you have selected a level on the previous screen before submitting. '
 --- !u!222 &778882089
 CanvasRenderer:
   m_ObjectHideFlags: 0
