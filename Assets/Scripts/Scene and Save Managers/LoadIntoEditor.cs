@@ -35,7 +35,7 @@ public class LoadIntoEditor : MonoBehaviour {
         }
         else
         {
-            filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
+            filepath = Path.Combine(Application.persistentDataPath, GameProperties.levelFilename);
         }
 
         StreamReader sr = new StreamReader(filepath);
