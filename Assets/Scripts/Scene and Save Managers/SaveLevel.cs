@@ -56,7 +56,12 @@ public class SaveLevel : MonoBehaviour {
     }
 
     public void save (string filename) {
-        sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, filename));
+        if (filename.Substring(0, 4).Equals("User")) {
+            sw = File.CreateText(Path.Combine(Application.persistentDataPath, filename));
+        }
+        else {
+            sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, filename));
+        }
 
         sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<ForceSpawner>().numAvailable);
         sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<ForceSpawner>().numAvailable);
