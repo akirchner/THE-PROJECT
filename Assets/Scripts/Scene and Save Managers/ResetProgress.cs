@@ -11,7 +11,7 @@ public class ResetProgress : MonoBehaviour {
     public void Reset () {
         sw = File.CreateText(Path.Combine(Application.persistentDataPath, "gameData.txt"));
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) { //Don't use length becuase it gives the total amount of elements in the array.
             for (int j = 0; j < 15; j++) {
                 GameProperties.saveData[i, j] = false;
                 sw.WriteLine(0);
