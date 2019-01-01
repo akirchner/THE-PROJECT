@@ -19,7 +19,7 @@ public class LevelDecoder : MonoBehaviour {
 
     void DecodeLevel()
     {
-        StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "User" + number1 + number2 + ".txt"));
+        StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "User" + number1 + number2 + ".txt"));
         char[] code = tempCode.ToCharArray();
         int i = 0;
 
@@ -464,7 +464,7 @@ public class LevelDecoder : MonoBehaviour {
         {
             string filepath;
 
-            StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "User" + number1 + number2 + ".txt"));
+            StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "User" + number1 + number2 + ".txt"));
 
             if (Application.platform == RuntimePlatform.Android)
             {
@@ -480,7 +480,7 @@ public class LevelDecoder : MonoBehaviour {
             }
             else
             {
-                filepath = Path.Combine(Application.streamingAssetsPath, "Edit01.txt");
+                filepath = Path.Combine(Application.persistentDataPath, "Edit01.txt");
             }
 
             StreamReader sr = new StreamReader(filepath);

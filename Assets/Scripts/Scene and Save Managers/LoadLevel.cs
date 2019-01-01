@@ -32,7 +32,12 @@ public class LoadLevel : MonoBehaviour
             }
             else
             {
-                filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
+                if (GameProperties.levelFilename.Substring(0, 4).Equals("User") || GameProperties.levelFilename.Substring(0, 6).Equals("editor")) {
+                    filepath = Path.Combine(Application.persistentDataPath, GameProperties.levelFilename);
+                }
+                else {
+                    filepath = Path.Combine(Application.streamingAssetsPath, GameProperties.levelFilename);
+                }
             }
 
             StreamReader sr = new StreamReader(filepath);
