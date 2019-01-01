@@ -495,6 +495,9 @@ public class LevelDecoder : MonoBehaviour {
 
             sr.Close();
             sw.Close();
+
+            StreamWriter clearEdit = new StreamWriter(filepath);
+            clearEdit.Close();
         }
         else
         {
