@@ -32,7 +32,7 @@ public class LoadLevel : MonoBehaviour
             }
             else
             {
-                if (GameProperties.levelFilename.Substring(0, 4).Equals("User") || GameProperties.levelFilename.Substring(0, 6).Equals("editor")) {
+                if (GameProperties.levelFilename.Substring(0, 4).Equals("User") || GameProperties.levelFilename.Substring(0, 4).Equals("Edit")) {
                     filepath = Path.Combine(Application.persistentDataPath, GameProperties.levelFilename);
                 }
                 else {
