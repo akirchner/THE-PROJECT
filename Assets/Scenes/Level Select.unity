@@ -200,6 +200,17 @@ MonoBehaviour:
           m_StringArgument: Pack 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &62021245
@@ -662,6 +673,17 @@ MonoBehaviour:
           m_StringArgument: Main Menu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &445546450
@@ -784,6 +806,17 @@ MonoBehaviour:
           m_StringArgument: Pack 3
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &504988286
@@ -904,6 +937,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Pack 6
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1190,6 +1234,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Pack 4
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1547,6 +1602,17 @@ MonoBehaviour:
           m_StringArgument: Pack 2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1384473039
@@ -1675,6 +1741,17 @@ MonoBehaviour:
           m_StringArgument: Pack 5
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1695121948}
+        m_MethodName: SetLocation
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1580723072
@@ -1772,6 +1849,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1695121947
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.179028
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.0565345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 89.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1695121948 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114251619744082580, guid: 1266e70f3cf293a4b89d3bde1d6cc237,
+    type: 2}
+  m_PrefabInternal: {fileID: 1695121947}
+  m_Script: {fileID: 11500000, guid: 47de269226bdae24cbdb8bb9b8f23eec, type: 3}
 --- !u!1 &1725747311
 GameObject:
   m_ObjectHideFlags: 0
