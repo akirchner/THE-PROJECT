@@ -19,7 +19,7 @@ public class LoadIntoEditor : MonoBehaviour {
     {
         string filepath;
 
-        StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "Edit01.txt"));
+        StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "Edit01.txt"));
 
         if (Application.platform == RuntimePlatform.Android)
         {
