@@ -56,7 +56,7 @@ public class SaveLevel : MonoBehaviour {
     }
 
     public void save (string filename) {
-        if (filename.Substring(0, 4).Equals("User")) {
+        if (filename.Substring(0, 4).Equals("User") || filename.Substring(0, 6).Equals("editor")) {
             sw = File.CreateText(Path.Combine(Application.persistentDataPath, filename));
         }
         else {

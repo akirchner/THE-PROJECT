@@ -12,7 +12,7 @@ public class SaveUserLevel : MonoBehaviour {
         }
         else {
             try {
-                File.Move(Path.Combine(Application.streamingAssetsPath, "editor.txt"), Path.Combine(Application.streamingAssetsPath, "User" + levelNum.ToString().PadLeft(2, '0') + ".txt"));
+                File.Move(Path.Combine(Application.persistentDataPath, "editor.txt"), Path.Combine(Application.persistentDataPath, "User" + levelNum.ToString().PadLeft(2, '0') + ".txt"));
             }
             catch (Exception) {
                 Debug.Log("uh oh. the file didn't transfer.");
