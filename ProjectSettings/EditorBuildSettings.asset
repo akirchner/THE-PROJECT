@@ -35,15 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 23679a16d8d944142adbc708fddbdc9d
-  - enabled: 1
-    path: Assets/Scenes/Editor.unity
-    guid: 21943d08d6e16c04289cee4a1abae054
-  - enabled: 1
-    path: Assets/Scenes/Editor Level.unity
-    guid: 4fc8a49a5f1f0a34496fccde8fce6c6e
-  - enabled: 1
-    path: Assets/Scenes/Player Pack.unity
-    guid: 3d5e87dfa42759e46895928483a20292
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level Select.unity
     guid: 4a1a3ac87418e5c429a1dfbb8983ec00
@@ -56,18 +56,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pack 3.unity
     guid: a8e487113acbda74f90fa99015c868b5
-  - enabled: 1
-    path: Assets/Scenes/Pack 4.unity
-    guid: 54b7bd8e2bfdedb4789acdefff0f53af
-  - enabled: 1
-    path: Assets/Scenes/Pack 5.unity
-    guid: 95ebf1369d09b4a4f8b1ba906cc71638
-  - enabled: 1
-    path: Assets/Scenes/Pack 6.unity
-    guid: 33dfc7fee941b55429c2c55d5c63284e
   - enabled: 0
-    path: Assets/Scenes/Pack X.unity
-    guid: f81c4c734fb4c8c418d319f229e09b78
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 56df65de7a19e6e43b350ee4f176450f
@@ -78,33 +78,33 @@ EditorBuildSettings:
     path: Assets/Scenes/Are You Sure.unity
     guid: 0711174b4a9cf964db7e171c873683b6
   - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: 893d3b4b296cfdc4dbfc42d222749cef
-  - enabled: 1
-    path: Assets/Scenes/Share Level.unity
-    guid: eb4fe910d68932642af7f5eae760c8fa
-  - enabled: 1
-    path: Assets/Scenes/Encode.unity
-    guid: 2ec807be1bfc57a4fa9c09781ecaaf63
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Buy Now!.unity
     guid: c401dc3d194a1a447852c5a11bdaa6fd
-  - enabled: 1
-    path: Assets/Scenes/Editor Save.unity
-    guid: a4365d075fe6a304b8b83b8d235d48ca
-  - enabled: 1
-    path: Assets/Scenes/Submit Level.unity
-    guid: e98bbe9bd909d9243acb6e03ddef1f13
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Bug Report.unity
     guid: 2d0dcc6c6477edc43ad48eeae600e48f
   - enabled: 1
     path: Assets/Scenes/Submit Report.unity
     guid: fc029d4f70e23d646a03c8f11ab35ce3
-  - enabled: 1
-    path: Assets/Scenes/Editor End.unity
-    guid: 80a0aed6131f5824e8f8240c634b5ee5
-  - enabled: 1
-    path: Assets/Scenes/Player End.unity
-    guid: 66a69326929d96a448184cc9e0e8caef
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
