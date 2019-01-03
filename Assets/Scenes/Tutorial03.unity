@@ -254,7 +254,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The yellow force is an electron, which either attracts and repels the beam
+  m_Text: 'The yellow force is an electron, which either attracts or repels the beam
     depending on the beam''s charge '
 --- !u!222 &60138433
 CanvasRenderer:
