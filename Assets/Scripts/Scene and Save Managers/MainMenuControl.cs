@@ -49,7 +49,7 @@ public class MainMenuControl : MonoBehaviour {
 		//handles the next level button
         else if (level == "NextLevel") {
             if (Int32.Parse(GameProperties.levelFilename.Substring(4, 2)) == 15) {
-                if (Int32.Parse(GameProperties.currentLevelPack) == GameProperties.saveData.GetLength(0) - 1) {
+				if (Int32.Parse(GameProperties.currentLevelPack) == 3) {//three is the index of the last pack (flux), increment if packs are added 
                     level = "Level Select";
                 }
                 else {
