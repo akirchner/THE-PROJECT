@@ -350,10 +350,10 @@ RectTransform:
   m_Father: {fileID: 950172332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078842305, y: 0.09774436}
-  m_AnchorMax: {x: 0.90681005, y: 0.87969923}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.57, y: -1}
+  m_SizeDelta: {x: -58.97, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &121830373
 MonoBehaviour:
@@ -387,7 +387,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: " Coming \n Soon. . "
+  m_Text: 'Coming
+
+    Soon. .'
 --- !u!222 &121830374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1312,10 +1314,10 @@ RectTransform:
   m_Father: {fileID: 1384473037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.08566308, y: 0.16279761}
-  m_AnchorMax: {x: 0.9354839, y: 0.881881}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -42.36, y: -46.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103878333
 MonoBehaviour:
@@ -2374,10 +2376,10 @@ RectTransform:
   m_Father: {fileID: 745216212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06450539, y: 0.12781957}
-  m_AnchorMax: {x: 0.89964145, y: 0.87200004}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.5999985, y: 0}
+  m_SizeDelta: {x: -57, y: -24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113456298
 MonoBehaviour:
@@ -2411,7 +2413,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: " Dynamic \n Deception "
+  m_Text: 'Dynamic
+
+    Deception'
 --- !u!222 &2113456299
 CanvasRenderer:
   m_ObjectHideFlags: 0
