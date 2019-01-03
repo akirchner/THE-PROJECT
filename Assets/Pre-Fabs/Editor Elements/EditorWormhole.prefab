@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114553930196976092}
   - component: {fileID: 114460086267411804}
   - component: {fileID: 212379197787243788}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: EditorWormhole
   m_TagString: Wormhole
   m_Icon: {fileID: 0}
