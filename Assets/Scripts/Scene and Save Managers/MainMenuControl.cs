@@ -49,12 +49,13 @@ public class MainMenuControl : MonoBehaviour {
 		//handles the next level button
         else if (level == "NextLevel") {
             if (Int32.Parse(GameProperties.levelFilename.Substring(4, 2)) == 15) {
-                if (Int32.Parse(GameProperties.currentLevelPack) == GameProperties.saveData.GetLength(0) - 1) {
+                if (Int32.Parse(GameProperties.currentLevelPack) == 6) {
                     level = "Level Select";
                 }
                 else {
                     level = "Pack " + (Int32.Parse(GameProperties.currentLevelPack) + 1).ToString();
                     GameProperties.currentLevelPack = (Int32.Parse(GameProperties.currentLevelPack) + 1).ToString();
+                    GameObject.Find("MusicSender").GetComponent<SendMusicLocation>().SetLocation(Int32.Parse(GameProperties.currentLevelPack.ToString()));
                 }
             }
             else {
@@ -79,8 +80,13 @@ public class MainMenuControl : MonoBehaviour {
         {
             GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
         }
+        else if(level == "BackOutOfReport")
+        {
+            GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
+            level = "Main Menu";
+        }
 
-        if(level == "Editor LevelEsc") {
+        if (level == "Editor LevelEsc") {
             level = "Editor Level";
         }
 

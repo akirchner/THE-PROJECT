@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58879735150887726}
   - component: {fileID: 212601540017381086}
   - component: {fileID: 114413620683874004}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: EditorFixed
   m_TagString: StaticForce
   m_Icon: {fileID: 0}
@@ -103,19 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  size: 1
-  movementType: 
   gravSprite: {fileID: 21300000, guid: 12e4439f123c83b419f434b939d0d14b, type: 3}
   elecSprite: {fileID: 21300000, guid: fc26f70dbf73d564a9ab83d6512b0643, type: 3}
   fluxSprite: {fileID: 21300000, guid: a90045f65fdf42b4d9c6f8ebdfd13820, type: 3}
-  ef: {fileID: 0}
-  eg: {fileID: 0}
-  fg: {fileID: 0}
-  fn: {fileID: 0}
-  fp: {fileID: 0}
-  gf: {fileID: 0}
-  gn: {fileID: 0}
-  gp: {fileID: 0}
 --- !u!212 &212601540017381086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -646054407
-  m_SortingLayer: 4
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a90045f65fdf42b4d9c6f8ebdfd13820, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

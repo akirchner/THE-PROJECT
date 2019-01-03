@@ -37,7 +37,30 @@ public class SendMusicLocation : MonoBehaviour {
                 GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.DYNAMIC;
                 break;
             case 7:
-                GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.EDITOR;
+                switch (Random.Range(1, 7)) {
+                    case 1:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.GRAV;
+                        break;
+                    case 2:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.ELEC;
+                        break;
+                    case 3:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.FLUX;
+                        break;
+                    case 4:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.MIXED;
+                        break;
+                    case 5:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.WORMHOLE;
+                        break;
+                    case 6:
+                        GameObject.Find("Music").GetComponent<Music>().currentLocation = Music.Location.DYNAMIC;
+                        break;
+                    default:
+                        Debug.Log("Invalid random number!");
+                        break;
+                }
+
                 break;
             default:
                 Debug.Log("Invalid setlocation for music! " + location);
