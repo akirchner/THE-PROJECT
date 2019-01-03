@@ -904,6 +904,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992574461}
+--- !u!1001 &1203817053
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.179028
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.0565345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 89.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053131608491636, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1266e70f3cf293a4b89d3bde1d6cc237, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1304707592 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114682682586028178, guid: 61bec5dee7eeefd47af7816f96198aa4,

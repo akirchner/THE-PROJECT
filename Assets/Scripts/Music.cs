@@ -23,6 +23,7 @@ public class Music : MonoBehaviour
     private Location previousLocation = Location.GRAV;
     private AudioSource source;
     public AudioClip[] music = new AudioClip[14];
+    public AudioSource[] sources = new AudioSource[2];
 
     private int fadeTimer = 120;
 
@@ -43,10 +44,11 @@ public class Music : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-        source = GameObject.Find("Music").GetComponent<AudioSource>();
-        source.clip = music[0];
-        source.Play();
-        source.loop = false;
+        sources[0].clip = music[0];
+        sources[1].clip = music[1];
+        sources[0].Play();
+        sources[1].PlayScheduled(AudioSettings.dspTime + 25.6);
+
         fadingIn = false;
         fadingOut = false;
     }
@@ -54,7 +56,7 @@ public class Music : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(currentLocation != previousLocation)
+        if (currentLocation != previousLocation)
         {
             fadingOut = true;
         }
@@ -68,43 +70,52 @@ public class Music : MonoBehaviour
                 if (whenAreWe > fadeTimer)
                 {
                     whenAreWe = 0;
-                    source.loop = false;
+                    sources[1].Stop();
 
                     switch (currentLocation)
                     {
                         case Location.GRAV:
-                            source.clip = music[0];
+                            sources[0].clip = music[0];
+                            sources[1].clip = music[1];
                             break;
                         case Location.ELEC:
-                            source.clip = music[2];
+                            sources[0].clip = music[2];
+                            sources[1].clip = music[3];
                             break;
                         case Location.FLUX:
-                            source.clip = music[4];
+                            sources[0].clip = music[4];
+                            sources[1].clip = music[5];
                             break;
                         case Location.MIXED:
-                            source.clip = music[6];
+                            sources[0].clip = music[6];
+                            sources[1].clip = music[7];
                             break;
                         case Location.WORMHOLE:
-                            source.clip = music[8];
+                            sources[0].clip = music[8];
+                            sources[1].clip = music[9];
                             break;
                         case Location.DYNAMIC:
-                            source.clip = music[10];
+                            sources[0].clip = music[10];
+                            sources[1].clip = music[11];
                             break;
                         case Location.EDITOR:
-                            source.clip = music[12];
+                            sources[0].clip = music[12];
+                            sources[1].clip = music[13];
                             break;
                         default:
                             Debug.Log("No known musical location! " + currentLocation);
                             break;
                     }
 
-                    source.Play();
+                    sources[0].Play();
+                    sources[1].PlayScheduled(AudioSettings.dspTime + 25.6);
                     fadingOut = false;
                     fadingIn = true;
                 }
                 else
                 {
-                    source.volume -= (float)(1.0 / fadeTimer);
+                    sources[0].volume -= (float)(1.0 / fadeTimer);
+                    sources[1].volume -= (float)(1.0 / fadeTimer);
                     whenAreWe++;
                 }
             }
@@ -117,44 +128,11 @@ public class Music : MonoBehaviour
                 }
                 else
                 {
-                    source.volume += (float)(1.0 / fadeTimer);
+                    sources[0].volume += (float)(1.0 / fadeTimer);
+                    sources[1].volume += (float)(1.0 / fadeTimer);
                     whenAreWe++;
                 }
             }
-        }
-
-        if (!source.isPlaying)
-        {
-            switch (currentLocation)
-            {
-                case Location.GRAV:
-                    source.clip = music[1];
-                    break;
-                case Location.ELEC:
-                    source.clip = music[3];
-                    break;
-                case Location.FLUX:
-                    source.clip = music[5];
-                    break;
-                case Location.MIXED:
-                    source.clip = music[7];
-                    break;
-                case Location.WORMHOLE:
-                    source.clip = music[9];
-                    break;
-                case Location.DYNAMIC:
-                    source.clip = music[11];
-                    break;
-                case Location.EDITOR:
-                    source.clip = music[13];
-                    break;
-                default:
-                    Debug.Log("No known musical location! " + currentLocation);
-                    break;
-            }
-
-            source.loop = true;
-            source.Play();
         }
 
         previousLocation = currentLocation;
@@ -162,7 +140,8 @@ public class Music : MonoBehaviour
 
     public void SetLocation(int location)
     {
-        switch (location) {
+        switch (location)
+        {
             case 1:
                 currentLocation = Location.GRAV;
                 break;
