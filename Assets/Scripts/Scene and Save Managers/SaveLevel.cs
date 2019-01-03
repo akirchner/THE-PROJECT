@@ -119,7 +119,7 @@ public class SaveLevel : MonoBehaviour {
                 break;
             default:
                 id = -1;
-                Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options.");
+                Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options. " + gameObj.tag);
                 break;
             }
 
