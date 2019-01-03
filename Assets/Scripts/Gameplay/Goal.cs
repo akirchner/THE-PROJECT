@@ -84,9 +84,9 @@ public class Goal : MonoBehaviour {
 	//runs (false) every frame unless OnTrigger was called that frame in which case it is called (true)
 	void updateCount(bool isIncreaseing) {
 		if (isIncreaseing) {
-			
-			mParticleCount++;
-			mDecrementDelay = 35;
+
+            if (!mFull) mParticleCount++;
+            mDecrementDelay = 35;
 			mFull = (mParticleCount >= 50) ? true : false;
 				
 		} 
