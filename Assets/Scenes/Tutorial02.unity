@@ -254,8 +254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " Each beam can only be \n affected by a force matching \n the colors on
-    its base, in this \n case, the green Graviton  "
+  m_Text: Each beam can only be affected by a force matching the colors on its base,
+    in this case, the green Graviton
 --- !u!222 &60138433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -329,8 +329,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " This Beam reacts to gravity, \n indicated by the green light on \n the
-    base of the beam generator "
+  m_Text: 'This Beam reacts to gravity, indicated by the green light on the base of
+    the beam generator '
 --- !u!222 &66071965
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -254,8 +254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " The yellow force is an \n electron, which either attracts \n and repels
-    the beam depending \n on the beam's charge "
+  m_Text: 'The yellow force is an electron, which either attracts and repels the beam
+    depending on the beam''s charge '
 --- !u!222 &60138433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -329,8 +329,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " These beams react to the electric force, \n yellow, and have either positive
-    or negative \n charge, shown on the base of the generator  "
+  m_Text: 'These beams react to the electric force, yellow, and have either positive
+    or negative charge, shown on the base of the generator  '
 --- !u!222 &66071965
 CanvasRenderer:
   m_ObjectHideFlags: 0
