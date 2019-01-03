@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50353297070951214}
   - component: {fileID: 58503045615285332}
   - component: {fileID: 212234378117020150}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DragableForce
   m_TagString: DragableForce
   m_Icon: {fileID: 0}
