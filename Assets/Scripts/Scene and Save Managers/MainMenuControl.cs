@@ -98,6 +98,11 @@ public class MainMenuControl : MonoBehaviour
         {
             GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
         }
+        else if(level == "BackFromBugReport")
+        {
+            GameProperties.bugDescription = GameObject.Find("Description").GetComponent<UnityEngine.UI.InputField>().text;
+            level = "Main Menu";
+        }
 
         if (level == "Editor LevelEsc")
         {
