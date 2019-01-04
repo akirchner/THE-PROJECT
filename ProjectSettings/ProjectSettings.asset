@@ -246,8 +246,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: SingularitySystems.keystore
+  AndroidKeyaliasName: gravitron free
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
