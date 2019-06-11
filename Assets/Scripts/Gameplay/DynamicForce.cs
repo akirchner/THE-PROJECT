@@ -47,11 +47,11 @@ public class DynamicForce : MonoBehaviour
         currentY = transform.position.y;
 
 
-        foreach (GameObject i in mActiveForces)
+        foreach(GameObject i in mActiveForces)
         {
-            try
+            if(i.CompareTag("DragableForce"))
             {
-                switch (i.GetComponent<Properties>().type)
+                switch(i.GetComponent<Properties>().type)
                 {
                     case ForceType.Graviton:
                         gravDistanceX.Add((float)i.transform.position.x);
@@ -69,7 +69,7 @@ public class DynamicForce : MonoBehaviour
                         break;
                 }
             }
-            catch(System.Exception)
+            else if(i.CompareTag("DynamicForce"))
             {
                 switch(i.GetComponent<DynamicProperties>().production)
                 {
@@ -89,7 +89,10 @@ public class DynamicForce : MonoBehaviour
                         break;
                 }
             }
-            
+            else
+            {
+                Debug.Log("What type of force is this? Tag: " + i.tag);
+            }
         }
 
         elecForce = Electrostatic(elecDistanceX, elecDistanceY, reactType == ReactType.Positive || reactType == ReactType.Negative);
