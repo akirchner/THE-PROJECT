@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class LevelDecoder : MonoBehaviour {
     string tempCode;
@@ -471,10 +472,14 @@ public class LevelDecoder : MonoBehaviour {
 
                 if (!File.Exists(filepath))
                 {
-                    WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/Edit01.txt");
+                    /*WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/Edit01.txt");
                     while (!load.isDone) { }
 
-                    File.WriteAllBytes(filepath, load.bytes);
+                    File.WriteAllBytes(filepath, load.bytes);*/
+
+                    UnityWebRequest webReq = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                    while(!webReq.isDone) { }
+                    File.WriteAllBytes(filepath, webReq.downloadHandler.data);
                 }
             }
             else

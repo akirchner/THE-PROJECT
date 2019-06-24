@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class LevelEncoder : MonoBehaviour
@@ -28,23 +29,6 @@ public class LevelEncoder : MonoBehaviour
     {
         StringBuilder builder = new StringBuilder();
         GameProperties.levelFilename = "User" + levelNumber1 + levelNumber2 + ".txt";
-        /*
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            filepath = Application.persistentDataPath + "/" + "User" + levelNumber1 + levelNumber2 + ".txt";
-
-            if (!File.Exists(filepath))
-            {
-                WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + pack + levelNumber1 + levelNumber2 + ".txt");
-                while (!load.isDone) { }
-
-                File.WriteAllBytes(filepath, load.bytes);
-            }
-        }
-        else
-        {
-            filepath = Path.Combine(Application.streamingAssetsPath, pack + levelNumber1 + levelNumber2 + ".txt");
-        }*/
 
         if(Application.platform == RuntimePlatform.Android)
         {
@@ -52,10 +36,13 @@ public class LevelEncoder : MonoBehaviour
 
             if(!File.Exists(filepath))
             {
-                WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                /*WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
                 while(!load.isDone) { }
 
-                File.WriteAllBytes(filepath, load.bytes);
+                File.WriteAllBytes(filepath, load.bytes);*/
+                UnityWebRequest webReq = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                while(!webReq.isDone) { }
+                File.WriteAllBytes(filepath, webReq.downloadHandler.data);
             }
         }
         else
