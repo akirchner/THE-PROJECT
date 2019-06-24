@@ -34,7 +34,8 @@ public class Mailman : MonoBehaviour
 
     public void SubmitReport()
     {
-        Send("Bug Report " + UnityEngine.Random.Range(1, 1000000) + " - " + SystemInfo.operatingSystem, GameProperties.bugDescription);
+        //Send("Bug Report " + UnityEngine.Random.Range(1, 1000000) + " - " + SystemInfo.operatingSystem, GameProperties.bugDescription);
+        Send("Bug Report " + UnityEngine.Random.Range(1, 1000000), GameProperties.bugDescription);
         GameProperties.bugDescription = "";
     }
 
