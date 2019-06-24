@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -31,10 +31,16 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 		WorldToPixelAmount.y = Screen.height / WorldUnitsInCamera.y;
 
         availableID = new bool[8];
+        GameObject[] wormholes = GameObject.FindGameObjectsWithTag("Wormhole");
 
         for(int i = 0; i < 8; i++)
         {
             availableID[i] = true;
+        }
+
+        for(int i = 0; i < wormholes.Length; i++)
+        {
+            availableID[wormholes[i].GetComponent<Wormhole>().id] = false;
         }
 	}
 
@@ -64,8 +70,8 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
                     { //spawns two connected wormholes
                         Transform temp;
                         mousePos = ConvertToWorldUnits(Input.mousePosition); //finds mouse position
-                        temp = Instantiate(element, mousePos, rotation); //creates the force
-                        temp.GetComponent<Wormhole>().id = id; //sets its type
+                        temp = Instantiate(element, mousePos, rotation); //creates the wormholes
+                        temp.GetComponent<Wormhole>().id = id; //sets their ids
                         if (i == 1)
                         {
                             temp.GetComponent<DragAndDrop>().OnMouseDown(); //initiates dragging via DragAndDrop Script
@@ -152,7 +158,7 @@ public class EditorSpawner : MonoBehaviour, IPointerDownHandler {
 		
     public int findFirstID()
     {
-        for(int i = 0; i < 8; i++)
+        for(int i = 0; i < availableID.Length; i++)
         {
             if(availableID[i])
             {
