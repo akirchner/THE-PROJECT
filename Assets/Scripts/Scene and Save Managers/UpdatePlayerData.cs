@@ -49,6 +49,7 @@ public class UpdatePlayerData : MonoBehaviour {
     public void newLevel(int levelNum)
     {
         GameProperties.playerLevelData[levelNum - 1] = true;
+        GameProperties.saveData[9, levelNum - 1] = false;
     }
 
     public void save()
