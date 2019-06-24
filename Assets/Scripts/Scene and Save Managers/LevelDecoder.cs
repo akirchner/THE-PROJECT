@@ -23,7 +23,7 @@ public class LevelDecoder : MonoBehaviour {
         char[] code = tempCode.ToCharArray();
         int i = 0;
 
-        if((code.Length - 1) % 52 != LetToNum(code[code.Length - 1]))
+        if((code.Length - 1) % 26 != LetToNum(code[code.Length - 1]))
         {
             Debug.Log("Hey! You failed the code checksum! Length: " + (code.Length - 1));
             Debug.Log(LetToNum(code[code.Length - 1]));
@@ -51,9 +51,18 @@ public class LevelDecoder : MonoBehaviour {
             float[] position = ParsePosition(code[i + 1], code[i + 2], code[i + 3]);
             double xPos = System.Math.Round(position[0], 1);
             double yPos = System.Math.Round(position[1], 1);
-            i += 4;
             int id;
             double rotation, xData1, xData2;
+            double wormID = -1;
+
+            //Extra data required for wormhole ids.
+            if(tempID == 'R')
+            {
+                wormID = LetToNum(code[i + 4]);
+                i++;
+            }
+
+            i += 4;          
 
             switch(tempID)
             {
@@ -111,17 +120,9 @@ public class LevelDecoder : MonoBehaviour {
                     i += 3;
                     break;
                 case 'R':
-                case 'S':
-                case 'T':
-                case 'U':
-                case 'V':
-                case 'W':
-                case 'X':
-                case 'Y':
-                case 'Z':
                     id = 7;
                     rotation = 0;
-                    xData1 = LetToNum(tempID) - 18;
+                    xData1 = wormID;
                     xData2 = 0;
                     break;
                 case 'a':
@@ -162,19 +163,17 @@ public class LevelDecoder : MonoBehaviour {
         sw.Close();
     }
 
-
-    
     private int LetToNum(char c)
     {
-        int value;
-
+        int value = (int) c;
+        
         if(char.IsLower(c))
         {
-            value = c.GetHashCode() - 97;
+            value -= 97;
         }
         else
         {
-            value = c.GetHashCode() - 39;
+            value -= 65;
         }
 
         return value;

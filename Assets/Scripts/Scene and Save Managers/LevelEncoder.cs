@@ -8,14 +8,13 @@ using UnityEngine.UI;
 
 public class LevelEncoder : MonoBehaviour
 {
-    private string filepath, line, pack;
+    private string filepath, line;
     private int roundUp, levelNumber1, levelNumber2;
     private InputField field;
 
     // Use this for initialization
     void Start()
     {
-        pack = "User";
         field = GameObject.Find("InputField").GetComponent<InputField>();
     }
 
@@ -28,9 +27,11 @@ public class LevelEncoder : MonoBehaviour
     void EncodeLevel()
     {
         StringBuilder builder = new StringBuilder();
+        GameProperties.levelFilename = "User" + levelNumber1 + levelNumber2 + ".txt";
+        /*
         if (Application.platform == RuntimePlatform.Android)
         {
-            filepath = Application.persistentDataPath + "/" + pack + levelNumber1 + levelNumber2 + ".txt";
+            filepath = Application.persistentDataPath + "/" + "User" + levelNumber1 + levelNumber2 + ".txt";
 
             if (!File.Exists(filepath))
             {
@@ -43,6 +44,23 @@ public class LevelEncoder : MonoBehaviour
         else
         {
             filepath = Path.Combine(Application.streamingAssetsPath, pack + levelNumber1 + levelNumber2 + ".txt");
+        }*/
+
+        if(Application.platform == RuntimePlatform.Android)
+        {
+            filepath = Application.persistentDataPath + "/" + GameProperties.levelFilename;
+
+            if(!File.Exists(filepath))
+            {
+                WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                while(!load.isDone) { }
+
+                File.WriteAllBytes(filepath, load.bytes);
+            }
+        }
+        else
+        {
+                filepath = Path.Combine(Application.persistentDataPath, GameProperties.levelFilename);
         }
 
         StreamReader sr = new StreamReader(filepath);
@@ -74,6 +92,7 @@ public class LevelEncoder : MonoBehaviour
         for (int i = 3; i < levelData.Count; i++)
         {
             int tempID = Int32.Parse(levelData[i]);
+            string wormholeID = "-";
             float tempX = float.Parse(levelData[i + 1]);
             float tempY = float.Parse(levelData[i + 2]);
             float tempRot = float.Parse(levelData[i + 3]);
@@ -189,7 +208,8 @@ public class LevelEncoder : MonoBehaviour
                     scale = ParseScale(xData1, xData2);
                     break;
                 case 7: //Wormhole
-                    id = NumToLet(xData1 + 18, true);
+                    id = "R";
+                    wormholeID = NumToLet(xData1 + 1, true);
                     break;
                 default:
                     Debug.Log("Invalid ID in LevelEncoder! ID: " + tempID);
@@ -218,13 +238,16 @@ public class LevelEncoder : MonoBehaviour
                     builder.Append(scale[0]);
                     builder.Append(scale[1]);
                     break;
+                case 7:
+                    builder.Append(wormholeID);
+                    break;
                 default:
                     break;
             }
 
         }
 
-        builder.Append(NumToLet((builder.Length % 26) + 1, (builder.Length % 52) > 25));
+        builder.Append(NumToLet((builder.Length % 26) + 1, true));
         field.text = builder.ToString();
         GameProperties.levelcode = builder.ToString();
     }
@@ -255,7 +278,7 @@ public class LevelEncoder : MonoBehaviour
             }
         }
 
-        string id = NumToLet(value, false);
+        string id = NumToLet(value + 1, false);
         return id;
     }
 
