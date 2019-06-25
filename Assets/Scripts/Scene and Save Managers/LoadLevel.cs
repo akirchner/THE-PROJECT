@@ -25,14 +25,15 @@ public class LoadLevel : MonoBehaviour
 
                 if (!File.Exists(filepath))
                 {
-                    WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                    /*WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
                     while (!load.isDone) { }
 
-                    File.WriteAllBytes(filepath, load.bytes);
+                    File.WriteAllBytes(filepath, load.bytes);*/
 
-                    /*UnityWebRequest webReq = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                    UnityWebRequest webReq = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                    webReq.SendWebRequest();
                     while(!webReq.isDone) { }
-                    File.WriteAllBytes(filepath, webReq.downloadHandler.data);*/
+                    File.WriteAllBytes(filepath, webReq.downloadHandler.data);
               
                 }
             }
