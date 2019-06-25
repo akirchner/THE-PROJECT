@@ -49,7 +49,7 @@ public class DynamicForce : MonoBehaviour
 
         foreach(GameObject i in mActiveForces)
         {
-            if(i.CompareTag("DragableForce"))
+            if(i.CompareTag("DragableForce") || i.CompareTag("StaticForce"))
             {
                 switch(i.GetComponent<Properties>().type)
                 {

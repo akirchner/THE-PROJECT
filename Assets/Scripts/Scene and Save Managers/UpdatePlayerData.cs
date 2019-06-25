@@ -10,7 +10,7 @@ public class UpdatePlayerData : MonoBehaviour {
 	void Start () {
         try
         {
-            string filepath = Path.Combine(Application.streamingAssetsPath, "playerData.txt");
+            string filepath = Path.Combine(Application.persistentDataPath, "playerData.txt");
 
             if (File.Exists(filepath))
             {
@@ -54,7 +54,7 @@ public class UpdatePlayerData : MonoBehaviour {
 
     public void save()
     {
-        StreamWriter sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, "playerData.txt"));
+        StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "playerData.txt"));
 
         for (int i = 0; i < 15; i++)
         {
