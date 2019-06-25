@@ -26,16 +26,16 @@ public class LoadIntoEditor : MonoBehaviour {
         {
             filepath = Application.persistentDataPath + "/" + GameProperties.levelFilename;
 
-            if (!File.Exists(filepath))
+            /*if (!File.Exists(filepath))
             {
-                /*WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
+                WWW load = new WWW("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
                 while (!load.isDone) { }
 
-                File.WriteAllBytes(filepath, load.bytes);*/
+                File.WriteAllBytes(filepath, load.bytes);
                 UnityWebRequest webReq = UnityWebRequest.Get("jar:file://" + Application.dataPath + "!/assets/" + GameProperties.levelFilename);
                 while(!webReq.isDone) { }
                 File.WriteAllBytes(filepath, webReq.downloadHandler.data);
-            }
+            }*/
         }
         else
         {
