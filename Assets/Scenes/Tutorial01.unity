@@ -872,7 +872,7 @@ MonoBehaviour:
   close: {fileID: 1251601688}
   button1: {fileID: 380516824}
   button2: {fileID: 1373390901}
-  button3: {fileID: 358831584}
+  nextButton: {fileID: 358831584}
   target: {fileID: 1973955395}
 --- !u!1 &363995651
 GameObject:
