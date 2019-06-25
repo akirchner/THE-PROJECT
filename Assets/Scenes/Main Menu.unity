@@ -381,7 +381,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset Progress
+  m_Text: ' Reset Progress '
 --- !u!222 &351847190
 CanvasRenderer:
   m_ObjectHideFlags: 0
