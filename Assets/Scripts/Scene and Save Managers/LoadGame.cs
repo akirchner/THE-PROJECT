@@ -18,7 +18,7 @@ public class LoadGame : MonoBehaviour {
             {
                 sr = new StreamReader(filepath);
 
-                for (int i = 0; i < GameProperties.saveData.GetLength(0) - 1; i++)
+                for (int i = 0; i < GameProperties.saveData.GetLength(0); i++)
                 {
                     for (int j = 0; j < 15; j++)
                     {
