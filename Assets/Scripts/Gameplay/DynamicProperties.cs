@@ -28,7 +28,10 @@ public class DynamicProperties : MonoBehaviour
     {
         try
         {
-            Beam.UpdateForces(gameObject, true);
+            if(!isEditor)
+            {
+                Beam.UpdateForces(gameObject, true);
+            }
         }
         catch(System.Exception)
         {
@@ -66,7 +69,10 @@ public class DynamicProperties : MonoBehaviour
     {
         try
         {
-            Beam.UpdateForces(gameObject, false);
+            if(!isEditor)
+            {
+                Beam.UpdateForces(gameObject, false);
+            }
         }
         catch(System.Exception)
         {
