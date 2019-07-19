@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 50400292012342564}
   - component: {fileID: 60594414720958592}
   - component: {fileID: 114940549297893962}
+  - component: {fileID: 3729799838223092890}
   m_Layer: 11
   m_Name: Beam
   m_TagString: Beam
@@ -178,6 +179,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4425228103916338}
+--- !u!114 &3729799838223092890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139887477085012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fac19555b25b24788674244e8f95b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrash: 0
 --- !u!1 &1335296723882864
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +204,7 @@ GameObject:
   - component: {fileID: 212947181920535348}
   - component: {fileID: 50938597151473394}
   - component: {fileID: 58215548275046508}
-  - component: {fileID: 6733559689097419305}
+  - component: {fileID: 1332203416613080337}
   m_Layer: 11
   m_Name: Target
   m_TagString: Untagged
@@ -297,7 +311,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &6733559689097419305
+--- !u!114 &1332203416613080337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,9 +320,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1335296723882864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d633dc19485944749aca98bfa9f97283, type: 3}
+  m_Script: {fileID: 11500000, guid: 95fac19555b25b24788674244e8f95b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTrash: 0
 --- !u!1 &1757587217965794
 GameObject:
   m_ObjectHideFlags: 0

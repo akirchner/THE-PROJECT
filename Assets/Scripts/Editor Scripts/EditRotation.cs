@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EditRotation : Interactable {
+public class EditRotation : MonoBehaviour {
 
 	public Transform target;
     private float rotation;
 	float x,y;
 	// Update is called once per frame
-	new void Update () {
-        Movement();
+	void Update () {
 		Apply (Rotation (target.position));
 	}
 

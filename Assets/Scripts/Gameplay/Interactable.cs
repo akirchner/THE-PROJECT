@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     
     //drag and drop functionality
     protected Vector3 screenPoint;
-    protected bool isDragged = false;
+    public bool isDragged = false;
     protected Vector3 originalPos;
     protected int touchID = -1;
 
