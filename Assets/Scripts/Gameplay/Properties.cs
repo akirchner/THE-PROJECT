@@ -28,7 +28,14 @@ public class Properties : Interactable
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if(this.CompareTag("StaticForce") || this.CompareTag("DynamicForce"))
+        {
+            //Disapproving noise goes here
+        }
+        else
+        {        
+            Movement();
+        }
     }
 
 	private void OnDestroy()
