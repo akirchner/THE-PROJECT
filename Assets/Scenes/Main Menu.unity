@@ -917,6 +917,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
+        type: 3}
+      propertyPath: particleClone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
+        type: 3}
+      propertyPath: mBeamPositive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26
@@ -948,16 +958,6 @@ PrefabInstance:
     - target: {fileID: 4598722421176564, guid: 6461e1e91de460841aa1636f203bf049, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
-        type: 3}
-      propertyPath: particleClone
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114778007515195846, guid: 6461e1e91de460841aa1636f203bf049,
-        type: 3}
-      propertyPath: mBeamPositive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6461e1e91de460841aa1636f203bf049, type: 3}
@@ -2123,7 +2123,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Player Pack
+          m_StringArgument: Buy Now!
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1313234201}
