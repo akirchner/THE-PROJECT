@@ -265,7 +265,7 @@ public class LevelEncoder : MonoBehaviour
             }
         }
 
-        string id = NumToLet(value + 1, false);
+        string id = NumToLet(value, false);
         return id;
     }
 
