@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    
+    public void Update()
+    {
+        Movement();
+    }
     //drag and drop functionality
     protected Vector3 screenPoint;
     protected bool isDragged = false;
