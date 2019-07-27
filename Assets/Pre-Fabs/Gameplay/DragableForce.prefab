@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab78a1b8d1227547b4598347d7c2193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragged: 0
   type: 1
   gravSprite: {fileID: 21300000, guid: fdde029bc242e654eab812a6a5b8551c, type: 3}
   elecSprite: {fileID: 21300000, guid: 1d0ad590322e4514983f7cc2cd9e779f, type: 3}

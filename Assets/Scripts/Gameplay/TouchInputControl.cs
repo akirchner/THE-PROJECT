@@ -29,6 +29,7 @@ public class TouchInputControl : MonoBehaviour
                 if (hit.collider != null)
                 {
                     hit.transform.GetComponent<Interactable>().onClick(i);
+                    hit.transform.GetComponent<PlaySound>().PlayClip();
                 }
             }
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
@@ -37,6 +38,7 @@ public class TouchInputControl : MonoBehaviour
                 if (hit.collider != null)
                 {
                     hit.transform.GetComponent<Interactable>().endClick();
+                    hit.transform.GetComponent<PlaySound>().PlayClip();
                 }
             }
         }
