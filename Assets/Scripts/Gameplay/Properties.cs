@@ -11,7 +11,7 @@ public enum ForceType
 	Empty
 }
 
-public class Properties : Interactable
+public class Properties : MonoBehaviour
 {
     public ForceType type;
     public Sprite gravSprite, elecSprite, fluxSprite;
@@ -28,7 +28,7 @@ public class Properties : Interactable
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        
     }
 
 	private void OnDestroy()
