@@ -11,10 +11,6 @@ public class Interactable : MonoBehaviour
     protected Vector3 originalPos;
     protected int touchID = -1;
 
-    public void Update() {
-        Movement();
-    }
-
     public void onClick()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
