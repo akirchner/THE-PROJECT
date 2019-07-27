@@ -28,7 +28,7 @@ public class TouchInputControl : MonoBehaviour
                 RaycastHit2D hit = getTouchTarget(Input.GetTouch(i).position);
                 if (hit.collider != null)
                 {
-                    hit.transform.GetComponent<Interactable>().onClick(i);
+                    //hit.transform.GetComponent<Interactable>().onClick(i);
                     hit.transform.GetComponent<PlaySound>().PlayClip();
                 }
             }
@@ -37,7 +37,7 @@ public class TouchInputControl : MonoBehaviour
                 RaycastHit2D hit = getTouchTarget(Input.GetTouch(i).position);
                 if (hit.collider != null)
                 {
-                    hit.transform.GetComponent<Interactable>().endClick();
+                    //hit.transform.GetComponent<Interactable>().endClick();
                     hit.transform.GetComponent<PlaySound>().PlayClip();
                 }
             }
