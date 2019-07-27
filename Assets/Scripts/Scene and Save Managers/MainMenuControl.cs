@@ -49,7 +49,7 @@ public class MainMenuControl : MonoBehaviour {
 		//handles the next level button
         else if (level == "NextLevel") {
             if (Int32.Parse(GameProperties.levelFilename.Substring(4, 2)) == 15) {
-                if (Int32.Parse(GameProperties.currentLevelPack) == 6) {
+                if (Int32.Parse(GameProperties.currentLevelPack) == 3) {
                     level = "Level Select";
                 }
                 else {
