@@ -114,16 +114,12 @@ public class MainMenuControl : MonoBehaviour {
 
     public void ResetEditor()
     {
-        Debug.Log("Resetting!");
-
-        StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "Edit01.txt"));
-        sw.Close();
+        GameObject.Find("Level Controller").GetComponent<SaveLevel>().resetEditor();
         LoadScene("Editor");
     }
 
     public void SaveEditor(string nextLocation)
     {
-        Debug.Log("Saving!");
         GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit01.txt");
         LoadScene(nextLocation);
     }
