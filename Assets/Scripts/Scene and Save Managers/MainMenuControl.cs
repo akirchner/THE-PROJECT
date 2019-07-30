@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -109,5 +110,21 @@ public class MainMenuControl : MonoBehaviour {
         
 	    LoadScene ("Level");
 
+    }
+
+    public void ResetEditor()
+    {
+        Debug.Log("Resetting!");
+
+        StreamWriter sw = File.CreateText(Path.Combine(Application.persistentDataPath, "Edit01.txt"));
+        sw.Close();
+        LoadScene("Editor");
+    }
+
+    public void SaveEditor(string nextLocation)
+    {
+        Debug.Log("Saving!");
+        GameObject.Find("Level Controller").GetComponent<SaveLevel>().save("Edit01.txt");
+        LoadScene(nextLocation);
     }
 }
