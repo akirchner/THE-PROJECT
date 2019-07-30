@@ -420,8 +420,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  The beam can be manipuated  \nwith forces found in the \n drawer on the
-    right, drag \n one onto the target "
+  m_Text: " The beam can be manipuated \n with forces found in the \n drawer on the
+    right. Drag \n one onto the target. "
 --- !u!222 &60138433
 CanvasRenderer:
   m_ObjectHideFlags: 0
