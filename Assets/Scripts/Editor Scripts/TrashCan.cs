@@ -43,7 +43,6 @@ public class TrashCan : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D coll) {
-        Debug.Log(coll.GetComponent<DragAndDrop>());
 		if (coll.GetComponent<DragAndDrop>().isDragged) {
 			trash = coll.transform;
 		}
