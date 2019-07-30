@@ -22,14 +22,22 @@ public class Mailman : MonoBehaviour
         mail.Subject = subject;
         mail.Body = body;
 
-        SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
-        smtpServer.Port = 465; //587;
+        SmtpClient smtpServer = new SmtpClient();
+        smtpServer.Host = "smtp.gmail.com";
+        smtpServer.Port = 587;
+        smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
         smtpServer.Credentials = new System.Net.NetworkCredential("zetagamesmailman@gmail.com", "#fluxisarealforce") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-                { return true; };
-        smtpServer.Send(mail);
+            { return true; };
+
+        try {
+            smtpServer.Send(mail);
+        }  
+        catch (Exception ex) {
+            Debug.Log("Exception while smtpServer.Send(mail): " + ex.ToString());            
+        }   
     }
 
     public void SubmitReport()
