@@ -15,7 +15,7 @@ public class Beam : MonoBehaviour {
     private Vector2 velocity;
     public static readonly List<GameObject> mForces = new List<GameObject>();
     static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
-	bool bfb, spawnParticles;
+	public bool bfb, spawnParticles;
 
     // Use this for initialization
     void Start()
