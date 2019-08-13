@@ -133,9 +133,10 @@ public class SaveLevel : MonoBehaviour {
                     sw.WriteLine(gameObj.transform.position.x);
                     sw.WriteLine(gameObj.transform.position.y);
 
-                    if(GameProperties.previousLevel == "Editor" && gameObj.CompareTag("Beam"))
+                    if(GameProperties.currentLevel != "Level" && gameObj.CompareTag("Beam"))
                     {
                         sw.WriteLine(gameObj.GetComponent<EditRotation>().getRotation());
+                        Debug.Log("Found beam in editor with rotation: " + gameObj.GetComponent<EditRotation>().getRotation());
                     }
                     else
                     {
