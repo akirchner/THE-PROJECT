@@ -26,6 +26,7 @@ public class Mailman : MonoBehaviour
         smtpServer.Host = "smtp.gmail.com";
         smtpServer.Port = 587;
         smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtpServer.UseDefaultCredentials = false;
         smtpServer.Credentials = new System.Net.NetworkCredential("zetagamesmailman@gmail.com", "#fluxisarealforce") as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
