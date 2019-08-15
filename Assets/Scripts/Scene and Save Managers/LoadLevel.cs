@@ -161,7 +161,7 @@ public class LoadLevel : MonoBehaviour
                         currentObject.GetComponent<Properties>().setType(parseForceType((int)levelData[i][4]));
                         break;
                     case 4:
-                        currentObject = Instantiate(dynamicForce, new Vector3((float)levelData[i][1], (float)levelData[i][2]), Quaternion.Euler(0, 0, (float)levelData[i][3]));
+                        currentObject = Instantiate(dynamicForce, new Vector3((float)levelData[i][1], (float)levelData[i][2], .1f), Quaternion.Euler(0, 0, (float)levelData[i][3]));
                         currentObject.GetComponent<DynamicProperties>().production = parseForceType((int)levelData[i][4]);
                         currentObject.GetComponent<DynamicProperties>().reaction = parseDynamicReaction((int)levelData[i][5]);
                         break;

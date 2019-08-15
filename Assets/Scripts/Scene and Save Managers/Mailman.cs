@@ -32,12 +32,7 @@ public class Mailman : MonoBehaviour
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
             { return true; };
 
-        try {
-            smtpServer.Send(mail);
-        }  
-        catch (Exception ex) {
-            Debug.Log("Exception while smtpServer.Send(mail): " + ex.ToString());            
-        }   
+        smtpServer.Send(mail);
     }
 
     public void SubmitReport()
