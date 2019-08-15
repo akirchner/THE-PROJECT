@@ -89,11 +89,13 @@ public class Beam : MonoBehaviour {
     }
 
     public List<bool> GetProperties() {
-        mOut.Clear();
-        mOut.Add(mReactGrav);
-        mOut.Add(mReactElec);
-        mOut.Add(mReactFlux);
-        mOut.Add(mBeamPositive);
+        if (mOut.Count == 0) {
+            mOut.Clear();
+            mOut.Add(mReactGrav);
+            mOut.Add(mReactElec);
+            mOut.Add(mReactFlux);
+            mOut.Add(mBeamPositive);
+            }
         return mOut;
     }
 

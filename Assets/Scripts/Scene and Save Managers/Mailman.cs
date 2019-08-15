@@ -23,11 +23,11 @@ public class Mailman : MonoBehaviour
         mail.Body = body;
 
         SmtpClient smtpServer = new SmtpClient();
-        smtpServer.Host = "smtp.gmail.com";
+        smtpServer.Host = "smtp.sendgrid.net";
         smtpServer.Port = 587;
         smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
-        smtpServer.Credentials = new System.Net.NetworkCredential("zetagamesmailman@gmail.com", "#fluxisarealforce") as ICredentialsByHost;
-        smtpServer.EnableSsl = true;
+        smtpServer.Credentials = new System.Net.NetworkCredential("apikey", "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") as ICredentialsByHost;
+        smtpServer.EnableSsl = false;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
             { return true; };
