@@ -25,8 +25,7 @@ public class Music : MonoBehaviour
     public AudioClip[] music = new AudioClip[14];
     public AudioSource[] sources = new AudioSource[2];
 
-    private int fadeTimer = 120;
-    private float maxVolume = 0.5f;
+    private int fadeTimer = 240;
 
     private static Music instance = null;
     public static Music Instance { get { return instance; } }
