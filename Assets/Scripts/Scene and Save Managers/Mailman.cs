@@ -18,7 +18,7 @@ public class Mailman : MonoBehaviour
         MailMessage mail = new MailMessage();
 
         mail.From = new MailAddress("zetagamesmailman@gmail.com");
-        mail.To.Add("zetagames18@gmail.com");
+        mail.To.Add("singularitysystemsgames@gmail.com");
         mail.Subject = subject;
         mail.Body = body;
 
