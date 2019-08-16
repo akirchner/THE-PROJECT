@@ -967,8 +967,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Unfortunately, this feature is unavalible in the free version of the game.
 
-    Consider buying the full game on the Google Play store to unlock additional levels,
-    including Dynamic Forces, Wormholes, and much more!'
+    Consider buying the full game on your app store to unlock additional levels, including
+    Dynamic Forces, Wormholes, and much more!'
 --- !u!222 &1614782835
 CanvasRenderer:
   m_ObjectHideFlags: 0

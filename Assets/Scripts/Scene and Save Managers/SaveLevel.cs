@@ -63,86 +63,99 @@ public class SaveLevel : MonoBehaviour {
             sw = File.CreateText(Path.Combine(Application.streamingAssetsPath, filename));
         }
 
-        sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<ForceSpawner>().numAvailable);
-        sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<ForceSpawner>().numAvailable);
-        sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<ForceSpawner>().numAvailable);
 
-        allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject gameObj in allObjects) {
-            extraData = new List<double>();
+            sw.WriteLine(GameObject.Find("GravitonButton").GetComponent<ForceSpawner>().numAvailable);
+            sw.WriteLine(GameObject.Find("ElectronButton").GetComponent<ForceSpawner>().numAvailable);
+            sw.WriteLine(GameObject.Find("FluxionButton").GetComponent<ForceSpawner>().numAvailable);
 
-            switch (gameObj.tag) {
-            case "Beam":
-                id = 0;
-                beamProperties = new StringBuilder();
-                beamList = gameObj.GetComponent<Beam>().GetProperties();
-                foreach (bool i in beamList) {
-                    beamProperties.Append(i ? 1 : 2);
-                }
-                extraData.Add(Int32.Parse(beamProperties.ToString()));
-                extraData.Add(0);
-                break;
-            case "Goal":
-                id = 1;
-                extraData.Add(50);
-                extraData.Add(gameObj.transform.localScale.x);
-                break;
-            case "Wall":
-                id = 2;
-                extraData.Add(gameObj.transform.localScale.x);
-                extraData.Add(gameObj.transform.localScale.y);
-                break;
-            case "DragableForce":
-                id = 3;
-                extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(0); //If you change this, you have to zero this field in old level files
-                break;
-            case "DynamicForce":
-                id = 4;
-                extraData.Add(parseForceType(gameObj.GetComponent<DynamicProperties>().production));
-                extraData.Add(parseDynamicReaction(gameObj.GetComponent<DynamicProperties>().reaction));
-                break;
-            case "StaticForce":
-                id = 5;
-                extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
-                extraData.Add(0); //If you change this, you have to zero this field in old level files
-                break;
-            case "Mirror":
-                id = 6;
-				extraData.Add(gameObj.transform.localScale.x);
-				extraData.Add(gameObj.transform.localScale.y);
-                break;
-            case "Wormhole":
-                id = 7;
-                extraData.Add(gameObj.GetComponent<Wormhole>().id);
-                extraData.Add(0);
-                break;
-            default:
-                id = -1;
-                Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options. " + gameObj.tag);
-                break;
-            }
+            allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            foreach(GameObject gameObj in allObjects)
+            {
+                extraData = new List<double>();
 
-            if (id >= 0) {
-                sw.WriteLine(id);
-                sw.WriteLine(gameObj.transform.position.x);
-                sw.WriteLine(gameObj.transform.position.y);
-
-                if(GameProperties.previousLevel == "Editor" && gameObj.CompareTag("Beam"))
+                switch(gameObj.tag)
                 {
-                    sw.WriteLine(gameObj.GetComponent<EditRotation>().getRotation());
-                }
-                else
-                {
-                    sw.WriteLine(gameObj.transform.eulerAngles.z);
+                    case "Beam":
+                        id = 0;
+                        beamProperties = new StringBuilder();
+                        beamList = gameObj.GetComponent<Beam>().GetProperties();
+                        foreach(bool i in beamList)
+                        {
+                            beamProperties.Append(i ? 1 : 2);
+                        }
+                        extraData.Add(Int32.Parse(beamProperties.ToString()));
+                        extraData.Add(0);
+                        break;
+                    case "Goal":
+                        id = 1;
+                        extraData.Add(50);
+                        extraData.Add(gameObj.transform.localScale.x);
+                        break;
+                    case "Wall":
+                        id = 2;
+                        extraData.Add(gameObj.transform.localScale.x);
+                        extraData.Add(gameObj.transform.localScale.y);
+                        break;
+                    case "DragableForce":
+                        id = 3;
+                        extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
+                        extraData.Add(0); //If you change this, you have to zero this field in old level files
+                        break;
+                    case "DynamicForce":
+                        id = 4;
+                        extraData.Add(parseForceType(gameObj.GetComponent<DynamicProperties>().production));
+                        extraData.Add(parseDynamicReaction(gameObj.GetComponent<DynamicProperties>().reaction));
+                        break;
+                    case "StaticForce":
+                        id = 5;
+                        extraData.Add(parseForceType(gameObj.GetComponent<Properties>().getType()));
+                        extraData.Add(0); //If you change this, you have to zero this field in old level files
+                        break;
+                    case "Mirror":
+                        id = 6;
+                        extraData.Add(gameObj.transform.localScale.x);
+                        extraData.Add(gameObj.transform.localScale.y);
+                        break;
+                    case "Wormhole":
+                        id = 7;
+                        extraData.Add(gameObj.GetComponent<Wormhole>().id);
+                        extraData.Add(0);
+                        break;
+                    default:
+                        id = -1;
+                        Console.WriteLine("Whoops, something went wrong in SaveLevel.cs. The object type did not correspond with any preset options. " + gameObj.tag);
+                        break;
                 }
 
-                foreach (double i in extraData) {
-                    sw.WriteLine(i);
+                if(id >= 0)
+                {
+                    sw.WriteLine(id);
+                    sw.WriteLine(gameObj.transform.position.x);
+                    sw.WriteLine(gameObj.transform.position.y);
+
+                    if(GameProperties.currentLevel != "Level" && gameObj.CompareTag("Beam"))
+                    {
+                        sw.WriteLine(gameObj.GetComponent<EditRotation>().getRotation());
+                        Debug.Log("Found beam in editor with rotation: " + gameObj.GetComponent<EditRotation>().getRotation());
+                    }
+                    else
+                    {
+                        sw.WriteLine(gameObj.transform.eulerAngles.z);
+                    }
+
+                    foreach(double i in extraData)
+                    {
+                        sw.WriteLine(i);
+                    }
                 }
+
             }
-            
-        }
+        
         sw.Close();
+    }
+
+    public void resetEditor()
+    {
+        File.Delete(Path.Combine(Application.persistentDataPath, "Edit01.txt"));
     }
 }

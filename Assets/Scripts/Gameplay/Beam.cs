@@ -15,11 +15,17 @@ public class Beam : MonoBehaviour {
     private Vector2 velocity;
     public static readonly List<GameObject> mForces = new List<GameObject>();
     static string[] stringChecker = {"g", "p", "n", "f", "gp", "gn", "gf", "pf", "nf", "gpf", "gnf"};
-	bool bfb;
+	public bool bfb, spawnParticles;
 
     // Use this for initialization
     void Start()
     {
+        if (GameProperties.currentLevel == "Editor") {
+            spawnParticles = false;
+        } else {
+            spawnParticles = true;
+        };
+
         sprites = new List<Sprite>();
         mOut = new List<bool>();
 
@@ -54,7 +60,7 @@ public class Beam : MonoBehaviour {
             periodicity = 60;
         }
 
-        if (timer.ElapsedMilliseconds - initialMillis >= periodicity)
+        if (timer.ElapsedMilliseconds - initialMillis >= periodicity && spawnParticles)
         {
             Spawn(particle);
             initialMillis = timer.ElapsedMilliseconds;
@@ -83,11 +89,13 @@ public class Beam : MonoBehaviour {
     }
 
     public List<bool> GetProperties() {
-        mOut.Clear();
-        mOut.Add(mReactGrav);
-        mOut.Add(mReactElec);
-        mOut.Add(mReactFlux);
-        mOut.Add(mBeamPositive);
+        if (mOut.Count == 0) {
+            mOut.Clear();
+            mOut.Add(mReactGrav);
+            mOut.Add(mReactElec);
+            mOut.Add(mReactFlux);
+            mOut.Add(mBeamPositive);
+            }
         return mOut;
     }
 

@@ -26,6 +26,7 @@ public class Music : MonoBehaviour
     public AudioSource[] sources = new AudioSource[2];
 
     private int fadeTimer = 120;
+    private float maxVolume = 0.5f;
 
     private static Music instance = null;
     public static Music Instance { get { return instance; } }
@@ -48,6 +49,8 @@ public class Music : MonoBehaviour
         sources[1].clip = music[1];
         sources[0].Play();
         sources[1].PlayScheduled(AudioSettings.dspTime + 25.6);
+        sources[0].volume = maxVolume;
+        sources[1].volume = maxVolume;
         
         fadingIn = false;
         fadingOut = false;
@@ -114,8 +117,8 @@ public class Music : MonoBehaviour
                 }
                 else
                 {
-                    sources[0].volume -= (float)(1.0 / fadeTimer);
-                    sources[1].volume -= (float)(1.0 / fadeTimer);
+                    sources[0].volume -= (float)(maxVolume / fadeTimer);
+                    sources[1].volume -= (float)(maxVolume / fadeTimer);
                     whenAreWe++;
                 }
             }
@@ -128,8 +131,8 @@ public class Music : MonoBehaviour
                 }
                 else
                 {
-                    sources[0].volume += (float)(1.0 / fadeTimer);
-                    sources[1].volume += (float)(1.0 / fadeTimer);
+                    sources[0].volume += (float)(.5/ fadeTimer);
+                    sources[1].volume += (float)(.5/ fadeTimer);
                     whenAreWe++;
                 }
             }

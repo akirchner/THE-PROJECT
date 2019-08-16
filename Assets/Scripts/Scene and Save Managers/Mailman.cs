@@ -18,17 +18,20 @@ public class Mailman : MonoBehaviour
         MailMessage mail = new MailMessage();
 
         mail.From = new MailAddress("zetagamesmailman@gmail.com");
-        mail.To.Add("zetagames18@gmail.com");
+        mail.To.Add("singularitysystemsgames@gmail.com");
         mail.Subject = subject;
         mail.Body = body;
 
-        SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+        SmtpClient smtpServer = new SmtpClient();
+        smtpServer.Host = "smtp.sendgrid.net";
         smtpServer.Port = 587;
-        smtpServer.Credentials = new System.Net.NetworkCredential("zetagamesmailman@gmail.com", "#fluxisarealforce") as ICredentialsByHost;
-        smtpServer.EnableSsl = true;
+        smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtpServer.Credentials = new System.Net.NetworkCredential("apikey", "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") as ICredentialsByHost;
+        smtpServer.EnableSsl = false;
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-                { return true; };
+            { return true; };
+
         smtpServer.Send(mail);
     }
 

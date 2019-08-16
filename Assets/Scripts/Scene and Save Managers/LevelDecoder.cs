@@ -365,6 +365,11 @@ public class LevelDecoder : MonoBehaviour {
         position[0] = LetToNum(xChar);
         position[1] = LetToNum(char.ToLower(yChar));
 
+        if(char.IsUpper(xChar))
+        {
+            position[0] += 26;
+        }
+
         xDec = 0.2f * (LetToNum(char.ToLower(dec)) / 5);
 
         if (LetToNum(char.ToLower(dec)) % 5 == 0)
