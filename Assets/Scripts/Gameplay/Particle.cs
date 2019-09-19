@@ -36,6 +36,8 @@ public class Particle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //This is definitely the particle script.
+
         if (timer.ElapsedMilliseconds >= 20000)
         {
             Destroy(this.gameObject);
