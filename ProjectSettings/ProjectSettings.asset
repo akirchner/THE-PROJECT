@@ -170,9 +170,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.THECompany.THEPROJECT
     Standalone: com.Company.ProductName
-    iPhone: com.singularitysystemsgames.graviton
-  buildNumber:
-    iPhone: 3
+    iPhone: com.singularitysystemsgames.graviton-free
+  buildNumber: {}
   AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 28
   AndroidTargetSdkVersion: 0
